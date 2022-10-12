@@ -13,8 +13,7 @@ public class ActionObjectsActivator : MonoBehaviour
 
         if (actionObject != null)
         {
-            if(_actionObject != null)
-                _actionObject.Exit();
+            _actionObject?.Exit();
 
             _actionObject = actionObject;
             _actionObject.Enter();
@@ -26,7 +25,7 @@ public class ActionObjectsActivator : MonoBehaviour
     {
         ActionObject actionObject = collision.GetComponent<ActionObject>();
 
-        if (actionObject == _actionObject)
+        if (_actionObject != null && actionObject == _actionObject)
         {
             _actionObject.Exit();
             _actionObject = null;
@@ -34,7 +33,7 @@ public class ActionObjectsActivator : MonoBehaviour
     }
 
     public void Action()
-    {
-        _actionObject.Action();
+    { 
+        _actionObject?.Action();
     }
 }

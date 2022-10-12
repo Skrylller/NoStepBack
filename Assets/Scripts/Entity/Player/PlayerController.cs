@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour, IMousePositionVisitor
     [SerializeField] private JumpingController _jumpingController;
     [SerializeField] private ShootingController _shootingController;
     [SerializeField] private PlayerAnimatorController _animatorController;
+    [SerializeField] private PlayerStairsController _stairsController;
 
     [SerializeField] private ToTargetRotator2D _rotator;
     [SerializeField] private ModeSwitcher _spriteSwitcher;
@@ -46,8 +47,9 @@ public class PlayerController : MonoBehaviour, IMousePositionVisitor
     {
         _rbPlayer = GetComponent<Rigidbody2D>();
 
-        _movingController.Init(_model);
-        _jumpingController.Init(_model);
+        _movingController.Init(_model, _rbPlayer);
+        _jumpingController.Init(_model, _rbPlayer);
+        _stairsController.Init(_model, _rbPlayer);
     }
 
     private void Update()
@@ -61,6 +63,7 @@ public class PlayerController : MonoBehaviour, IMousePositionVisitor
         {
             _spriteSwitcher.State = directional < 0 ? (int)SpriteState.Left : (int)SpriteState.Right;
             _movingController.MoveHorizontal(directional);
+            _stairsController.CheckStair(directional);
         }
     }
 

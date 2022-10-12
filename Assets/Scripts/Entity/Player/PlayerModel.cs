@@ -8,8 +8,10 @@ public class PlayerModel : ScriptableObject, MovingModel, JumpingModel, Climping
     [SerializeField] float _speed;
     [SerializeField] float _jumpForce;
     [SerializeField] float _stairClimpingSpeed;
+    [SerializeField] float _stairClimpingHeight;
 
     public float Speed { get { return _speed; } }
     public float JumpForce { get { return _jumpForce; } }
     public float StairClimpingSpeed { get { return _stairClimpingSpeed; } }
+    public float StairClimpingHeight { get { return _stairClimpingHeight; } }
 }

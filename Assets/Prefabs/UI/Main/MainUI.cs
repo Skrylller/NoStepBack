@@ -6,21 +6,20 @@ public class MainUI : MonoBehaviour
 {
     [SerializeField] private List<ItemModel.ItemType> items;
     [SerializeField] private PullObjects _pull;
-    [SerializeField] private Inventory _inventory;
 
-    private void Awake()
+    private void Start()
     {
         Init();
     }
 
     private void OnEnable()
     {
-        _inventory.OnUpdate += Init;
+        PlayerInventory.main.OnUpdate += Init;
     }
 
     private void OnDisable()
     {
-        _inventory.OnUpdate -= Init;
+        PlayerInventory.main.OnUpdate -= Init;
     }
 
     public void Init()
@@ -29,7 +28,7 @@ public class MainUI : MonoBehaviour
 
         for(int i = 0; i < items.Count; i++)
         {
-            InventoryItem item = _inventory.GetInventoryItem(items[i]);
+            InventoryItem item = PlayerInventory.main.GetInventoryItem(items[i]);
             if(item == null)
                 continue;
 

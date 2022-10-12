@@ -15,4 +15,5 @@ public interface JumpingModel
 public interface ClimpingModel
 {
     float StairClimpingSpeed { get; }
+    float StairClimpingHeight { get; }
 }

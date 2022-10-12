@@ -8,8 +8,6 @@ public class ShootingController : MonoBehaviour
     [SerializeField] private PullObjects _particlePull;
     [SerializeField] private WeaponModel _weapon;
 
-    [SerializeField] private Inventory _inventory;
-
     private bool delay;
 
     public void Shoot()
@@ -17,7 +15,7 @@ public class ShootingController : MonoBehaviour
         if (delay)
             return;
 
-        if (_inventory.CheckItem(_weapon.Bullet.BulletType, 1, true))
+        if (PlayerInventory.main.CheckItem(_weapon.Bullet.BulletType, 1, true))
         {
             for (int i = 0; i < _weapon.BulletÑount; i++)
             {

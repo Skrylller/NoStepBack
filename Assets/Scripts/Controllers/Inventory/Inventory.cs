@@ -9,6 +9,7 @@ public class Inventory : MonoBehaviour
 {
     [SerializeField] private List<InventoryItemCounter> _Items;
     [SerializeField] private List<KeyModel> _keyModels;
+    protected virtual bool isPlayerInventory() { return false; }
     public List<InventoryItemCounter> Items { get { return _Items; } }
     public List<KeyModel> KeyModels { get { return _keyModels; } }
 
@@ -19,6 +20,9 @@ public class Inventory : MonoBehaviour
         if (item as KeyModel)
         {
             _keyModels.Add(item as KeyModel);
+
+            if (isPlayerInventory())
+                UIController.main.MessageUI.AddItem(item as KeyModel);
         }
         else
         {
@@ -33,6 +37,9 @@ public class Inventory : MonoBehaviour
                 _Items.Add(new InventoryItemCounter(item, value));
                 OnUpdate?.Invoke();
             }
+
+            if(isPlayerInventory())
+                UIController.main.MessageUI.AddItem(new InventoryItemCounter(item, value));
         }
     }
 

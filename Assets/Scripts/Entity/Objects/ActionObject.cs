@@ -23,9 +23,12 @@ public class ActionObject : MonoBehaviour
 
     public void Enter()
     {
-        isTrigger = true;
-        _actionObjectUI.Init(PlayerInputSystemPC.main.InputButtons[0].KeyCode);
-        _init?.Invoke();
+        if (isEnd == false)
+        {
+            isTrigger = true;
+            _actionObjectUI.Init(PlayerInputSystemPC.main.InputButtons[0].KeyCode);
+            _init?.Invoke();
+        }
     }
 
     public void Exit()

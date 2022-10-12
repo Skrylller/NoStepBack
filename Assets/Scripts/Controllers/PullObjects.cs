@@ -37,6 +37,7 @@ public class PullObjects : MonoBehaviour
         else
         {
             GameObject obj = Instantiate(_objPref.gameObject, _defaultPosition.position, _defaultPosition.rotation, transform);
+            obj.SetActive(true);
             objs.Add(new Obj(obj, obj.GetComponent<PullableObj>()));
             return objs.Last().pullableObj;
         }

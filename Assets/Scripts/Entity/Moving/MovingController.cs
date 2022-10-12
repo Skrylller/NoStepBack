@@ -7,17 +7,10 @@ public class MovingController : MonoBehaviour
     private MovingModel _model;
     private Rigidbody2D _rigidbody;
 
-    private void Awake()
-    {
-        if (GetComponentInParent<Rigidbody2D>())
-            _rigidbody = GetComponentInParent<Rigidbody2D>();
-        else
-            Debug.Log($"{gameObject.name} Отсутствует {nameof(Rigidbody2D)}");
-    }
-
-    public void Init(MovingModel model)
+    public void Init(MovingModel model, Rigidbody2D rigidbody2D)
     {
         _model = model;
+        _rigidbody = rigidbody2D;
     }
 
     public void MoveHorizontal(float directional)

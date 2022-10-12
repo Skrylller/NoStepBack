@@ -9,17 +9,10 @@ public class JumpingController : MonoBehaviour
     private Rigidbody2D _rigidbody;
     public int IsGrounded { get; private set; }
 
-    private void Awake()
-    {
-        if (GetComponentInParent<Rigidbody2D>())
-            _rigidbody = GetComponentInParent<Rigidbody2D>();
-        else
-            Debug.Log($"{gameObject.name} Отсутствует {nameof(Rigidbody2D)}");
-    }
-
-    public void Init(JumpingModel model)
+    public void Init(JumpingModel model, Rigidbody2D rigidbody2D)
     {
         _model = model;
+        _rigidbody = rigidbody2D;
     }
 
     public void Jump()

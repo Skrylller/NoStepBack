@@ -22,6 +22,13 @@ public class InventoryObject : MonoBehaviour
 
     public void TakeItems()
     {
-
+        for(int i = 0; i < _inventory.Items.Count; i++)
+        {
+            PlayerInventory.main.AddItem(_inventory.Items[i].ItemModel, _inventory.Items[i].Count);
+        }
+        for (int i = 0; i < _inventory.KeyModels.Count; i++)
+        {
+            PlayerInventory.main.AddItem(_inventory.KeyModels[i]);
+        }
     }
 }
