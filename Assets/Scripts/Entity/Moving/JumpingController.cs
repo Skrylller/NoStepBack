@@ -17,6 +17,7 @@ public class JumpingController : MonoBehaviour
 
     public void Jump()
     {
+        _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, 0);
         _rigidbody.AddForce(new Vector2(0, _model.JumpForce));
     }
 

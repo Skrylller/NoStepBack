@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour, IMousePositionVisitor
     [SerializeField] private ShootingController _shootingController;
     [SerializeField] private PlayerAnimatorController _animatorController;
     [SerializeField] private PlayerStairsController _stairsController;
+    [SerializeField] private PlayerSitController _sitController;
 
     [SerializeField] private ToTargetRotator2D _rotator;
     [SerializeField] private ModeSwitcher _spriteSwitcher;
@@ -42,6 +43,9 @@ public class PlayerController : MonoBehaviour, IMousePositionVisitor
             _animatorController.SetAnimation(value);
         }
     }
+
+    private const string layerPlayer = "Player";
+    private const string layerPlatform = "Platform";
 
     private void Awake()
     {
@@ -75,8 +79,35 @@ public class PlayerController : MonoBehaviour, IMousePositionVisitor
 
     public void Jump()
     {
+        if (_stairsController.Collider != null)
+            return;
+
+        if (_sitController.sit)
+        {
+            Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer(layerPlayer), LayerMask.NameToLayer(layerPlatform), true);
+            Invoke(nameof(PlatformOn), 1f);
+            return;
+        }
+
         if (_jumpingController.IsGrounded > 0)
             _jumpingController.Jump();
+    }
+
+    public void UpClimb()
+    {
+        if (_stairsController.Collider != null)
+        {
+            _stairsController.ClimbStair(1);
+        }
+    }
+
+    public void JumpUp()
+    {
+        if (_stairsController.Collider != null)
+        {
+            _stairsController.ClimbStair(0);
+            return;
+        }
     }
 
     public void CheckMouse(Vector2 mousePos)
@@ -115,5 +146,34 @@ public class PlayerController : MonoBehaviour, IMousePositionVisitor
             State = PlayerAnimatorState.Walk;
         else
             State = PlayerAnimatorState.Idle;
+    }
+
+    public void Sit()
+    {
+        if (_stairsController.Collider != null)
+        {
+            _sitController.Sit(false);
+            _stairsController.ClimbStair(-1);
+            return;
+        }
+
+        if (_jumpingController.IsGrounded > 0)
+            _sitController.Sit(true);
+    }
+
+    public void SitUp()
+    {
+        if (_stairsController.Collider != null)
+        {
+            _stairsController.ClimbStair(0);
+            return;
+        }
+
+        _sitController.Sit(false);
+    }
+
+    private void PlatformOn()
+    {
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer(layerPlayer), LayerMask.NameToLayer(layerPlatform), false);
     }
 }

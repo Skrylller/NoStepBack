@@ -52,6 +52,9 @@ public class ModeSwitcher : MonoBehaviour
         }
         set 
         {
+            if (_states.Count <= value)
+                value = 0;
+
             _state = value;
             SetState(value);
         } 

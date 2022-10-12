@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26d5eead98e47284783936d8ccbf7f4a, type: 3}
   m_Name: Player
   m_EditorClassIdentifier: 
-  _speed: 50
+  _speed: 60
   _jumpForce: 3500
-  _stairClimpingSpeed: 1
+  _stairClimpingSpeed: 45
   _stairClimpingHeight: 4

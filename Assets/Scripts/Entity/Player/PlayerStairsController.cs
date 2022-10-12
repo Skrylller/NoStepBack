@@ -7,9 +7,15 @@ public class PlayerStairsController : MonoBehaviour
 {
     private ClimpingModel _model;
 
+    private Collider2D colliderStair = new Collider2D();
     private BoxCollider2D _collider;
     private Rigidbody2D _rb;
     private List<Collider2D> _collisions = new List<Collider2D>();
+    private float _gravityScale;
+
+    public Collider2D Collider { get { return colliderStair; } }
+
+    private const string layerStair = "Stair";
 
     private void Awake()
     {
@@ -18,11 +24,24 @@ public class PlayerStairsController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.gameObject.layer == LayerMask.NameToLayer(layerStair))
+        {
+            colliderStair = collision;
+            return;
+        }
+
         _collisions.Add(collision);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        if (collision == colliderStair)
+        {
+            colliderStair = null;
+            _rb.gravityScale = _gravityScale;
+            return;
+        }
+
         _collisions.Remove(collision);
     }
 
@@ -30,6 +49,17 @@ public class PlayerStairsController : MonoBehaviour
     {
         _model = model;
         _rb = rigidbody2D;
+        _gravityScale = _rb.gravityScale;
+    }
+
+    public void ClimbStair(float directional)
+    {
+        if(directional != 0)
+        {
+            _rb.gravityScale = 0;
+        }
+
+        _rb.velocity = new Vector2(0, _model.StairClimpingSpeed * directional);
     }
 
     public void CheckStair(float directional)
