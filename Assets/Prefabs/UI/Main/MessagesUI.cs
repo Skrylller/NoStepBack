@@ -17,4 +17,9 @@ public class MessagesUI : MonoBehaviour
         ItemPrefab itemText = _itemPlusMessages.AddObj() as ItemPrefab;
         itemText.Init(key);
     }
+    public void AddItem(WeaponModel weapon)
+    {
+        ItemPrefab itemText = _itemPlusMessages.AddObj() as ItemPrefab;
+        itemText.Init(weapon);
+    }
 }

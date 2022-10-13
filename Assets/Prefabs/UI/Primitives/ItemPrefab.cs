@@ -46,6 +46,18 @@ public class ItemPrefab : PullableObj
             _itemName.text = key.name;
     }
 
+    public void Init(WeaponModel weapon)
+    {
+        if (_icon != null)
+            _icon.sprite = weapon.Icon;
+
+        if (_count != null)
+            _count.text = "1";
+
+        if (_itemName != null)
+            _itemName.text = weapon.name;
+    }
+
     private void SetData()
     {
         if(_icon != null)

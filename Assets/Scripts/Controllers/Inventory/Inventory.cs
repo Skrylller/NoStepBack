@@ -9,9 +9,11 @@ public class Inventory : MonoBehaviour
 {
     [SerializeField] private List<InventoryItemCounter> _Items;
     [SerializeField] private List<KeyModel> _keyModels;
+    [SerializeField] private List<WeaponModel> _weaponModels;
     protected virtual bool isPlayerInventory() { return false; }
     public List<InventoryItemCounter> Items { get { return _Items; } }
     public List<KeyModel> KeyModels { get { return _keyModels; } }
+    public List<WeaponModel> weaponModels { get { return _weaponModels; } }
 
     public Action OnUpdate;
 
@@ -23,6 +25,13 @@ public class Inventory : MonoBehaviour
 
             if (isPlayerInventory())
                 UIController.main.MessageUI.AddItem(item as KeyModel);
+        }
+        else if (item as WeaponModel)
+        {
+            _weaponModels.Add(item as WeaponModel);
+
+            if (isPlayerInventory())
+                UIController.main.MessageUI.AddItem(item as WeaponModel);
         }
         else
         {
@@ -79,6 +88,13 @@ public class Inventory : MonoBehaviour
             return false;
         }
 
+    }
+
+    public WeaponModel GetWeapon(WeaponModel.WeaponType weapon)
+    {
+        List<WeaponModel> weapons = _weaponModels.Where(x => x.Weapon == weapon).ToList();
+
+        return weapons.Count > 0 ? weapons[0] : null;
     }
 
     public bool CheckKey(KeyModel.KeyType key)

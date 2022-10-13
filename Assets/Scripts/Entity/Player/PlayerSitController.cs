@@ -6,6 +6,11 @@ public class PlayerSitController : MonoBehaviour
 {
     public bool sit { get; private set; }
 
+    public void Init()
+    {
+        
+    }
+
     public void Sit(bool isSit)
     {
         if (sit == isSit)

@@ -15,7 +15,10 @@ public class PlayerController : MonoBehaviour, IMousePositionVisitor
         Idle,
         Walk,
         Jump,
-        Fall
+        Fall,
+        Sit,
+        Crawl,
+        Climb,
     }
 
     [SerializeField] private PlayerModel _model;
@@ -138,7 +141,13 @@ public class PlayerController : MonoBehaviour, IMousePositionVisitor
 
     private void SetState()
     {
-        if (_rbPlayer.velocity.y > 0)
+        if (_sitController.sit && _rbPlayer.velocity.x == 0)
+            State = PlayerAnimatorState.Sit;
+        else if (_sitController.sit && _rbPlayer.velocity.x != 0)
+            State = PlayerAnimatorState.Crawl;
+        else if (_rbPlayer.gravityScale == 0 && (_rbPlayer.velocity.y != 0 || _rbPlayer.velocity.x != 0))
+            State = PlayerAnimatorState.Climb;
+        else if (_rbPlayer.velocity.y > 0)
             State = PlayerAnimatorState.Jump;
         else if (_rbPlayer.velocity.y < 0)
             State = PlayerAnimatorState.Fall;
@@ -170,6 +179,11 @@ public class PlayerController : MonoBehaviour, IMousePositionVisitor
         }
 
         _sitController.Sit(false);
+    }
+
+    public void SetWeapon(int weapon)
+    {
+        _shootingController.SetWeapon((WeaponModel.WeaponType)weapon);
     }
 
     private void PlatformOn()

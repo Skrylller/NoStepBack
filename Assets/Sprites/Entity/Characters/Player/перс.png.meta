@@ -67,7 +67,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 64
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: 4
     textureCompression: 1
@@ -121,7 +121,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 3
-        y: 33
+        y: 75
         width: 10
         height: 28
       alignment: 9
@@ -142,7 +142,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 15
-        y: 33
+        y: 75
         width: 10
         height: 28
       alignment: 9
@@ -162,8 +162,8 @@ TextureImporter:
       name: "\u043F\u0435\u0440\u0441_2"
       rect:
         serializedVersion: 2
-        x: 28
-        y: 33
+        x: 2
+        y: 42
         width: 9
         height: 29
       alignment: 9
@@ -183,8 +183,8 @@ TextureImporter:
       name: "\u043F\u0435\u0440\u0441_3"
       rect:
         serializedVersion: 2
-        x: 39
-        y: 33
+        x: 13
+        y: 42
         width: 8
         height: 30
       alignment: 9
@@ -204,8 +204,8 @@ TextureImporter:
       name: "\u043F\u0435\u0440\u0441_4"
       rect:
         serializedVersion: 2
-        x: 49
-        y: 33
+        x: 23
+        y: 42
         width: 8
         height: 29
       alignment: 9
@@ -225,8 +225,8 @@ TextureImporter:
       name: "\u043F\u0435\u0440\u0441_5"
       rect:
         serializedVersion: 2
-        x: 4
-        y: 18
+        x: 38
+        y: 61
         width: 6
         height: 11
       alignment: 9
@@ -246,8 +246,8 @@ TextureImporter:
       name: "\u043F\u0435\u0440\u0441_6"
       rect:
         serializedVersion: 2
-        x: 15
-        y: 26
+        x: 38
+        y: 53
         width: 19
         height: 5
       alignment: 9
@@ -267,8 +267,8 @@ TextureImporter:
       name: "\u043F\u0435\u0440\u0441_7"
       rect:
         serializedVersion: 2
-        x: 16
-        y: 18
+        x: 39
+        y: 45
         width: 19
         height: 5
       alignment: 9
@@ -284,6 +284,90 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: "\u043F\u0435\u0440\u0441_8"
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 62
+        width: 26
+        height: 13
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 850e587dec421b7459985b077e18c806
+      internalID: 1202716104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u043F\u0435\u0440\u0441_9"
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 76
+        width: 22
+        height: 13
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c86f0cd7c9c4d54a89443ebe673a19a
+      internalID: 752175127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u043F\u0435\u0440\u0441_10"
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 91
+        width: 23
+        height: 13
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eeb8b13a39b9ac741b8f4bd650d02207
+      internalID: -1028863947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u043F\u0435\u0440\u0441_11"
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 75
+        width: 11
+        height: 27
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6a65ebb4e810e5498249780c8ffb82d
+      internalID: -1779755930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -295,13 +379,17 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      "\u043F\u0435\u0440\u0441_9": 752175127
       "\u043F\u0435\u0440\u0441_6": 1788094342
+      "\u043F\u0435\u0440\u0441_10": -1028863947
       "\u043F\u0435\u0440\u0441_7": 2056931139
       "\u043F\u0435\u0440\u0441_2": -1496247450
       "\u043F\u0435\u0440\u0441_0": 1057825234
       "\u043F\u0435\u0440\u0441_1": -1687567857
+      "\u043F\u0435\u0440\u0441_8": 1202716104
       "\u043F\u0435\u0440\u0441_4": 26121129
       "\u043F\u0435\u0440\u0441_5": -1850050796
+      "\u043F\u0435\u0440\u0441_11": -1779755930
       "\u043F\u0435\u0440\u0441_3": -1382313967
   spritePackingTag: 
   pSDRemoveMatte: 0

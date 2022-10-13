@@ -11,9 +11,12 @@ public class ItemModel : ScriptableObject
         RifleAmmo,
         MedKit,
         MasterKey,
-        Key
+        Key,
+        Weapon,
+        Flashlight
     }
 
+    [Header("Item")]
     [SerializeField] private ItemType _item;
 
     [SerializeField] private string _name;

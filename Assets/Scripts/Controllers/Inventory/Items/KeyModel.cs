@@ -10,6 +10,7 @@ public class KeyModel : ItemModel
         Key
     }
 
+    [Header("Key")]
     [SerializeField] private KeyType _key;
 
     public KeyType Key { get { return _key; } }

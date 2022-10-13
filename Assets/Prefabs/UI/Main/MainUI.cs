@@ -5,24 +5,28 @@ using UnityEngine;
 public class MainUI : MonoBehaviour
 {
     [SerializeField] private List<ItemModel.ItemType> items;
+    [SerializeField] private ShootingController _shootingController;
+
     [SerializeField] private PullObjects _pull;
+    [SerializeField] private ModeSwitcher _weaponIndikator;
 
     private void Start()
     {
-        Init();
+        SetItems();
+        _shootingController.OnChangeWeapon += SetWeapon;
     }
 
     private void OnEnable()
     {
-        PlayerInventory.main.OnUpdate += Init;
+        PlayerInventory.main.OnUpdate += SetItems;
     }
 
     private void OnDisable()
     {
-        PlayerInventory.main.OnUpdate -= Init;
+        PlayerInventory.main.OnUpdate -= SetItems;
     }
 
-    public void Init()
+    public void SetItems()
     {
         _pull.Clear();
 
@@ -35,5 +39,13 @@ public class MainUI : MonoBehaviour
             ItemPrefab itemPrefab = _pull.AddObj() as ItemPrefab;
             itemPrefab.Init(item);
         }
+    }
+
+    public void SetWeapon(WeaponModel.WeaponType weapon)
+    {
+        if (weapon == WeaponModel.WeaponType.None && PlayerInventory.main.CheckItem(ItemModel.ItemType.Flashlight))
+            _weaponIndikator.State = 0;
+        else
+            _weaponIndikator.State = (int)weapon + 1;
     }
 }

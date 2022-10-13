@@ -12,8 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d31205ff6164b93449ebab1da07d95cc, type: 3}
   m_Name: Pistol
   m_EditorClassIdentifier: 
+  _item: 5
+  _name: Pistol
+  _icon: {fileID: 0}
   _bullet: {fileID: 11400000, guid: 89149b579004b05459b342f0160d1293, type: 2}
-  _bulletInClip: 0
-  _shootDelay: 1
+  _weapon: 1
+  _bulletInClip: 6
+  _shootDelay: 0.5
   "_bullet\u0421ountToShoot": 1
   _spreadAngle: 0
