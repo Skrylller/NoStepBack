@@ -22,4 +22,9 @@ public class MessagesUI : MonoBehaviour
         ItemPrefab itemText = _itemPlusMessages.AddObj() as ItemPrefab;
         itemText.Init(weapon);
     }
+
+    public void Send(string str)
+    {
+
+    }
 }

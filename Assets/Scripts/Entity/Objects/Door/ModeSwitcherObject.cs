@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DoorObject : MonoBehaviour
+public class ModeSwitcherObject : MonoBehaviour
 {
     [SerializeField] private ModeSwitcher _state;
 

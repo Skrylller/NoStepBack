@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour, IMousePositionVisitor
     [SerializeField] private JumpingController _jumpingController;
     [SerializeField] private ShootingController _shootingController;
     [SerializeField] private PlayerAnimatorController _animatorController;
-    [SerializeField] private PlayerStairsController _stairsController;
+    [SerializeField] private StairsController _stairsController;
     [SerializeField] private PlayerSitController _sitController;
 
     [SerializeField] private ToTargetRotator2D _rotator;
@@ -57,6 +57,7 @@ public class PlayerController : MonoBehaviour, IMousePositionVisitor
         _movingController.Init(_model, _rbPlayer);
         _jumpingController.Init(_model, _rbPlayer);
         _stairsController.Init(_model, _rbPlayer);
+        _sitController.Init(_model, _rbPlayer);
     }
 
     private void Update()
@@ -85,7 +86,7 @@ public class PlayerController : MonoBehaviour, IMousePositionVisitor
         if (_stairsController.Collider != null)
             return;
 
-        if (_sitController.sit)
+        if (_model.isSit)
         {
             Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer(layerPlayer), LayerMask.NameToLayer(layerPlatform), true);
             Invoke(nameof(PlatformOn), 1f);
@@ -141,9 +142,9 @@ public class PlayerController : MonoBehaviour, IMousePositionVisitor
 
     private void SetState()
     {
-        if (_sitController.sit && _rbPlayer.velocity.x == 0)
+        if (_model.isSit && _rbPlayer.velocity.x == 0)
             State = PlayerAnimatorState.Sit;
-        else if (_sitController.sit && _rbPlayer.velocity.x != 0)
+        else if (_model.isSit && _rbPlayer.velocity.x != 0)
             State = PlayerAnimatorState.Crawl;
         else if (_rbPlayer.gravityScale == 0 && (_rbPlayer.velocity.y != 0 || _rbPlayer.velocity.x != 0))
             State = PlayerAnimatorState.Climb;

@@ -16,3 +16,5 @@ MonoBehaviour:
   _dammage: 1
   _lifeTime: 1
   _bulletType: 1
+  _distance: 500
+  _distanceBackCheck: 20

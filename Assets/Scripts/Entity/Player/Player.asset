@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Player
   m_EditorClassIdentifier: 
   _speed: 60
+  _runFactor: 1
   _jumpForce: 3500
+  _crawlingSpeedMultiplier: 0.5
   _stairClimpingSpeed: 45
   _stairClimpingHeight: 4

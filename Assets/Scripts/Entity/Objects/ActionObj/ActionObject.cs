@@ -13,6 +13,8 @@ public class ActionObject : MonoBehaviour
 
     [SerializeField] private bool _isOnlyAction = false;
 
+    [SerializeField] private List<KeyModel> keys = new List<KeyModel>();
+
     private bool isTrigger = false;
     private bool isEnd = false;
 
@@ -26,7 +28,7 @@ public class ActionObject : MonoBehaviour
         if (isEnd == false)
         {
             isTrigger = true;
-            _actionObjectUI.Init(PlayerInputSystemPC.main.InputButtons[0].KeyCode);
+            _actionObjectUI.Init(PlayerInputSystemPC.main.InputButtons[0].KeyCode, keys);
             _init?.Invoke();
         }
     }
@@ -41,6 +43,12 @@ public class ActionObject : MonoBehaviour
     {
         if (isTrigger && isEnd == false)
         {
+            if (!CheckKeys())
+            {
+                _actionObjectUI.HaventKeys();
+                return;
+            }
+
             _actions?.Invoke();
             if (_isOnlyAction)
             {
@@ -48,5 +56,16 @@ public class ActionObject : MonoBehaviour
                 _actionObjectUI.Deactive();
             }
         }
+    }
+
+    private bool CheckKeys()
+    {
+        for (int i = 0; i < keys.Count; i++)
+        {
+            if (!PlayerInventory.main.CheckKey(keys[i].Key))
+                return false;
+                
+        }
+        return true;
     }
 }
