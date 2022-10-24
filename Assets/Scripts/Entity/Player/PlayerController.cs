@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour, IMousePositionVisitor
     [SerializeField] private PlayerAnimatorController _animatorController;
     [SerializeField] private StairsController _stairsController;
     [SerializeField] private PlayerSitController _sitController;
+    [SerializeField] private LifeController _lifeController;
 
     [SerializeField] private ToTargetRotator2D _rotator;
     [SerializeField] private ModeSwitcher _spriteSwitcher;
@@ -58,6 +59,19 @@ public class PlayerController : MonoBehaviour, IMousePositionVisitor
         _jumpingController.Init(_model, _rbPlayer);
         _stairsController.Init(_model, _rbPlayer);
         _sitController.Init(_model, _rbPlayer);
+        _lifeController.Init(_model);
+    }
+
+    private void OnEnable()
+    {
+        _stairsController.OnClimb += PlatformOff;
+        _stairsController.OnStopClimb += PlatformOn;
+    }
+
+    private void OnDisable()
+    {
+        _stairsController.OnClimb -= PlatformOff;
+        _stairsController.OnStopClimb -= PlatformOn;
     }
 
     private void Update()
@@ -88,7 +102,7 @@ public class PlayerController : MonoBehaviour, IMousePositionVisitor
 
         if (_model.isSit)
         {
-            Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer(layerPlayer), LayerMask.NameToLayer(layerPlatform), true);
+            PlatformOff();
             Invoke(nameof(PlatformOn), 1f);
             return;
         }
@@ -190,5 +204,9 @@ public class PlayerController : MonoBehaviour, IMousePositionVisitor
     private void PlatformOn()
     {
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer(layerPlayer), LayerMask.NameToLayer(layerPlatform), false);
+    }
+    private void PlatformOff()
+    {
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer(layerPlayer), LayerMask.NameToLayer(layerPlatform), true);
     }
 }

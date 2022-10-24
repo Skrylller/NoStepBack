@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04dabe08df007d34b97874633b0ff59a, type: 3}
   m_Name: Enemy
   m_EditorClassIdentifier: 
+  _maxHealth: 100
   _speed: 20
+  _canRun: 1
   _runFactor: 2.2
   _isViewAlways: 0
   _viewDistance: 1000
@@ -20,3 +22,5 @@ MonoBehaviour:
   _stairClimpingSpeed: 0
   _stairClimpingHeight: 6
   _stopDistance: 20
+  _verticalStopDistance: 40
+  _newTargetDelay: 10

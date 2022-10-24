@@ -16,13 +16,16 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private EnemyPlayerObserver _enemyPlayerObserver;
     [SerializeField] private MovingController _movingController;
     [SerializeField] private StairsController _stairsController;
+    [SerializeField] private LifeController _lifeController;
+    [SerializeField] private EnemyAttackController _enemyAttackController;
+    [SerializeField] private RandomTargetFinder _randomTargetFinder;
 
     [SerializeField] private Animator _footAnimator;
     [SerializeField] private ModeSwitcher _rotateSwitcher;
 
     private Rigidbody2D _rbEnemy;
 
-    private Vector2 _target;
+    [HideInInspector] public bool isNewTargetDelay;
 
     private void Awake()
     {
@@ -31,6 +34,8 @@ public class EnemyController : MonoBehaviour
 
     private void Start()
     {
+        _model.isRun = false;
+        _lifeController.Init(_model);
         _enemyPlayerObserver.Init(_model);
         _movingController.Init(_model, _rbEnemy);
         _stairsController.Init(_model, _rbEnemy);
@@ -39,6 +44,7 @@ public class EnemyController : MonoBehaviour
     private void OnEnable()
     {
         _enemyPlayerObserver.OnView += ViewPlayer;
+        isNewTargetDelay = false;
     }
 
     private void OnDisable()
@@ -49,8 +55,7 @@ public class EnemyController : MonoBehaviour
     private void Update()
     {
         CheckState();
-        if (_target != null)
-            MoveToTarget();
+        MoveToTarget();
     }
 
     private void CheckState()
@@ -68,25 +73,62 @@ public class EnemyController : MonoBehaviour
 
     private void MoveToTarget()
     {
+        if (_randomTargetFinder.target == null)
+            return;
+        
         float directional;
 
-        directional = (_target.x - transform.position.x) / Mathf.Abs(_target.x - transform.position.x);
+        directional = (_randomTargetFinder.target.x - transform.position.x) / Mathf.Abs(_randomTargetFinder.target.x - transform.position.x);
 
-        if (Vector2.Distance(_target, transform.position) > _model.StopDistance)
+        if (Mathf.Abs(_randomTargetFinder.target.x - transform.position.x) > _model.StopDistance)
         {
             _movingController.MoveHorizontal(directional);
             _stairsController.CheckStair(directional);
+        }
+        else if (!isNewTargetDelay)
+        {
+            if (!_enemyPlayerObserver.isView)
+            {
+                NewTarget();
+            }
+            else if (Mathf.Abs(_randomTargetFinder.target.y - transform.position.y) > _model.VerticalStopDistance)
+            {
+                if (NewTarget())
+                    StartCoroutine(_enemyPlayerObserver.StopFind(2));
+            }
+
         }
 
         if (directional > 0)
             _rotateSwitcher.State = (int)RotationState.right;
         if (directional < 0)
             _rotateSwitcher.State = (int)RotationState.left;
+
+        bool NewTarget()
+        {
+            if (_enemyAttackController.isAttack)
+                return false;
+
+            _randomTargetFinder.FindNewTarget();
+            StartCoroutine(NewTargetTimer());
+
+            _model.isRun = false;
+
+            return true;
+        }
     }
 
     private void ViewPlayer(GameObject player)
     {
-        _target = player.transform.position;
+        _randomTargetFinder.target = player.transform.position;
 
+        _model.isRun = true;
+    }
+
+    private IEnumerator NewTargetTimer()
+    {
+        isNewTargetDelay = true;
+        yield return new WaitForSeconds(_model.NewTargetTimer);
+        isNewTargetDelay = false;
     }
 }

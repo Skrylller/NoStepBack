@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Enemy", menuName = "ScriptableObjects/Characters/Enemy")]
-public class EnemyModel : ScriptableObject, IPlayerObsrver, MovingModel, ClimpingModel
+public class EnemyModel : ScriptableObject, IPlayerObsrver, MovingModel, ClimpingModel, LifeModel
 {
     [Header("Move")]
+    [SerializeField] uint _maxHealth;
+    [Header("Move")]
     [SerializeField] private float _speed;
+    [SerializeField] bool _canRun;
     [SerializeField] private float _runFactor;
     [Header("Observer")]
     [SerializeField] private bool _isViewAlways;
@@ -18,16 +21,20 @@ public class EnemyModel : ScriptableObject, IPlayerObsrver, MovingModel, Climpin
     [SerializeField] private float _stairClimpingHeight;
     [Header("Enemy")]
     [SerializeField] private float _stopDistance;
+    [SerializeField] private float _verticalStopDistance;
+    [SerializeField] private float _newTargetDelay;
 
     [HideInInspector] public bool isRun { get; set; }
 
+    public uint MaxHealth { get { return _maxHealth; } }
     public float Speed 
     { 
         get 
         { 
-            return isRun ? _speed * _runFactor : _speed; 
-        } 
+            return _canRun ? isRun ? _speed * _runFactor : _speed : _speed; 
+        }
     }
+    public bool CanRun { get { return _canRun; } }
     public float RunFactor { get { return _runFactor; } }
     public bool IsViewAlways { get { return _isViewAlways; } }
     public float ViewDistance { get { return _viewDistance; } }
@@ -35,6 +42,8 @@ public class EnemyModel : ScriptableObject, IPlayerObsrver, MovingModel, Climpin
     public float StairClimpingSpeed { get { return _stairClimpingSpeed; } }
     public float StairClimpingHeight { get { return _stairClimpingHeight; } }
     public float StopDistance { get { return _stopDistance; } }
+    public float VerticalStopDistance { get { return _verticalStopDistance; } }
+    public float NewTargetTimer { get { return _newTargetDelay; } }
 }
 
 public interface IPlayerObsrver

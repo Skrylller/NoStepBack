@@ -1,4 +1,5 @@
 using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,6 +15,8 @@ public class StairsController : MonoBehaviour
     private float _gravityScale;
 
     public Collider2D Collider { get { return colliderStair; } }
+    public Action OnClimb;
+    public Action OnStopClimb;
 
     private const string layerStair = "Stair";
 
@@ -39,6 +42,7 @@ public class StairsController : MonoBehaviour
         {
             colliderStair = null;
             _rb.gravityScale = _gravityScale;
+            OnStopClimb?.Invoke();
             return;
         }
 
@@ -57,6 +61,11 @@ public class StairsController : MonoBehaviour
         if(directional != 0)
         {
             _rb.gravityScale = 0;
+            OnClimb?.Invoke();
+        }
+        else
+        {
+            OnStopClimb?.Invoke();
         }
 
         _rb.velocity = new Vector2(0, _model.StairClimpingSpeed * directional);

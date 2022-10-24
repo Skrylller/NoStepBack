@@ -117,15 +117,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\u0432\u0440\u0430\u0433\u0438_2"
+      name: enemy_part_5
       rect:
         serializedVersion: 2
         x: 79
         y: 462
         width: 7
         height: 13
-      alignment: 9
-      pivot: {x: 0, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -243,15 +243,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u0432\u0440\u0430\u0433\u0438_8"
+      name: enemy_part_2
       rect:
         serializedVersion: 2
         x: 56
         y: 465
         width: 7
         height: 5
-      alignment: 9
-      pivot: {x: 0, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -264,15 +264,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u0432\u0440\u0430\u0433\u0438_9"
+      name: enemy_part_3
       rect:
         serializedVersion: 2
         x: 65
         y: 465
         width: 5
         height: 4
-      alignment: 9
-      pivot: {x: 0, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -285,15 +285,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u0432\u0440\u0430\u0433\u0438_10"
+      name: enemy_part_4
       rect:
         serializedVersion: 2
         x: 71
         y: 465
         width: 6
         height: 8
-      alignment: 9
-      pivot: {x: 0, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1230,7 +1230,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u0432\u0440\u0430\u0433\u0438_0"
+      name: enemy_part_1
       rect:
         serializedVersion: 2
         x: 44
@@ -1238,7 +1238,7 @@ TextureImporter:
         width: 6
         height: 3
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1264,19 +1264,20 @@ TextureImporter:
       enemy_hand_1_idle_3: 1706281862
       enemy_head_2: 109932773
       enemy_body_1_idle_3: 1044745403
-      "\u0432\u0440\u0430\u0433\u0438_0": -987132296
-      "\u0432\u0440\u0430\u0433\u0438_10": -581533868
       enemy_hand_1_attack_2: -770950553
       enemy_body_2_idle_1: -2118734464
       enemy_hand_3_attack_7: -2004839218
+      enemy_part_5: -890820747
       enemy_hand_3_attack_2: -1952777614
       enemy_hand_2_idle_1: 139674711
       enemy_foot_run_3: 539588112
       enemy_hand_1_attack_3: -1554773896
       enemy_body_3_idle_1: -1044825706
+      enemy_part_2: 1982760370
       "\u0432\u0440\u0430\u0433\u0438_1": 237667758
       enemy_body_3_idle_2: -162909808
       enemy_hand_3_attack_5: -354615347
+      enemy_part_3: 1389422591
       enemy_hand_4_attack_2: 781637223
       enemy_foot_run_2: 1266537257
       enemy_head_1: -19287234
@@ -1286,9 +1287,8 @@ TextureImporter:
       enemy_foot_walk_2: 7990095
       enemy_foot_run_4: -1151920344
       enemy_hand_3_attack_3: -1229985133
-      "\u0432\u0440\u0430\u0433\u0438_8": 1982760370
-      enemy_foot_walk_4: 383619158
       enemy_hand_4_attack_4: -513301322
+      enemy_foot_walk_4: 383619158
       enemy_body_1_idle_2: -1366393487
       enemy_hand_1_attack_1: 1012847521
       enemy_hand_3_attack_8: -25397773
@@ -1303,17 +1303,17 @@ TextureImporter:
       enemy_hand_2_attack_3: -672978775
       enemy_hand_4_attack_1: 1009049141
       enemy_hand_4_idle_1: 1221916084
+      enemy_part_4: -581533868
       enemy_hand_1_attack_5: 767925836
       enemy_hand_3_attack_6: -1642718050
       enemy_foot_idle_1: 1475798119
       enemy_hand_2_attack_4: -835979047
-      "\u0432\u0440\u0430\u0433\u0438_2": -890820747
       enemy_hand_3_attack_1: 143728413
       enemy_hand_3_idle_1: 1889611662
+      enemy_part_1: -987132296
       enemy_hand_1_attack_4: -750903784
       enemy_head_3: 1048935677
       enemy_hand_3_idle_2: -1394287942
-      "\u0432\u0440\u0430\u0433\u0438_9": 1389422591
       enemy_body_3_idle_3: 299208426
       enemy_hand_1_idle_1: 1703332658
   spritePackingTag: 

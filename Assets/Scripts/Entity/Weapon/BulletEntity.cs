@@ -57,6 +57,11 @@ public class BulletEntity : PullableObj
 
     private void DestroyBullet()
     {
+        DammageObserver dammageObserver = _hit.collider.gameObject.GetComponent<DammageObserver>();
+
+        if (dammageObserver != null)
+            dammageObserver.TakeDammage(_model.Dammage);
+
         PullableObj part = _particlesPull.AddObj();
         part.transform.position = _hit.point;
         Deactivate();

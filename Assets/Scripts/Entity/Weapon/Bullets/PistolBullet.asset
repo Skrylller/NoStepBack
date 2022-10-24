@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PistolBullet
   m_EditorClassIdentifier: 
   _speed: 1000
-  _dammage: 1
+  _dammage: 100
   _lifeTime: 2
   _bulletType: 0
   _distance: 500

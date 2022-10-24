@@ -10,21 +10,22 @@ public class EnemyPlayerObserver : MonoBehaviour
 
     private IPlayerObsrver _model;
     private Collider2D _player;
+    private bool isFind;
 
     private const string _playerLayer = "Player";
 
     public Action<GameObject> OnView;
+    public bool isView;
+
+    private void OnEnable()
+    {
+        isFind = true;
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer(_playerLayer) && collision.gameObject.GetComponent<PlayerController>())
         {
-            if (_player != null)
-            {
-                Debug.Log("Extra player");
-                return;
-            }
-
             _player = collision;
         }
     }
@@ -48,10 +49,21 @@ public class EnemyPlayerObserver : MonoBehaviour
         _model = model;
     }
 
+    public IEnumerator StopFind(float time)
+    {
+        isFind = false;
+        yield return new WaitForSeconds(time);
+        isFind = true;
+    }
+
     private void ViewPlayer()
     {
-        if (_player == null)
+
+        if (_player == null || !isFind)
+        {
+            isView = false;
             return;
+        }
 
         if (_model.IsViewAlways)
         {
@@ -63,11 +75,15 @@ public class EnemyPlayerObserver : MonoBehaviour
         if (hit.collider.gameObject.layer == LayerMask.NameToLayer(_playerLayer))
         {
             View();
+            return;
         }
+
+        isView = false;
     }
 
     private void View()
     {
         OnView?.Invoke(_player.gameObject);
+        isView = true;
     }
 }
