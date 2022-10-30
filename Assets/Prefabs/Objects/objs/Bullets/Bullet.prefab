@@ -100,7 +100,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _layerMask:
     serializedVersion: 2
-    m_Bits: 65
+    m_Bits: 16385
+  _particlesPull: {fileID: 0}
 --- !u!50 &8227598224308595520
 Rigidbody2D:
   serializedVersion: 4

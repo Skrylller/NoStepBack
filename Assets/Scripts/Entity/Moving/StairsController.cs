@@ -6,7 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class StairsController : MonoBehaviour
 {
-    private ClimpingModel _model;
+    private IClimpingModel _model;
 
     private Collider2D colliderStair = new Collider2D();
     private BoxCollider2D _collider;
@@ -49,7 +49,7 @@ public class StairsController : MonoBehaviour
         _collisions.Remove(collision);
     }
 
-    public void Init(ClimpingModel model, Rigidbody2D rigidbody2D)
+    public void Init(IClimpingModel model, Rigidbody2D rigidbody2D)
     {
         _model = model;
         _rb = rigidbody2D;

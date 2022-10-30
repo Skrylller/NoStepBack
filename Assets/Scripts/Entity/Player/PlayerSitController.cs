@@ -12,7 +12,7 @@ public class PlayerSitController : MonoBehaviour
 
     [SerializeField] private ModeSwitcher _switcher;
 
-    private SitModel _model;
+    private ISitModel _model;
     private Rigidbody2D _rb;
 
     private void Update()
@@ -21,7 +21,7 @@ public class PlayerSitController : MonoBehaviour
             Sit(false);
     }
 
-    public void Init(SitModel model, Rigidbody2D rb)
+    public void Init(ISitModel model, Rigidbody2D rb)
     {
         _model = model;
         _rb = rb;

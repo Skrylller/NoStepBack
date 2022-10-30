@@ -2,25 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface MovingModel
+public interface IMovingModel
 {
     float Speed { get; }
     bool CanRun { get; }
     bool isRun { get; set; }
 }
 
-public interface JumpingModel
+public interface IJumpingModel
 {
     float JumpForce { get; }
 }
 
-public interface SitModel
+public interface ISitModel
 {
     float CrawlingSpeedMultiplier { get; }
     bool isSit { get; set; }
 }
 
-public interface ClimpingModel
+public interface IClimpingModel
 {
     float StairClimpingSpeed { get; }
     float StairClimpingHeight { get; }

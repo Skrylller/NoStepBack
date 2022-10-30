@@ -3,53 +3,72 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LifeController : MonoBehaviour
+public class LifeController : MonoBehaviour, ISliderVisitor
 {
-    private LifeModel _model;
+    private ILifeModel _model;
 
     private uint _health;
-    public uint Health { get { return _health; } }
+    public uint HealthGet { get { return _health; } }
+    private uint Health 
+    { 
+        set 
+        {
+            _health = value;
+            sliderValue = (float)_health / _model.MaxHealth;
+        } 
+    }
 
     public Action OnDammage;
     public Action OnHill;
     public Action OnDeath;
 
-    public void Init(LifeModel model)
+    public Action<float> OnChange { get; set; }
+    public float sliderValue 
+    {
+        set 
+        {
+            OnChange?.Invoke(value);
+        } 
+    }
+
+    public void Init(ILifeModel model)
     {
         _model = model;
-        _health = _model.MaxHealth;
+        Health = _model.MaxHealth;
     }
 
     public void TakeDammage(uint dammage)
     {
         if(_health <= dammage)
         {
-            _health = 0;
+            Health = 0;
             OnDeath?.Invoke();
         }
         else
         {
-            _health -= dammage;
+            Health = HealthGet - dammage;
             OnDammage?.Invoke();
         }
+
+        Debug.Log($"{gameObject.name} take dammage: {dammage}");
     }
 
     public void Hill(uint hill)
     {
         if (_model.MaxHealth <= hill + _health)
         {
-            _health = _model.MaxHealth;
+            Health = _model.MaxHealth;
         }
         else
         {
-            _health += hill;
+            Health = HealthGet + hill;
         }
 
         OnHill?.Invoke();
     }
 }
 
-public interface LifeModel
+public interface ILifeModel
 {
     uint MaxHealth { get; }  
 }

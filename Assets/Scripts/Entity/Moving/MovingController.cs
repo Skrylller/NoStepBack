@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class MovingController : MonoBehaviour
 {
-    private MovingModel _model;
+    private IMovingModel _model;
     private Rigidbody2D _rigidbody;
 
-    public void Init(MovingModel model, Rigidbody2D rigidbody2D)
+    public void Init(IMovingModel model, Rigidbody2D rigidbody2D)
     {
         _model = model;
         _rigidbody = rigidbody2D;

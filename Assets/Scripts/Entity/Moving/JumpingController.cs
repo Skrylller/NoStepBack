@@ -5,11 +5,11 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class JumpingController : MonoBehaviour
 {
-    private JumpingModel _model;
+    private IJumpingModel _model;
     private Rigidbody2D _rigidbody;
     public int IsGrounded { get; private set; }
 
-    public void Init(JumpingModel model, Rigidbody2D rigidbody2D)
+    public void Init(IJumpingModel model, Rigidbody2D rigidbody2D)
     {
         _model = model;
         _rigidbody = rigidbody2D;

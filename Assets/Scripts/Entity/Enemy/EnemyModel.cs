@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Enemy", menuName = "ScriptableObjects/Characters/Enemy")]
-public class EnemyModel : ScriptableObject, IPlayerObsrver, MovingModel, ClimpingModel, LifeModel
+public class EnemyModel : ScriptableObject, IPlayerObsrver, IMovingModel, IClimpingModel, ILifeModel
 {
     [Header("Move")]
     [SerializeField] uint _maxHealth;
