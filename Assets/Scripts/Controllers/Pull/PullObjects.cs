@@ -20,8 +20,19 @@ public class PullObjects : MonoBehaviour
 
     [SerializeField] private Transform _defaultPosition;
     [SerializeField] private PullableObj _objPref;
+    public PullableObj ObjPref => _objPref;
 
     [SerializeField] private List<Obj> objs;
+
+    public void Init(PullableObj obj, Transform defPos = null)
+    {
+        _objPref = obj;
+
+        if (defPos == null)
+            _defaultPosition = transform;
+        else
+            _defaultPosition = defPos;
+    }
 
     public PullableObj AddObj()
     {

@@ -598,7 +598,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 90
   m_Sprite: {fileID: -1496247450, guid: 54a862d2858dd7b4cad14dbefb2fb353, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -733,7 +733,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 90
   m_Sprite: {fileID: 1788094342, guid: 54a862d2858dd7b4cad14dbefb2fb353, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -963,7 +963,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 90
   m_Sprite: {fileID: -1850050796, guid: 54a862d2858dd7b4cad14dbefb2fb353, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1047,7 +1047,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 90
   m_Sprite: {fileID: 2056931139, guid: 54a862d2858dd7b4cad14dbefb2fb353, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1148,8 +1148,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5dea9c3ec738f54f8db14eef4b58676, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bulletPull: {fileID: 0}
-  _particlePull: {fileID: 0}
   _weapon: {fileID: 11400000, guid: dd412964c41e3ca44a57c60ab1035f00, type: 2}
   _handSwitcher: {fileID: 271194058530123486}
 --- !u!1 &271194059758955146
@@ -1253,6 +1251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee93585deb3f32e40adca274e40733e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _particleDammage: {fileID: 6935256963323112072, guid: 4b325585f7833a94a883f2bfa73015a8, type: 3}
 --- !u!66 &271194059758955139
 CompositeCollider2D:
   m_ObjectHideFlags: 0
@@ -1302,6 +1301,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dammageLayer: 8
+  _dammageLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
   _lifeController: {fileID: 271194059758955138}
   _dammageFactor: 1
 --- !u!1 &271194059759582550

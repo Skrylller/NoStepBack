@@ -5,9 +5,10 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class BulletEntity : PullableObj
 {
+    [SerializeField] private PullableObj _particle;
     [SerializeField] private LayerMask _layerMask;
-    [SerializeField] private PullObjects _particlesPull;
 
+    private PullObjects _particlesPull;
     private BulletModel _model;
     private Rigidbody2D _rigidbody2D;
     private RaycastHit2D _hit;
@@ -23,10 +24,10 @@ public class BulletEntity : PullableObj
         CheckPosHit();
     }
 
-    public void Init(BulletModel model, PullObjects pull, float angle = 0)
+    public void Init(BulletModel model, float angle = 0)
     {
         _model = model;
-        _particlesPull = pull;
+        _particlesPull = PullsController.main.GetPull(_particle);
 
         transform.eulerAngles += new Vector3(0, 0, angle);
         _direction = new Vector2(transform.eulerAngles.z > 90 && transform.eulerAngles.z < 270 ? -1 : 1, transform.eulerAngles.z > 180 ? -1 : 1);
@@ -60,7 +61,7 @@ public class BulletEntity : PullableObj
         DammageObserver dammageObserver = _hit.collider.gameObject.GetComponent<DammageObserver>();
 
         if (dammageObserver != null)
-            dammageObserver.TakeDammage(_model.Dammage);
+            dammageObserver.TakeDammage(_model.Dammage, _hit.point, transform.eulerAngles.z);
 
         PullableObj part = _particlesPull.AddObj();
         part.transform.position = _hit.point;

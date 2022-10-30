@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ae72c649714e8f46a6b85defe3822e3, type: 3}
   m_Name: PistolBullet
   m_EditorClassIdentifier: 
+  _bulletPref: {fileID: 2767884668323362108, guid: e58d646f2e74401419d496f9427576b1, type: 3}
   _speed: 1000
   _dammage: 100
   _lifeTime: 2

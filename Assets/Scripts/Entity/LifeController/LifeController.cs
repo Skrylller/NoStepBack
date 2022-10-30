@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class LifeController : MonoBehaviour, ISliderVisitor
 {
+
+    [SerializeField] private PullableObj _particleDammage;
+    private PullObjects _partPull;
+
     private ILifeModel _model;
 
     private uint _health;
@@ -31,15 +35,23 @@ public class LifeController : MonoBehaviour, ISliderVisitor
         } 
     }
 
+    private void Start()
+    {
+        _partPull = PullsController.main.GetPull(_particleDammage);
+    }
+
     public void Init(ILifeModel model)
     {
         _model = model;
         Health = _model.MaxHealth;
     }
 
-    public void TakeDammage(uint dammage)
+    public void TakeDammage(uint dammage, Vector2 point, float angle)
     {
-        if(_health <= dammage)
+        PullableObj part = _partPull.AddObj();
+        part.SetTransform(point, angle);
+
+        if (_health <= dammage)
         {
             Health = 0;
             OnDeath?.Invoke();
@@ -49,8 +61,6 @@ public class LifeController : MonoBehaviour, ISliderVisitor
             Health = HealthGet - dammage;
             OnDammage?.Invoke();
         }
-
-        Debug.Log($"{gameObject.name} take dammage: {dammage}");
     }
 
     public void Hill(uint hill)

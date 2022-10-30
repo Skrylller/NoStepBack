@@ -22,6 +22,9 @@ public class EnemyController : MonoBehaviour
 
     [SerializeField] private Animator _footAnimator;
     [SerializeField] private ModeSwitcher _rotateSwitcher;
+    
+    [Header("Particles")]
+    [SerializeField] private PullableObj _particleDeath;
 
     private Rigidbody2D _rbEnemy;
 
@@ -43,12 +46,16 @@ public class EnemyController : MonoBehaviour
 
     private void OnEnable()
     {
+        _lifeController.OnDammage += Dammage;
+        _lifeController.OnDeath += Death;
         _enemyPlayerObserver.OnView += ViewPlayer;
         isNewTargetDelay = false;
     }
 
     private void OnDisable()
     {
+        _lifeController.OnDammage -= Dammage;
+        _lifeController.OnDeath -= Death;
         _enemyPlayerObserver.OnView -= ViewPlayer;
     }
 
@@ -123,6 +130,17 @@ public class EnemyController : MonoBehaviour
         _randomTargetFinder.target = player.transform.position;
 
         _model.isRun = true;
+    }
+
+    private void Dammage()
+    {
+
+    }
+
+    private void Death()
+    {
+        PullsController.main.GetPull(_particleDeath).AddObj().SetTransform(transform.position);
+        gameObject.SetActive(false);
     }
 
     private IEnumerator NewTargetTimer()

@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class ShootingController : MonoBehaviour
 {
-    [SerializeField] private PullObjects _bulletPull;
-    [SerializeField] private PullObjects _particlePull;
     [SerializeField] private WeaponModel _weapon;
     [SerializeField] private ModeSwitcher _handSwitcher;
 
@@ -63,8 +61,8 @@ public class ShootingController : MonoBehaviour
 
     private void CreateBullet()
     {
-        BulletEntity bullet = _bulletPull.AddObj() as BulletEntity;
-        bullet.Init(_weapon.Bullet, _particlePull, UnityEngine.Random.Range(-(_weapon.SpreadAngle / 2), _weapon.SpreadAngle / 2));
+        BulletEntity bullet = PullsController.main.GetPull(_weapon.Bullet.BulletPref).AddObj() as BulletEntity;
+        bullet.Init(_weapon.Bullet, UnityEngine.Random.Range(-(_weapon.SpreadAngle / 2), _weapon.SpreadAngle / 2));
     }
 
     private IEnumerator WeaponDelayCourotine()
