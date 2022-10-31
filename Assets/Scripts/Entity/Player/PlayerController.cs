@@ -1,9 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class PlayerController : MonoBehaviour, IMousePositionVisitor
+public class PlayerController : MonoBehaviour, IMousePositionVisitor, ICapturedObject
 {
     private enum SpriteState
     {
@@ -19,6 +20,7 @@ public class PlayerController : MonoBehaviour, IMousePositionVisitor
         Sit,
         Crawl,
         Climb,
+        Capture,
     }
 
     [SerializeField] private PlayerModel _model;
@@ -30,12 +32,16 @@ public class PlayerController : MonoBehaviour, IMousePositionVisitor
     [SerializeField] private StairsController _stairsController;
     [SerializeField] private PlayerSitController _sitController;
     [SerializeField] private LifeController _lifeController;
+    [SerializeField] private PlayerUI _playerUI;
 
     [SerializeField] private ToTargetRotator2D _rotator;
     [SerializeField] private ModeSwitcher _spriteSwitcher;
     [SerializeField] private Animator _animator;
 
     private Rigidbody2D _rbPlayer;
+    private Transform _captureTarget;
+
+    private bool stopInput;
 
     private PlayerAnimatorState _state;
     public PlayerAnimatorState State
@@ -79,8 +85,16 @@ public class PlayerController : MonoBehaviour, IMousePositionVisitor
         SetState();
     }
 
+    private void FixedUpdate()
+    {
+        CheckCapture();
+    }
+
     public void MoveHorizontal(float directional)
     {
+        if (stopInput)
+            return;
+
         if (_jumpingController.IsGrounded > 0)
         {
             _spriteSwitcher.State = directional < 0 ? (int)SpriteState.Left : (int)SpriteState.Right;
@@ -97,6 +111,9 @@ public class PlayerController : MonoBehaviour, IMousePositionVisitor
 
     public void Jump()
     {
+        if (stopInput)
+            return;
+
         if (_stairsController.Collider != null)
             return;
 
@@ -113,6 +130,9 @@ public class PlayerController : MonoBehaviour, IMousePositionVisitor
 
     public void UpClimb()
     {
+        if (stopInput)
+            return;
+
         if (_stairsController.Collider != null)
         {
             _stairsController.ClimbStair(1);
@@ -121,6 +141,9 @@ public class PlayerController : MonoBehaviour, IMousePositionVisitor
 
     public void JumpUp()
     {
+        if (stopInput)
+            return;
+
         if (_stairsController.Collider != null)
         {
             _stairsController.ClimbStair(0);
@@ -149,14 +172,19 @@ public class PlayerController : MonoBehaviour, IMousePositionVisitor
 
     public void Shoot()
     {
-        if(State == PlayerAnimatorState.Idle || 
+        if (stopInput)
+            return;
+
+        if (State == PlayerAnimatorState.Idle || 
             State == PlayerAnimatorState.Walk)
             _shootingController.Shoot();
     }
 
     private void SetState()
     {
-        if (_model.isSit && _rbPlayer.velocity.x == 0)
+        if (_lifeController.IsCapture)
+            State = PlayerAnimatorState.Capture;
+        else if (_model.isSit && _rbPlayer.velocity.x == 0)
             State = PlayerAnimatorState.Sit;
         else if (_model.isSit && _rbPlayer.velocity.x != 0)
             State = PlayerAnimatorState.Crawl;
@@ -174,6 +202,9 @@ public class PlayerController : MonoBehaviour, IMousePositionVisitor
 
     public void Sit()
     {
+        if (stopInput)
+            return;
+
         if (_stairsController.Collider != null)
         {
             _sitController.Sit(false);
@@ -199,6 +230,29 @@ public class PlayerController : MonoBehaviour, IMousePositionVisitor
     public void SetWeapon(int weapon)
     {
         _shootingController.SetWeapon((WeaponModel.WeaponType)weapon);
+    }
+
+    public void Capture(Transform position)
+    {
+        stopInput = true;
+        _captureTarget = position;
+        _playerUI.ActiveCapture();
+        SitUp();
+        MoveHorizontalStop();
+    }
+
+    public void EndCapture()
+    {
+        _playerUI.DeactiveCapture();
+        stopInput = false;
+    }
+
+    private void CheckCapture()
+    {
+        if (!_lifeController.IsCapture)
+            return;
+
+        _rbPlayer.MovePosition(_captureTarget.position);
     }
 
     private void PlatformOn()

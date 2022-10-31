@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class EnemyController : MonoBehaviour
+public class EnemyController : MonoBehaviour, ICapturedObject
 {
     public enum RotationState
     {
@@ -27,8 +27,11 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private PullableObj _particleDeath;
 
     private Rigidbody2D _rbEnemy;
+    private Transform _captureTarget;
+    private bool _unactiveEnemy;
 
     [HideInInspector] public bool isNewTargetDelay;
+
 
     private void Awake()
     {
@@ -80,6 +83,9 @@ public class EnemyController : MonoBehaviour
 
     private void MoveToTarget()
     {
+        if (_unactiveEnemy)
+            return;
+
         if (_randomTargetFinder.target == null)
             return;
         
@@ -141,6 +147,25 @@ public class EnemyController : MonoBehaviour
     {
         PullsController.main.GetPull(_particleDeath).AddObj().SetTransform(transform.position);
         gameObject.SetActive(false);
+    }
+
+    public void Capture(Transform position)
+    {
+        _unactiveEnemy = true;
+        _enemyAttackController.StopAttack();
+        _captureTarget = position;
+    }
+
+    public void EndCapture()
+    {
+        _unactiveEnemy = false;
+    }
+    private void CheckCapture()
+    {
+        if (!_lifeController.IsCapture)
+            return;
+
+        _rbEnemy.MovePosition(_captureTarget.position);
     }
 
     private IEnumerator NewTargetTimer()

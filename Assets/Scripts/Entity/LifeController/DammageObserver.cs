@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -42,10 +43,22 @@ public class DammageObserver : MonoBehaviour
 
             TakeDammage(dammageArea.Dammage, hit.point, Vector3.SignedAngle(collision.gameObject.transform.position, _collider.bounds.center, Vector3.right));
         }
+
+        CaptureArea captureArea = collision.gameObject.GetComponent<CaptureArea>();
+
+        if(captureArea != null)
+        {
+            Capture(captureArea.TargetPosition, captureArea.TapCount, () => captureArea.EndCapture());
+        }
     }
 
     public void TakeDammage(uint dammage, Vector2 point, float angle)
     {
         _lifeController.TakeDammage((uint)Mathf.Abs(dammage * _dammageFactor), point, angle);
+    }
+
+    public void Capture(Transform position, int tapCount, Action EndAction)
+    {
+        _lifeController.Capture(position, tapCount, EndAction);
     }
 }
