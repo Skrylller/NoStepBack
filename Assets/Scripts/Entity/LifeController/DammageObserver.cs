@@ -46,7 +46,6 @@ public class DammageObserver : MonoBehaviour
 
     public void TakeDammage(uint dammage, Vector2 point, float angle)
     {
-        Debug.Log(angle);
         _lifeController.TakeDammage((uint)Mathf.Abs(dammage * _dammageFactor), point, angle);
     }
 }

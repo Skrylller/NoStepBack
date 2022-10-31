@@ -24,7 +24,8 @@ public class PullsController : MonoBehaviour
         if (pulls.Count > 0)
             return pulls[0];
 
-        _pulls.Add(Instantiate(_pullPref));
+        _pulls.Add(Instantiate(_pullPref, transform));
+        _pulls.Last().gameObject.SetActive(true);
         _pulls.Last().Init(obj);
         return _pulls.Last();
     }

@@ -5,16 +5,29 @@ using UnityEngine;
 
 public class ShootingController : MonoBehaviour
 {
+    public enum HandState
+    {
+        idle,
+        shoot
+    }
+
     [SerializeField] private WeaponModel _weapon;
+    [SerializeField] private Transform _bulletDefPos;
     [SerializeField] private ModeSwitcher _handSwitcher;
+    [SerializeField] private Animator _handAnimator;
 
     public Action<WeaponModel.WeaponType> OnChangeWeapon;
 
     private bool delay;
 
+    [Header("Particles")]
+    [SerializeField] private PullableObj _shootPart;
+    private PullObjects _partPullObjects;
+
     public void Start()
     {
         SetWeapon(_weapon.Weapon);
+        _partPullObjects = PullsController.main.GetPull(_shootPart);
     }
 
     public void SetWeapon(WeaponModel.WeaponType weapon)
@@ -61,8 +74,11 @@ public class ShootingController : MonoBehaviour
 
     private void CreateBullet()
     {
+        _handAnimator.SetInteger("State", (int)HandState.shoot);
         BulletEntity bullet = PullsController.main.GetPull(_weapon.Bullet.BulletPref).AddObj() as BulletEntity;
         bullet.Init(_weapon.Bullet, UnityEngine.Random.Range(-(_weapon.SpreadAngle / 2), _weapon.SpreadAngle / 2));
+        PullableObj part = _partPullObjects.AddObj();
+        part.SetTransform(_bulletDefPos.transform.position, _bulletDefPos.transform.eulerAngles.z);
     }
 
     private IEnumerator WeaponDelayCourotine()

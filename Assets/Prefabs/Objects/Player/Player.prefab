@@ -620,6 +620,8 @@ GameObject:
   m_Component:
   - component: {fileID: 271194058943523523}
   - component: {fileID: 271194058943523520}
+  - component: {fileID: 2014705664}
+  - component: {fileID: 2014705665}
   m_Layer: 3
   m_Name: Rotator
   m_TagString: Untagged
@@ -661,6 +663,41 @@ MonoBehaviour:
   _rotationSpeed: 0
   _useAimObj: 0
   _aimObj: {fileID: 0}
+--- !u!95 &2014705664
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 271194058943523522}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 405e7d865cdd5764b837515d9c60abf2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2014705665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 271194058943523522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4d2a1cbfb16d2e4a9702b0e61cb4be0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _action:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &271194059022390171
 GameObject:
   m_ObjectHideFlags: 0
@@ -769,7 +806,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 271194059049573226}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17, y: 3, z: 0}
+  m_LocalPosition: {x: 18, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1149,7 +1186,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weapon: {fileID: 11400000, guid: dd412964c41e3ca44a57c60ab1035f00, type: 2}
+  _bulletDefPos: {fileID: 271194059049573227}
   _handSwitcher: {fileID: 271194058530123486}
+  _handAnimator: {fileID: 2014705664}
+  _shootPart: {fileID: 7940058799545274758, guid: e2ef1cada6fef914c8b9623e4900fedf, type: 3}
 --- !u!1 &271194059758955146
 GameObject:
   m_ObjectHideFlags: 0
@@ -1251,7 +1291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee93585deb3f32e40adca274e40733e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _particleDammage: {fileID: 6935256963323112072, guid: 4b325585f7833a94a883f2bfa73015a8, type: 3}
+  _particleDammage: {fileID: 4411087243347496711, guid: d422440970b8acb47930b07ee5529f38, type: 3}
 --- !u!66 &271194059758955139
 CompositeCollider2D:
   m_ObjectHideFlags: 0
