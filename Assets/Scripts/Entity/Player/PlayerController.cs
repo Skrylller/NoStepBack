@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour, IMousePositionVisitor, ICapturedO
     [SerializeField] private LifeController _lifeController;
     [SerializeField] private PlayerUI _playerUI;
 
-    [SerializeField] private ToTargetRotator2D _rotator;
+    [SerializeField] private List<ToTargetRotator2D> _rotators;
     [SerializeField] private ModeSwitcher _spriteSwitcher;
     [SerializeField] private Animator _animator;
 
@@ -153,21 +153,29 @@ public class PlayerController : MonoBehaviour, IMousePositionVisitor, ICapturedO
 
     public void CheckMouse(Vector2 mousePos)
     {
-        float xBias = mousePos.x - _rotator.transform.position.x;
-
-        if (_spriteSwitcher.State == (int)SpriteState.Right && xBias < 0)
-            mousePos -= new Vector2(xBias * 2, 0);
-
-        if(_spriteSwitcher.State == (int)SpriteState.Left)
+        foreach(ToTargetRotator2D rotator in _rotators)
         {
-            float yBias = mousePos.y - _rotator.transform.position.y;
-
-            mousePos -= new Vector2(0, yBias * 2);
-            if (xBias < 0)
-                mousePos -= new Vector2(xBias * 2, 0);
+            SetRotator(rotator, mousePos);
         }
 
-        _rotator.Rotate(mousePos);
+        void SetRotator(ToTargetRotator2D rotator, Vector2 mousePos)
+        {
+            float xBias = mousePos.x - rotator.transform.position.x;
+
+            if (_spriteSwitcher.State == (int)SpriteState.Right && xBias < 0)
+                mousePos -= new Vector2(xBias * 2, 0);
+
+            if (_spriteSwitcher.State == (int)SpriteState.Left)
+            {
+                float yBias = mousePos.y - rotator.transform.position.y;
+
+                mousePos -= new Vector2(0, yBias * 2);
+                if (xBias < 0)
+                    mousePos -= new Vector2(xBias * 2, 0);
+            }
+
+            rotator.Rotate(mousePos);
+        }
     }
 
     public void Shoot()
