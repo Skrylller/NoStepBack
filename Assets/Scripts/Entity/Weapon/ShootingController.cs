@@ -19,6 +19,8 @@ public class ShootingController : MonoBehaviour
     public Action<WeaponModel.WeaponType> OnChangeWeapon;
 
     private bool delay;
+    private bool _isReload;
+    public bool IsReload => _isReload;
 
     [Header("Particles")]
     [SerializeField] private PullableObj _shootPart;
@@ -61,15 +63,29 @@ public class ShootingController : MonoBehaviour
         if (delay || _weapon == null)
             return;
 
-        if (PlayerInventory.main.CheckItem(_weapon.Bullet.BulletType, 1, true))
+        if(_weapon.BulletInClip > 0)
         {
+            _weapon.BulletInClip--;
             for (int i = 0; i < _weapon.BulletÑount; i++)
             {
                 CreateBullet();
             }
-
             StartCoroutine(WeaponDelayCourotine());
         }
+    }
+
+    public void Reload()
+    {
+        if(_weapon != null)
+        {
+            _isReload = true;
+            UIController.main.OpenWeaponReloadUI(_weapon, EndReload);
+        }
+    }
+
+    private void EndReload()
+    {
+        _isReload = false;
     }
 
     private void CreateBullet()

@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour, IMousePositionVisitor, ICapturedO
         Crawl,
         Climb,
         Capture,
+        IdleReload,
+        WalkReload,
     }
 
     [SerializeField] private PlayerModel _model;
@@ -97,6 +99,9 @@ public class PlayerController : MonoBehaviour, IMousePositionVisitor, ICapturedO
 
         if (_jumpingController.IsGrounded > 0)
         {
+            if (_shootingController.IsReload)
+                directional /= 2;
+
             _spriteSwitcher.State = directional < 0 ? (int)SpriteState.Left : (int)SpriteState.Right;
             _movingController.MoveHorizontal(directional);
             _stairsController.CheckStair(directional);
@@ -117,6 +122,9 @@ public class PlayerController : MonoBehaviour, IMousePositionVisitor, ICapturedO
         if (_stairsController.Collider != null)
             return;
 
+        if (_shootingController.IsReload)
+            return;
+
         if (_model.isSit)
         {
             PlatformOff();
@@ -133,6 +141,10 @@ public class PlayerController : MonoBehaviour, IMousePositionVisitor, ICapturedO
         if (stopInput)
             return;
 
+
+        if (_shootingController.IsReload)
+            return;
+
         if (_stairsController.Collider != null)
         {
             _stairsController.ClimbStair(1);
@@ -142,6 +154,9 @@ public class PlayerController : MonoBehaviour, IMousePositionVisitor, ICapturedO
     public void JumpUp()
     {
         if (stopInput)
+            return;
+
+        if (_shootingController.IsReload)
             return;
 
         if (_stairsController.Collider != null)
@@ -183,9 +198,31 @@ public class PlayerController : MonoBehaviour, IMousePositionVisitor, ICapturedO
         if (stopInput)
             return;
 
+        if (_shootingController.IsReload)
+            return;
+
         if (State == PlayerAnimatorState.Idle || 
             State == PlayerAnimatorState.Walk)
             _shootingController.Shoot();
+    }
+
+    public void Reload()
+    {
+        if (stopInput)
+            return;
+
+        if (_shootingController.IsReload)
+        {
+            UIController.main.CloseAllWindow();
+            return;
+        }
+
+        if (State == PlayerAnimatorState.Idle ||
+            State == PlayerAnimatorState.Walk)
+        {
+            _shootingController.Reload();
+            SitUp();
+        }
     }
 
     private void SetState()
@@ -213,6 +250,9 @@ public class PlayerController : MonoBehaviour, IMousePositionVisitor, ICapturedO
         if (stopInput)
             return;
 
+        if (_shootingController.IsReload)
+            return;
+
         if (_stairsController.Collider != null)
         {
             _sitController.Sit(false);
@@ -237,6 +277,10 @@ public class PlayerController : MonoBehaviour, IMousePositionVisitor, ICapturedO
 
     public void SetWeapon(int weapon)
     {
+
+        if (_shootingController.IsReload)
+            return;
+
         _shootingController.SetWeapon((WeaponModel.WeaponType)weapon);
     }
 
