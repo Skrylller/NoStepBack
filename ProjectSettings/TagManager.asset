@@ -20,7 +20,7 @@ TagManager:
   - Stair
   - PlayerVisitor
   - EnemyHealthBody
-  - 
+  - PhysicsWithoutPlayer
   - 
   - 
   - 
