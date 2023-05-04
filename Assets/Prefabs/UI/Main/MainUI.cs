@@ -18,12 +18,12 @@ public class MainUI : MonoBehaviour
 
     private void OnEnable()
     {
-        PlayerInventory.main.OnUpdate += SetItems;
+        PlayerInventory.Inventory.OnUpdate += SetItems;
     }
 
     private void OnDisable()
     {
-        PlayerInventory.main.OnUpdate -= SetItems;
+        PlayerInventory.Inventory.OnUpdate -= SetItems;
     }
 
     public void SetItems()
@@ -32,7 +32,7 @@ public class MainUI : MonoBehaviour
 
         for(int i = 0; i < items.Count; i++)
         {
-            InventoryItem item = PlayerInventory.main.GetInventoryItem(items[i]);
+            InventoryItem item = PlayerInventory.Inventory.GetInventoryItem(items[i]);
             if(item == null)
                 continue;
 
@@ -43,7 +43,7 @@ public class MainUI : MonoBehaviour
 
     public void SetWeapon(WeaponModel.WeaponType weapon)
     {
-        if (weapon == WeaponModel.WeaponType.None && PlayerInventory.main.CheckItem(ItemModel.ItemType.Flashlight))
+        if (weapon == WeaponModel.WeaponType.None && PlayerInventory.Inventory.CheckItem(ItemModel.ItemType.Flashlight))
             _weaponIndikator.State = 0;
         else
             _weaponIndikator.State = (int)weapon + 1;

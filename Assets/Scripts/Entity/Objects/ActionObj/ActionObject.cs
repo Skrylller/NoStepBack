@@ -62,7 +62,7 @@ public class ActionObject : MonoBehaviour
     {
         for (int i = 0; i < keys.Count; i++)
         {
-            if (!PlayerInventory.main.CheckKey(keys[i].Key))
+            if (!PlayerInventory.Inventory.CheckKey(keys[i].Key))
                 return false;
                 
         }

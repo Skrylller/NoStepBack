@@ -56,7 +56,7 @@ public class WeaponReloadUI : MonoBehaviour
 
         for(int i = 0; i < _ammo.Count; i++)
         {
-            if (PlayerInventory.main.CheckItem(weapon.Bullet.BulletType, (uint)i + 1, false))
+            if (PlayerInventory.Inventory.CheckItem(weapon.Bullet.BulletType, (uint)i + 1, false))
                 _ammo[i].SetState((int)AmmoState.have);
             else
                 _ammo[i].SetState((int)AmmoState.havent);
@@ -99,7 +99,7 @@ public class WeaponReloadUI : MonoBehaviour
 
     public bool AmmoCheck()
     {
-        return PlayerInventory.main.CheckItem(_weapon.Bullet.BulletType, 1, true);
+        return PlayerInventory.Inventory.CheckItem(_weapon.Bullet.BulletType, 1, true);
     }
 
     private void Reload()

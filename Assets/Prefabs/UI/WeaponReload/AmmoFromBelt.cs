@@ -47,7 +47,10 @@ public class AmmoFromBelt : MonoBehaviour
             }
         }
 
+        OnAmmoCheck.Invoke();
+        _modeSwitcher.State = (int)WeaponReloadUI.AmmoState.havent;
         _dragObject.transform.localPosition = Vector3.zero;
+        PlayerInventory.main.DropItem();
         //drop
     }
 }

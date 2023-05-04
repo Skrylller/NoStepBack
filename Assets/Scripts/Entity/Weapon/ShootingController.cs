@@ -42,7 +42,7 @@ public class ShootingController : MonoBehaviour
             return;
         }
 
-        WeaponModel tWeapon = PlayerInventory.main.GetWeapon(weapon);
+        WeaponModel tWeapon = PlayerInventory.Inventory.GetWeapon(weapon);
 
         if (tWeapon == null)
         {

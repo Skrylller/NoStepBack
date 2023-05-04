@@ -20,21 +20,26 @@ public class InventoryObject : MonoBehaviour
         _inventoryObjUI.gameObject.SetActive(true);
     }
 
+    public void SetInventory(Inventory items)
+    {
+        _inventory = items;
+    }
+
     public void TakeItems()
     {
         for(int i = 0; i < _inventory.Items.Count; i++)
         {
-            PlayerInventory.main.AddItem(_inventory.Items[i].ItemModel, _inventory.Items[i].Count);
+            PlayerInventory.Inventory.AddItem(_inventory.Items[i].ItemModel, _inventory.Items[i].Count);
         }
 
         for (int i = 0; i < _inventory.KeyModels.Count; i++)
         {
-            PlayerInventory.main.AddItem(_inventory.KeyModels[i]);
+            PlayerInventory.Inventory.AddItem(_inventory.KeyModels[i]);
         }
 
         for (int i = 0; i < _inventory.weaponModels.Count; i++)
         {
-            PlayerInventory.main.AddItem(_inventory.weaponModels[i]);
+            PlayerInventory.Inventory.AddItem(_inventory.weaponModels[i]);
         }
     }
 }

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class Inventory : MonoBehaviour
+public class Inventory
 {
     [SerializeField] private List<InventoryItemCounter> _Items;
     [SerializeField] private List<KeyModel> _keyModels;
@@ -16,6 +16,11 @@ public class Inventory : MonoBehaviour
     public List<WeaponModel> weaponModels { get { return _weaponModels; } }
 
     public Action OnUpdate;
+
+    public Inventory(List<InventoryItemCounter> items)
+    {
+        _Items = items;
+    }
 
     public void AddItem(ItemModel item, uint value = 1)
     {
