@@ -40,7 +40,7 @@ public class WeaponReloadUI : MonoBehaviour
         }
     }
 
-    public void Init(WeaponModel weapon, Action onEndReload)
+    public void Init(WeaponModel weapon, Action onEndReload, Transform dropPosition)
     {
         _weapon = weapon;
 
@@ -57,9 +57,9 @@ public class WeaponReloadUI : MonoBehaviour
         for(int i = 0; i < _ammo.Count; i++)
         {
             if (PlayerInventory.Inventory.CheckItem(weapon.Bullet.BulletType, (uint)i + 1, false))
-                _ammo[i].SetState((int)AmmoState.have);
+                _ammo[i].Init(_weapon.Bullet.BulletType, (int)AmmoState.have, dropPosition);
             else
-                _ammo[i].SetState((int)AmmoState.havent);
+                _ammo[i].Init(_weapon.Bullet.BulletType, (int)AmmoState.havent, dropPosition);
         }
 
 

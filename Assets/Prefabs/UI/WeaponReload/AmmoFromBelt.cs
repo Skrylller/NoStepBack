@@ -1,12 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using System;
+using UnityEngine;
 
 public class AmmoFromBelt : MonoBehaviour
 {
     [SerializeField] private DragObject _dragObject;
     [SerializeField] private ModeSwitcher _modeSwitcher;
+
+    private Transform _dropPosition;
+    private ItemModel.ItemType _ammoType;
 
     public Action OnReload;
     public Func<bool> OnAmmoCheck;
@@ -16,9 +17,11 @@ public class AmmoFromBelt : MonoBehaviour
         _dragObject.OnUp += MouseUp;
     }
 
-    public void SetState(int value)
+    public void Init(ItemModel.ItemType ammoType, int state, Transform dropPos)
     {
-        _modeSwitcher.State = value;
+        _dropPosition = dropPos;
+        _ammoType = ammoType;
+        _modeSwitcher.State = state;
     }
 
     public void MouseUp()
@@ -50,7 +53,8 @@ public class AmmoFromBelt : MonoBehaviour
         OnAmmoCheck.Invoke();
         _modeSwitcher.State = (int)WeaponReloadUI.AmmoState.havent;
         _dragObject.transform.localPosition = Vector3.zero;
-        PlayerInventory.main.DropItem();
+        ItemModel item = PlayerInventory.Inventory.GetInventoryItem(_ammoType).ItemModel;
+        PlayerInventory.main.DropItem(item, _dropPosition);
         //drop
     }
 }

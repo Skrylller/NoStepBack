@@ -7073,7 +7073,7 @@ MonoBehaviour:
     _keyModels: []
     _weaponModels: []
   _dropObject: {fileID: 4958783063690059754, guid: c525fd7f1b6467b42a25a8941569c27e, type: 3}
-  _dropRandomDirectional: {x: 1, y: 1}
+  _dropRandomDirectional: {x: 5, y: 5}
 --- !u!1 &1707519712
 GameObject:
   m_ObjectHideFlags: 0
@@ -10434,6 +10434,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 271194059727764456, guid: 567b915ae3652564bb6c0c5811743039, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 271194059727764456, guid: 567b915ae3652564bb6c0c5811743039, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 271194059758955144, guid: 567b915ae3652564bb6c0c5811743039, type: 3}
       propertyPath: m_RootOrder
       value: 2

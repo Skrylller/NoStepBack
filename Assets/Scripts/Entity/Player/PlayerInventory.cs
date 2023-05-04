@@ -19,7 +19,7 @@ public class PlayerInventory : MonoBehaviour
         Inventory = _inventory;
     }
 
-    public void DropItem(ItemModel item, uint count = 1)
+    public void DropItem(ItemModel item, Transform dropPosition, uint count = 1)
     {
         DropObject dropItem = PullsController.main.GetPull(_dropObject).AddObj() as DropObject;
 
@@ -30,6 +30,6 @@ public class PlayerInventory : MonoBehaviour
 
         Vector2 directional = new Vector2(Random.Range(-_dropRandomDirectional.x, _dropRandomDirectional.x), Random.Range(-_dropRandomDirectional.y, _dropRandomDirectional.y));
 
-        dropItem.Init(dropInventory, directional);
+        dropItem.Init(dropInventory, dropPosition.position, directional);
     }
 }

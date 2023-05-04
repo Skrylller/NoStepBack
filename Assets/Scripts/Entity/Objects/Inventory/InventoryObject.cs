@@ -16,6 +16,9 @@ public class InventoryObject : MonoBehaviour
 
     public void Init()
     {
+        if (_inventory == null)
+            return;
+
         _inventoryObjUI.Init(_inventory);
         _inventoryObjUI.gameObject.SetActive(true);
     }
@@ -23,6 +26,7 @@ public class InventoryObject : MonoBehaviour
     public void SetInventory(Inventory items)
     {
         _inventory = items;
+        _inventoryObjUI.Init(_inventory);
     }
 
     public void TakeItems()

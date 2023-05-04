@@ -79,7 +79,7 @@ public class ShootingController : MonoBehaviour
         if(_weapon != null)
         {
             _isReload = true;
-            UIController.main.OpenWeaponReloadUI(_weapon, EndReload);
+            UIController.main.OpenWeaponReloadUI(_weapon, EndReload, transform);
         }
     }
 

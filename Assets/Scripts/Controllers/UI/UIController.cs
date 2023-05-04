@@ -37,11 +37,11 @@ public class UIController : MonoBehaviour
         _weaponReloadUI.gameObject.SetActive(false);
     }
 
-    public void OpenWeaponReloadUI(WeaponModel weapon, Action onEndReload)
+    public void OpenWeaponReloadUI(WeaponModel weapon, Action onEndReload, Transform dropPosition)
     {
         CloseAllWindow();
 
         _weaponReloadUI.gameObject.SetActive(true);
-        _weaponReloadUI.Init(weapon, onEndReload);
+        _weaponReloadUI.Init(weapon, onEndReload, dropPosition);
     }
 }

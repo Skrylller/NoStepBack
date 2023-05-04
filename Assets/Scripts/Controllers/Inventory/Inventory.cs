@@ -7,9 +7,9 @@ using UnityEngine;
 [System.Serializable]
 public class Inventory
 {
-    [SerializeField] private List<InventoryItemCounter> _Items;
-    [SerializeField] private List<KeyModel> _keyModels;
-    [SerializeField] private List<WeaponModel> _weaponModels;
+    [SerializeField] private List<InventoryItemCounter> _Items = new List<InventoryItemCounter>();
+    [SerializeField] private List<KeyModel> _keyModels = new List<KeyModel>();
+    [SerializeField] private List<WeaponModel> _weaponModels = new List<WeaponModel>();
     protected virtual bool isPlayerInventory() { return false; }
     public List<InventoryItemCounter> Items { get { return _Items; } }
     public List<KeyModel> KeyModels { get { return _keyModels; } }
@@ -20,6 +20,7 @@ public class Inventory
     public Inventory(List<InventoryItemCounter> items)
     {
         _Items = items;
+
     }
 
     public void AddItem(ItemModel item, uint value = 1)
