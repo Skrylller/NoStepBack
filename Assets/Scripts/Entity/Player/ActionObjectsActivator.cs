@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ActionObjectsActivator : MonoBehaviour
 {
-    private ActionObject _actionObject;
+    private List<ActionObject> _actionObjects = new List<ActionObject>();
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -12,10 +12,12 @@ public class ActionObjectsActivator : MonoBehaviour
 
         if (actionObject != null)
         {
-            _actionObject?.Exit();
+            if (_actionObjects.Count > 0)
+                _actionObjects[_actionObjects.Count - 1].Exit();
 
-            _actionObject = actionObject;
-            _actionObject.Enter();
+            _actionObjects.Add(actionObject);
+
+            _actionObjects[_actionObjects.Count - 1].Enter();
         }
 
     }
@@ -24,15 +26,21 @@ public class ActionObjectsActivator : MonoBehaviour
     {
         ActionObject actionObject = collision.GetComponent<ActionObject>();
 
-        if (_actionObject != null && actionObject == _actionObject)
+        if (_actionObjects.Count > 0)
         {
-            _actionObject.Exit();
-            _actionObject = null;
+            if (_actionObjects[_actionObjects.Count - 1] == actionObject)
+                _actionObjects[_actionObjects.Count - 1].Exit();
+
+            _actionObjects.Remove(actionObject);
+
+            if (_actionObjects.Count > 0)
+                _actionObjects[_actionObjects.Count - 1].Enter();
         }
     }
 
     public void Action()
     { 
-        _actionObject?.Action();
+        if(_actionObjects.Count > 0)
+            _actionObjects[_actionObjects.Count - 1].Action();
     }
 }
