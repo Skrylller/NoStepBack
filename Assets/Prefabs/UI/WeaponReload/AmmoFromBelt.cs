@@ -22,6 +22,7 @@ public class AmmoFromBelt : MonoBehaviour
         _dropPosition = dropPos;
         _ammoType = ammoType;
         _modeSwitcher.State = state;
+        _dragObject.Init();
     }
 
     public void MouseUp()
@@ -50,11 +51,12 @@ public class AmmoFromBelt : MonoBehaviour
             }
         }
 
-        OnAmmoCheck.Invoke();
         _modeSwitcher.State = (int)WeaponReloadUI.AmmoState.havent;
         _dragObject.transform.localPosition = Vector3.zero;
-        ItemModel item = PlayerInventory.Inventory.GetInventoryItem(_ammoType).ItemModel;
-        PlayerInventory.main.DropItem(item, _dropPosition);
-        //drop
+
+        InventoryItem inventoryItem = PlayerInventory.Inventory.GetInventoryItem(_ammoType);
+
+        if(inventoryItem != null)
+            PlayerInventory.main.DropItem(inventoryItem.ItemModel, _dropPosition);
     }
 }

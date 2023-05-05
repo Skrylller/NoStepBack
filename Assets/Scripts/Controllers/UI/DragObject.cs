@@ -5,7 +5,7 @@ using System;
 
 public class DragObject : MonoBehaviour
 {
-    private bool takeObj;
+    private bool takeObj = false;
 
     public bool TakeObj => takeObj;
 
@@ -44,5 +44,10 @@ public class DragObject : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         Colliders.Remove(collision);
+    }
+
+    public void Init()
+    {
+        takeObj = false;
     }
 }

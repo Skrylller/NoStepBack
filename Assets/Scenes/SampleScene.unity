@@ -7069,11 +7069,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _inventory:
-    _Items: []
+    _Items:
+    - _itemModel: {fileID: 11400000, guid: 9b3300b1837f7c245a5b0389b8ce0153, type: 2}
+      _count: 1
     _keyModels: []
-    _weaponModels: []
+    _weaponModels:
+    - {fileID: 11400000, guid: dd412964c41e3ca44a57c60ab1035f00, type: 2}
   _dropObject: {fileID: 4958783063690059754, guid: c525fd7f1b6467b42a25a8941569c27e, type: 3}
-  _dropRandomDirectional: {x: 5, y: 5}
+  _dropRandomDirectional: {x: 30, y: 30}
 --- !u!1 &1707519712
 GameObject:
   m_ObjectHideFlags: 0
