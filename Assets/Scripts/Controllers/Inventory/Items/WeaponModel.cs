@@ -21,7 +21,7 @@ public class WeaponModel : ItemModel
     [Range(0,360)]
     [SerializeField] private float _spreadAngle;
 
-    public uint BulletInClip = 0;
+    [System.NonSerialized] public uint BulletInClip = 0;
 
     public BulletModel Bullet { get { return _bullet; } }
     public WeaponType Weapon { get { return _weapon; } }

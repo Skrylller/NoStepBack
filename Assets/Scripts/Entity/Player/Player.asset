@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Player
   m_EditorClassIdentifier: 
   _maxHealth: 100
-  _speed: 60
+  _speed: 2000
+  _canRun: 0
   _runFactor: 1
   _jumpForce: 3500
   _crawlingSpeedMultiplier: 0.5
