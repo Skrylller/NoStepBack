@@ -43,7 +43,7 @@ public class ItemPrefab : PullableObj
             _count.text = "1";
 
         if (_itemName != null)
-            _itemName.text = key.name;
+            _itemName.text = key.Name;
     }
 
     public void Init(WeaponModel weapon)
@@ -55,7 +55,7 @@ public class ItemPrefab : PullableObj
             _count.text = "1";
 
         if (_itemName != null)
-            _itemName.text = weapon.name;
+            _itemName.text = weapon.Name;
     }
 
     private void SetData()
@@ -67,6 +67,6 @@ public class ItemPrefab : PullableObj
             _count.text = _item.GetCount.ToString();
 
         if(_itemName != null)
-            _itemName.text = _item.ItemModel.name;
+            _itemName.text = _item.ItemModel.Name;
     }
 }

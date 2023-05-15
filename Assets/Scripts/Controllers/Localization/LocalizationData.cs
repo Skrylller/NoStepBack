@@ -3,14 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-[CreateAssetMenu(fileName = "LOCAL_NAME", menuName = "ScriptableObjects/Localization")]
+[System.Serializable]
+[CreateAssetMenu(fileName = "NAME_LOCAL", menuName = "ScriptableObjects/Localization")]
 public class LocalizationData : ScriptableObject
 {
     [SerializeField] private List<LaunguageData> data = new List<LaunguageData>();
 
     public string GetLocalization(Localizator.Launguage launguage)
     {
-        return data.Where(x => x.launguage == launguage).ToList().First().text;
+        List<LaunguageData> needData = data.Where(x => x.launguage == launguage).ToList();
+
+        if (needData.Count <= 0)
+            return data.First().text;
+        else
+            return needData.First().text;
     }
 }
 

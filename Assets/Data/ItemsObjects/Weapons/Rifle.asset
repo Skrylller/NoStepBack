@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: Rifle
   m_EditorClassIdentifier: 
   _item: 5
-  _name: Rifle
+  _name: {fileID: 11400000, guid: a13d58042944f3144bb3faad3fd9e8d3, type: 2}
+  _description: {fileID: 11400000, guid: 34934c9abd772fc4bb3a104df7bdc76b, type: 2}
   _icon: {fileID: 0}
   _bullet: {fileID: 11400000, guid: c843adf974da98442a01400e789807c1, type: 2}
   _weapon: 2
-  _bulletInClip: 2
+  _bulletInClipMax: 0
   _shootDelay: 1
   "_bullet\u0421ountToShoot": 5
   _spreadAngle: 45

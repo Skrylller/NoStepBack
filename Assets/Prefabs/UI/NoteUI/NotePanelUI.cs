@@ -1,18 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class NotePanelUI : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private TextMeshProUGUI _title;
+    [SerializeField] private TextMeshProUGUI _text;
+    [SerializeField] private ScrollbarPrefab _scrollBar;
 
-    // Update is called once per frame
-    void Update()
+    private NoteData _noteData;
+
+    public void Init(NoteData noteData)
     {
-        
+        _noteData = noteData;
+        _title.text = _noteData.Title.GetLocalization(Localizator.main.SelectedLaunguage);
+        _text.text = _noteData.Text.GetLocalization(Localizator.main.SelectedLaunguage);
     }
 }

@@ -9,9 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7431867fe1a2cc84994fd31dadd0f7da, type: 3}
-  m_Name: MedKit
+  m_Script: {fileID: 11500000, guid: 322105ceac76e1e4981d35896452203c, type: 3}
+  m_Name: RIFFLEAMMO_ITEM_DESCRIPTION
   m_EditorClassIdentifier: 
-  _item: 2
-  _name: MedKit
-  _icon: {fileID: 562519543, guid: 78f93878f6ee5bf4fbda3acd7784d472, type: 3}
+  data:
+  - launguage: 0
+    text: ...
+  - launguage: 1
+    text: ...
