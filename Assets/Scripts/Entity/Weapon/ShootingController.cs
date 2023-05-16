@@ -19,8 +19,6 @@ public class ShootingController : MonoBehaviour
     public Action<WeaponModel.WeaponType> OnChangeWeapon;
 
     private bool delay;
-    private bool _isReload;
-    public bool IsReload => _isReload;
 
     [Header("Particles")]
     [SerializeField] private PullableObj _shootPart;
@@ -78,14 +76,8 @@ public class ShootingController : MonoBehaviour
     {
         if(_weapon != null)
         {
-            _isReload = true;
-            UIController.main.OpenWeaponReloadUI(_weapon, EndReload, transform);
+            UIController.main.OpenWeaponReloadUI(_weapon, transform);
         }
-    }
-
-    private void EndReload()
-    {
-        _isReload = false;
     }
 
     private void CreateBullet()

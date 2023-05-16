@@ -9,14 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26d5eead98e47284783936d8ccbf7f4a, type: 3}
-  m_Name: Player
+  m_Script: {fileID: 11500000, guid: 322105ceac76e1e4981d35896452203c, type: 3}
+  m_Name: TEST_NOTE_DESCRIPTION_LOCAL
   m_EditorClassIdentifier: 
-  _maxHealth: 100
-  _speed: 50
-  _canRun: 0
-  _runFactor: 1
-  _jumpForce: 3500
-  _crawlingSpeedMultiplier: 0.5
-  _stairClimpingSpeed: 45
-  _stairClimpingHeight: 4
+  data:
+  - launguage: 0
+    text: Title
+  - launguage: 1
+    text: "\u0422\u0438\u0442\u0443\u043B\u044C\u043D\u0438\u043A"

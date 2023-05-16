@@ -7,20 +7,15 @@ public class MessagesUI : MonoBehaviour
     [SerializeField] private PullObjects _itemPlusMessages;
     [SerializeField] private PullObjects _messages;
 
-    public void AddItem(InventoryItem item)
+    public void AddInventoryItem(InventoryItem item)
+    {
+        ItemPrefab itemText = _itemPlusMessages.AddObj() as ItemPrefab;
+        itemText.InitWithCounter(item);
+    }
+    public void AddItem(ItemModel item)
     {
         ItemPrefab itemText = _itemPlusMessages.AddObj() as ItemPrefab;
         itemText.Init(item);
-    }
-    public void AddItem(KeyModel key)
-    {
-        ItemPrefab itemText = _itemPlusMessages.AddObj() as ItemPrefab;
-        itemText.Init(key);
-    }
-    public void AddItem(WeaponModel weapon)
-    {
-        ItemPrefab itemText = _itemPlusMessages.AddObj() as ItemPrefab;
-        itemText.Init(weapon);
     }
 
     public void Send(string str)

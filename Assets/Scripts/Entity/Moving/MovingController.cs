@@ -15,6 +15,6 @@ public class MovingController : MonoBehaviour
 
     public void MoveHorizontal(float directional)
     {
-        _rigidbody.velocity = new Vector2(_model.Speed * directional * Time.deltaTime, _rigidbody.velocity.y);
+        _rigidbody.velocity = new Vector2(_model.Speed * directional, _rigidbody.velocity.y);
     }
 }

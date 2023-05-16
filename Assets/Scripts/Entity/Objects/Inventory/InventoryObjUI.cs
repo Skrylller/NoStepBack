@@ -10,7 +10,12 @@ public class InventoryObjUI : MonoBehaviour
     {
         _itemsPull.Clear();
 
-        for(int i = 0; i < inventory.KeyModels.Count; i++)
+        for (int i = 0; i < inventory.NoteModels.Count; i++)
+        {
+            ItemPrefab itemUI = _itemsPull.AddObj() as ItemPrefab;
+            itemUI.Init(inventory.NoteModels[i]);
+        }
+        for (int i = 0; i < inventory.KeyModels.Count; i++)
         {
             ItemPrefab itemUI = _itemsPull.AddObj() as ItemPrefab;
             itemUI.Init(inventory.KeyModels[i]);
@@ -18,7 +23,7 @@ public class InventoryObjUI : MonoBehaviour
         for (int i = 0; i < inventory.Items.Count; i++)
         {
             ItemPrefab itemUI = _itemsPull.AddObj() as ItemPrefab;
-            itemUI.Init(inventory.Items[i]);
+            itemUI.InitWithCounter(inventory.Items[i]);
         }
     }
 }

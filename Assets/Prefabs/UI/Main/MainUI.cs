@@ -37,7 +37,7 @@ public class MainUI : MonoBehaviour
                 continue;
 
             ItemPrefab itemPrefab = _pull.AddObj() as ItemPrefab;
-            itemPrefab.Init(item);
+            itemPrefab.InitWithCounter(item);
         }
     }
 

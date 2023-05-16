@@ -10,12 +10,15 @@ public class Inventory
     [SerializeField] private List<InventoryItemCounter> _Items = new List<InventoryItemCounter>();
     [SerializeField] private List<KeyModel> _keyModels = new List<KeyModel>();
     [SerializeField] private List<WeaponModel> _weaponModels = new List<WeaponModel>();
-    protected virtual bool isPlayerInventory() { return false; }
+    [SerializeField] private List<NoteModel> _noteModels = new List<NoteModel>();
     public List<InventoryItemCounter> Items { get { return _Items; } }
     public List<KeyModel> KeyModels { get { return _keyModels; } }
-    public List<WeaponModel> weaponModels { get { return _weaponModels; } }
+    public List<WeaponModel> WeaponModels { get { return _weaponModels; } }
+    public List<NoteModel> NoteModels { get { return _noteModels; } }
 
     public Action OnUpdate;
+
+    [SerializeField] private bool isPlayerInventory = false;
 
     public Inventory(List<InventoryItemCounter> items)
     {
@@ -29,15 +32,25 @@ public class Inventory
         {
             _keyModels.Add(item as KeyModel);
 
-            if (isPlayerInventory())
+            if (isPlayerInventory)
                 UIController.main.MessageUI.AddItem(item as KeyModel);
         }
         else if (item as WeaponModel)
         {
             _weaponModels.Add(item as WeaponModel);
 
-            if (isPlayerInventory())
+            if (isPlayerInventory)
                 UIController.main.MessageUI.AddItem(item as WeaponModel);
+        }
+        else if (item as NoteModel)
+        {
+            _noteModels.Add(item as NoteModel);
+
+            if (isPlayerInventory)
+            {
+                UIController.main.OpenNoteUI(item as NoteModel);
+                UIController.main.MessageUI.AddItem(item as NoteModel);
+            }
         }
         else
         {
@@ -53,8 +66,8 @@ public class Inventory
                 OnUpdate?.Invoke();
             }
 
-            if(isPlayerInventory())
-                UIController.main.MessageUI.AddItem(new InventoryItemCounter(item, value));
+            if(isPlayerInventory)
+                UIController.main.MessageUI.AddInventoryItem(new InventoryItemCounter(item, value));
         }
     }
 
@@ -106,6 +119,11 @@ public class Inventory
     public bool CheckKey(KeyModel.KeyType key)
     {
         return _keyModels.Where(x => x.Key == key).ToList().Count > 0;
+    }
+
+    public NoteModel CheckNote(NoteModel.Note note)
+    {
+        return _noteModels.Where(x => x.NoteType == note).ToList().First();
     }
 }
 

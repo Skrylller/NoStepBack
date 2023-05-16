@@ -41,9 +41,14 @@ public class InventoryObject : MonoBehaviour
             PlayerInventory.Inventory.AddItem(_inventory.KeyModels[i]);
         }
 
-        for (int i = 0; i < _inventory.weaponModels.Count; i++)
+        for (int i = 0; i < _inventory.WeaponModels.Count; i++)
         {
-            PlayerInventory.Inventory.AddItem(_inventory.weaponModels[i]);
+            PlayerInventory.Inventory.AddItem(_inventory.WeaponModels[i]);
+        }
+
+        for (int i = 0; i < _inventory.NoteModels.Count; i++)
+        {
+            PlayerInventory.Inventory.AddItem(_inventory.NoteModels[i]);
         }
     }
 }

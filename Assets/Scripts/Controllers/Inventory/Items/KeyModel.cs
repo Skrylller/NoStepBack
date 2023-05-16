@@ -7,7 +7,7 @@ public class KeyModel : ItemModel
 {
     public enum KeyType
     {
-        Key
+        Key,
     }
 
     [Header("Key")]

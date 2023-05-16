@@ -13,7 +13,8 @@ public class ItemModel : ScriptableObject
         MasterKey,
         Key,
         Weapon,
-        Flashlight
+        Flashlight,
+        Note,
     }
 
     [Header("Item")]

@@ -31,25 +31,18 @@ public class WeaponReloadUI : MonoBehaviour
 
     private void OnDisable()
     {
-        OnClose?.Invoke();
-        OnClose = null;
-
         for (int i = 0; i < _ammo.Count; i++)
         {
             _ammo[i].MouseUp();
         }
     }
 
-    public void Init(WeaponModel weapon, Action onEndReload, Transform dropPosition)
+    public void Init(WeaponModel weapon, Transform dropPosition)
     {
         _weapon = weapon;
 
-        OnClose += onEndReload;
-
         if (weapon.Weapon == WeaponModel.WeaponType.None)
         {
-            OnClose?.Invoke();
-            OnClose = null;
             Close();
             return;
         }

@@ -9,12 +9,37 @@ public class NotePanelUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _text;
     [SerializeField] private ScrollbarPrefab _scrollBar;
 
-    private NoteData _noteData;
+    private NoteModel _noteData;
 
-    public void Init(NoteData noteData)
+    private void OnEnable()
     {
+        if (_noteData != null)
+            Localizator.main.OnChangeLaunguage += UpdateLocal;
+    }
+
+    private void OnDisable()
+    {
+        if (_noteData != null)
+            Localizator.main.OnChangeLaunguage -= UpdateLocal;
+    }
+
+    public void Init(NoteModel noteData)
+    {
+        if(_noteData == null)
+            Localizator.main.OnChangeLaunguage += UpdateLocal;
+
         _noteData = noteData;
-        _title.text = _noteData.Title.GetLocalization(Localizator.main.SelectedLaunguage);
-        _text.text = _noteData.Text.GetLocalization(Localizator.main.SelectedLaunguage);
+        UpdateWindow();
+    }
+
+    private void UpdateLocal(Localizator.Launguage launguage)
+    {
+        UpdateWindow();
+    }
+
+    private void UpdateWindow()
+    {
+        _title.text = _noteData.Name;
+        _text.text = _noteData.Text;
     }
 }

@@ -43,6 +43,7 @@ public class PlayerController : MonoBehaviour, IMousePositionVisitor, ICapturedO
     private Rigidbody2D _rbPlayer;
     private Transform _captureTarget;
 
+    public bool isBusy;
     private bool stopInput;
 
     private PlayerAnimatorState _state;
@@ -99,7 +100,7 @@ public class PlayerController : MonoBehaviour, IMousePositionVisitor, ICapturedO
 
         if (_jumpingController.IsGrounded > 0)
         {
-            if (_shootingController.IsReload)
+            if (isBusy)
                 directional /= 2;
 
             _spriteSwitcher.State = directional < 0 ? (int)SpriteState.Left : (int)SpriteState.Right;
@@ -122,7 +123,7 @@ public class PlayerController : MonoBehaviour, IMousePositionVisitor, ICapturedO
         if (_stairsController.Collider != null)
             return;
 
-        if (_shootingController.IsReload)
+        if (isBusy)
             return;
 
         if (_model.isSit)
@@ -142,7 +143,7 @@ public class PlayerController : MonoBehaviour, IMousePositionVisitor, ICapturedO
             return;
 
 
-        if (_shootingController.IsReload)
+        if (isBusy)
             return;
 
         if (_stairsController.Collider != null)
@@ -156,7 +157,7 @@ public class PlayerController : MonoBehaviour, IMousePositionVisitor, ICapturedO
         if (stopInput)
             return;
 
-        if (_shootingController.IsReload)
+        if (isBusy)
             return;
 
         if (_stairsController.Collider != null)
@@ -198,7 +199,7 @@ public class PlayerController : MonoBehaviour, IMousePositionVisitor, ICapturedO
         if (stopInput)
             return;
 
-        if (_shootingController.IsReload)
+        if (isBusy)
             return;
 
         if (State == PlayerAnimatorState.Idle || 
@@ -210,12 +211,6 @@ public class PlayerController : MonoBehaviour, IMousePositionVisitor, ICapturedO
     {
         if (stopInput)
             return;
-
-        if (_shootingController.IsReload)
-        {
-            UIController.main.CloseAllWindow();
-            return;
-        }
 
         if (State == PlayerAnimatorState.Idle ||
             State == PlayerAnimatorState.Walk)
@@ -250,7 +245,7 @@ public class PlayerController : MonoBehaviour, IMousePositionVisitor, ICapturedO
         if (stopInput)
             return;
 
-        if (_shootingController.IsReload)
+        if (isBusy)
             return;
 
         if (_stairsController.Collider != null)
@@ -278,7 +273,7 @@ public class PlayerController : MonoBehaviour, IMousePositionVisitor, ICapturedO
     public void SetWeapon(int weapon)
     {
 
-        if (_shootingController.IsReload)
+        if (isBusy)
             return;
 
         _shootingController.SetWeapon((WeaponModel.WeaponType)weapon);

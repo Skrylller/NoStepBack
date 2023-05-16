@@ -55,6 +55,7 @@ MonoBehaviour:
   _messageUI: {fileID: 6683462180175205931}
   _mainUI: {fileID: 6683462180175205933}
   _weaponReloadUI: {fileID: 6683462180175206109}
+  _notePanelUI: {fileID: 3499451382100237932}
 --- !u!1001 &1828142927227020611
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -595,6 +596,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b3bef91fe099d84c8cf4ccb22700619, type: 3}
+--- !u!114 &3499451382100237932 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6306410598851567959, guid: 0b3bef91fe099d84c8cf4ccb22700619, type: 3}
+  m_PrefabInstance: {fileID: 7427653474707046203}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64bf6c19f334a7f47b9e8918625825e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &4708925994687695669 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2759902025829151758, guid: 0b3bef91fe099d84c8cf4ccb22700619, type: 3}
