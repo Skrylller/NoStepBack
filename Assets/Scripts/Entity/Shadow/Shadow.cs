@@ -8,6 +8,7 @@ public class Shadow : MonoBehaviour
     [SerializeField] AnimationEventController _animator;
 
     public bool IsHide => _isHide;
+    public int IsObservableDoorOpen;
 
     private bool _isHide;
 
@@ -17,6 +18,7 @@ public class Shadow : MonoBehaviour
 
         if (_isHide)
         {
+            IsObservableDoorOpen = 0;
             Hide();
 
             for (int i = 0; i < _links.Count; i++)
@@ -29,10 +31,12 @@ public class Shadow : MonoBehaviour
             {
                 if (_links[i].Door == null || _links[i].Door.State == 1)
                 {
+                    _links[i].Shadow.IsObservableDoorOpen = 1;
                     _links[i].Shadow.Hide();
                 }
                 else
                 {
+                    _links[i].Shadow.IsObservableDoorOpen = 0;
                     _links[i].Shadow.Show();
                 }
             }
@@ -41,11 +45,18 @@ public class Shadow : MonoBehaviour
         {
             for (int i = 0; i < _links.Count; i++)
             {
-                _links[i].Door.OnChangeState -= _links[i].Shadow.ObserveDoor;
+                if (_links[i].Door != null)
+                    _links[i].Door.OnChangeState -= _links[i].Shadow.ObserveDoor;
 
                 if (!_links[i].Shadow.IsHide)
+                {
+                    _links[i].Shadow.IsObservableDoorOpen = 0;
                     _links[i].Shadow.Show();
+                }
             }
+
+            if (IsObservableDoorOpen == 0)
+                Show();
         }
     }
 
@@ -61,6 +72,11 @@ public class Shadow : MonoBehaviour
 
     private void ObserveDoor(int value)
     {
+        IsObservableDoorOpen = value;
+
+        if (IsHide)
+            return;
+
         if (value == 0)
             Show();
         else
