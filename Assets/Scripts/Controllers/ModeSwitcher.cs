@@ -2,6 +2,7 @@ using System.Collections;
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class ModeSwitcher : MonoBehaviour
 {
@@ -44,7 +45,9 @@ public class ModeSwitcher : MonoBehaviour
     [SerializeField] private int _state;
 
     [SerializeField] private List<Mode> _states;
-    
+
+    public Action<int> OnChangeState;
+
     public int State { 
         get 
         {
@@ -57,6 +60,7 @@ public class ModeSwitcher : MonoBehaviour
 
             _state = value;
             SetState(value);
+            OnChangeState?.Invoke(value);
         } 
     }
 

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3370628164275747766}
   - component: {fileID: 3370628164275747720}
   - component: {fileID: 3370628164275747767}
+  - component: {fileID: 7870764519784692976}
   m_Layer: 13
   m_Name: shadow
   m_TagString: Untagged
@@ -49,7 +50,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 173, y: -25}
+  m_Offset: {x: 174, y: -25}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -97,17 +98,17 @@ MonoBehaviour:
   OnEnter:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3370628164275747767}
-        m_TargetAssemblyTypeName: AnimationEventController, Assembly-CSharp
-        m_MethodName: SetAnimatorState
-        m_Mode: 3
+      - m_Target: {fileID: 7870764519784692976}
+        m_TargetAssemblyTypeName: Shadow, Assembly-CSharp
+        m_MethodName: UpdateState
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
   OnStay:
     m_PersistentCalls:
@@ -115,10 +116,10 @@ MonoBehaviour:
   OnExit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3370628164275747767}
-        m_TargetAssemblyTypeName: AnimationEventController, Assembly-CSharp
-        m_MethodName: SetAnimatorState
-        m_Mode: 3
+      - m_Target: {fileID: 7870764519784692976}
+        m_TargetAssemblyTypeName: Shadow, Assembly-CSharp
+        m_MethodName: UpdateState
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -142,6 +143,20 @@ MonoBehaviour:
   _action:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7870764519784692976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3370628164275747763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f819ba5627688a42ac75bec09fc1481, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _links: []
+  _animator: {fileID: 3370628164275747767}
 --- !u!1 &3370628165608746659
 GameObject:
   m_ObjectHideFlags: 0
@@ -215,12 +230,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 200
-  m_Sprite: {fileID: 21300000, guid: 2ebac408c008a954cb8df3df74fa5258, type: 3}
+  m_Sprite: {fileID: 657805005, guid: 2ebac408c008a954cb8df3df74fa5258, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 1
-  m_Size: {x: 348.1, y: 55}
+  m_Size: {x: 348, y: 52}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 1
   m_WasSpriteAssigned: 1
