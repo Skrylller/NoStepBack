@@ -7,8 +7,10 @@ public class Bootastrap : MonoBehaviour
     public static Bootastrap main;
 
     [SerializeField] private PlayerController _player;
+    [SerializeField] private PositionTarget _cameraTarget;
 
     public PlayerController Player => _player;
+    public PositionTarget CameraTarget => _cameraTarget;
 
     private void Awake()
     {

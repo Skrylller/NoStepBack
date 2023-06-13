@@ -14,9 +14,6 @@ public class Shadow : MonoBehaviour
 
     public void UpdateState(bool isHide)
     {
-        if (_isHide == isHide)
-            return;
-
         _isHide = isHide;
 
         if (_isHide)
