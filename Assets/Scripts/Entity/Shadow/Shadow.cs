@@ -5,7 +5,7 @@ using UnityEngine;
 public class Shadow : MonoBehaviour
 {
     [SerializeField] List<ShadowLink> _links;
-    [SerializeField] AnimationEventController _animator;
+    [SerializeField] List<AnimationEventController> _animators = new List<AnimationEventController>();
 
     public bool IsHide => _isHide;
     public int IsObservableDoorOpen;
@@ -14,6 +14,9 @@ public class Shadow : MonoBehaviour
 
     public void UpdateState(bool isHide)
     {
+        if (_isHide == isHide)
+            return;
+
         _isHide = isHide;
 
         if (_isHide)
@@ -62,12 +65,12 @@ public class Shadow : MonoBehaviour
 
     public void Show()
     {
-        _animator.SetAnimatorState(0);
+        _animators.ForEach(x => x.SetAnimatorState(0));
     }
 
     public void Hide()
     {
-        _animator.SetAnimatorState(1);
+        _animators.ForEach(x => x.SetAnimatorState(1));
     }
 
     private void ObserveDoor(int value)

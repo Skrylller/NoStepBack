@@ -50,7 +50,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _links: []
-  _animator: {fileID: 3370628164275747767}
+  _animators:
+  - {fileID: 3370628164275747767}
+  IsObservableDoorOpen: 0
 --- !u!61 &3370628164275747765
 BoxCollider2D:
   m_ObjectHideFlags: 0
