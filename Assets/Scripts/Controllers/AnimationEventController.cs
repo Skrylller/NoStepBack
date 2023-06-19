@@ -7,6 +7,7 @@ using UnityEngine.Events;
 public class AnimationEventController : MonoBehaviour
 {
     [SerializeField] private UnityEvent _action;
+    [SerializeField] private List<UnityEvent> _actions;
     private Animator _animator;
 
     private void Awake()
@@ -17,6 +18,10 @@ public class AnimationEventController : MonoBehaviour
     public void Action()
     {
         _action?.Invoke();
+    }
+    public void Action(int index)
+    {
+        _actions[index]?.Invoke();
     }
 
     public void SetAnimatorState(int value)

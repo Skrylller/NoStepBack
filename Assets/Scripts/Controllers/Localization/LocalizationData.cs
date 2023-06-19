@@ -18,6 +18,10 @@ public class LocalizationData : ScriptableObject
         else
             return needData.First().text;
     }
+    public string GetLocalization()
+    {
+        return GetLocalization(Localizator.main.SelectedLaunguage);
+    }
 }
 
 [System.Serializable]
