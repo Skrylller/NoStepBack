@@ -129,7 +129,7 @@ public class PlayerController : MonoBehaviour, IMousePositionVisitor, ICapturedO
         if (_model.isSit)
         {
             PlatformOff();
-            Invoke(nameof(PlatformOn), 1f);
+            Invoke(nameof(PlatformOn), 0.5f);
             return;
         }
 
