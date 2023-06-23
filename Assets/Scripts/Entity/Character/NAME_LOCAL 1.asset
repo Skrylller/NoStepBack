@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data:
   - launguage: 0
-    text: fggdfgfhhfhdfg
+    text: Test dialogue
   - launguage: 1
-    text: "\u0435\u043F\u043F\u043A\u043F\u043A"
+    text: "\u041F\u043E\u0441\u043E\u0441\u0438"
