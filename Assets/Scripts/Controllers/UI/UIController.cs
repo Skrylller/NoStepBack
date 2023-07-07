@@ -46,10 +46,10 @@ public class UIController : MonoBehaviour
 
     public void OpenWeaponReloadUI(WeaponModel weapon, Transform dropPosition)
     {
-        CloseAllWindow();
-
         if (_weaponReloadUI.gameObject.activeSelf)
             return;
+
+        CloseAllWindow();
 
         PlayerBusy();
 
