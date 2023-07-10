@@ -11,6 +11,7 @@ public class UIController : MonoBehaviour
     [SerializeField] private MainUI _mainUI;
     [SerializeField] private WeaponReloadUI _weaponReloadUI;
     [SerializeField] private NotePanelUI _notePanelUI;
+    [SerializeField] private DialogueUI _dialogueUI;
     public MessagesUI MessageUI { get { return _messageUI; } }
 
     private bool isOpenedWindow;
@@ -38,8 +39,10 @@ public class UIController : MonoBehaviour
         _mainUI.gameObject.SetActive(true);
         _weaponReloadUI.gameObject.SetActive(false);
         _notePanelUI.gameObject.SetActive(false);
+        _dialogueUI.gameObject.SetActive(false);
 
         Bootastrap.main.Player.isBusy = false;
+        Bootastrap.main.Player.stopInput = false;
 
         isOpenedWindow = false;
     }
@@ -67,6 +70,17 @@ public class UIController : MonoBehaviour
 
         _notePanelUI.gameObject.SetActive(true);
         _notePanelUI.Init(note);
+
+        isOpenedWindow = true;
+    }
+
+    public void OpenDialogueUI(DialogueModel dialogue)
+    {
+        CloseAllWindow();
+        Bootastrap.main.Player.stopInput = true;
+
+        _dialogueUI.gameObject.SetActive(true);
+        _dialogueUI.Init(dialogue);
 
         isOpenedWindow = true;
     }

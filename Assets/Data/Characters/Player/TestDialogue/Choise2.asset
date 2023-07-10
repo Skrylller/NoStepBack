@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82db755c0fe394846806c8c9fa8547f1, type: 3}
+  m_Name: Choise2
+  m_EditorClassIdentifier: 
+  _character: {fileID: 11400000, guid: 8754161a3cd898e41a14dcc893ed0d96, type: 2}
+  _dialogueElements:
+  - Text: {fileID: 11400000, guid: cc2e62800db6ffc41839b492faaa3ecb, type: 2}
+    Emotion: 0
+    PlusItem:
+      _itemModel: {fileID: 0}
+      _count: 0
+    MinusItem:
+      _itemModel: {fileID: 0}
+      _count: 0
+  _choiseElement: []
+  _nextDialogue: {fileID: 0}

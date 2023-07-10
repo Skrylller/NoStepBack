@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "Character", menuName = "ScriptableObjects/Character")]
 public class CharacterModel : ScriptableObject
 {
     public enum CharacterEmotionsType
@@ -19,10 +20,14 @@ public class CharacterModel : ScriptableObject
     }
 
     [SerializeField] private CharacterType _character;
-    [SerializeField] private Sprite _icon;
+    [SerializeField] private List<Sprite> _emotionIcon;
     [SerializeField] private LocalizationData _name;
 
     public CharacterType Character => _character;
-    public Sprite Icon => _icon;
     public LocalizationData Name => _name;
+
+    public Sprite GetEmotionIcon(CharacterEmotionsType emotion)
+    {
+        return _emotionIcon[((int)emotion)];
+    }
 }

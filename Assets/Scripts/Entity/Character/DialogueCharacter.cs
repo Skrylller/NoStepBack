@@ -4,17 +4,27 @@ using UnityEngine;
 
 public class DialogueCharacter : MonoBehaviour
 {
-    [SerializeField] private DialogueCharacterModel _dialogue;
+    [SerializeField] private DialogueModel _dialogueModel;
+    [SerializeField] private DialogueCharacterModel _dialogueCharacterModel;
     [SerializeField] private DialogueCharacterUI _dialogueCharacterUI;
 
     private int page = 0;
 
     public void ShowDialogue()
     {
-        if (page >= _dialogue.Pages)
+        if(_dialogueModel != null)
+        {
+            UIController.main.OpenDialogueUI(_dialogueModel);
+            return;
+        }
+
+        if (_dialogueCharacterModel == null)
+            return;
+
+        if (page >= _dialogueCharacterModel.Pages)
             page = 0;
 
-        _dialogueCharacterUI.ShowDialogue(_dialogue.GetDialogueText(page), page == _dialogue.Pages - 1);
+        _dialogueCharacterUI.ShowDialogue(_dialogueCharacterModel.GetDialogueText(page), page == _dialogueCharacterModel.Pages - 1);
         page++;
     }
 }

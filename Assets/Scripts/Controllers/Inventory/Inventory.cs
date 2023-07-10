@@ -26,6 +26,11 @@ public class Inventory
 
     }
 
+    /// <summary>
+    /// Добавить элемент инвентаря (любой тип)
+    /// </summary>
+    /// <param name="item"></param>
+    /// <param name="value"></param>
     public void AddItem(ItemModel item, uint value = 1)
     {
         if (item as KeyModel)
@@ -71,6 +76,11 @@ public class Inventory
         }
     }
 
+    /// <summary>
+    /// Просто возвращает предмет инвентаря (ItemModel)
+    /// </summary>
+    /// <param name="item"></param>
+    /// <returns></returns>
     public InventoryItem GetInventoryItem(ItemModel.ItemType item)
     {
         List<InventoryItemCounter> items = _Items.Where(x => x.ItemModel.Item == item).ToList();
@@ -81,6 +91,13 @@ public class Inventory
         return items.First();
     }
 
+    /// <summary>
+    /// Проверяет наличие предмета (ItemModel)
+    /// </summary>
+    /// <param name="item"></param>
+    /// <param name="value"></param>
+    /// <param name="isDelete"></param>
+    /// <returns></returns>
     public bool CheckItem(ItemModel.ItemType item, uint value = 1, bool isDelete = false)
     {
         InventoryItemCounter itemInventory = GetInventoryItem(item) as InventoryItemCounter;

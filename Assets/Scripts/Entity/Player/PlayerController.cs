@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour, IMousePositionVisitor, ICapturedO
     private Transform _captureTarget;
 
     public bool isBusy;
-    private bool stopInput;
+    public bool stopInput;
 
     private PlayerAnimatorState _state;
     public PlayerAnimatorState State

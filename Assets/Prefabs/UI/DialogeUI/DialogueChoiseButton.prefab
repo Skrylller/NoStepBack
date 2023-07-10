@@ -53,7 +53,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3493258014737253262, guid: a9943433b86c4c8438790e4d1f6082a2, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 92.005
       objectReference: {fileID: 0}
     - target: {fileID: 3493258014737253262, guid: a9943433b86c4c8438790e4d1f6082a2, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -61,11 +61,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6635520714451944140, guid: a9943433b86c4c8438790e4d1f6082a2, type: 3}
       propertyPath: m_Name
-      value: Button Variant
+      value: DialogueChoiseButton
       objectReference: {fileID: 0}
     - target: {fileID: 8216736689444290369, guid: a9943433b86c4c8438790e4d1f6082a2, type: 3}
       propertyPath: m_TargetGraphic
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8216736689444290369, guid: a9943433b86c4c8438790e4d1f6082a2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8216736689444290369, guid: a9943433b86c4c8438790e4d1f6082a2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8216736689444290369, guid: a9943433b86c4c8438790e4d1f6082a2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1271463175961539451}
+    - target: {fileID: 8216736689444290369, guid: a9943433b86c4c8438790e4d1f6082a2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8216736689444290369, guid: a9943433b86c4c8438790e4d1f6082a2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Press
+      objectReference: {fileID: 0}
+    - target: {fileID: 8216736689444290369, guid: a9943433b86c4c8438790e4d1f6082a2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: DialogueChoiseButton, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8216736689444290369, guid: a9943433b86c4c8438790e4d1f6082a2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8663786216689361310, guid: a9943433b86c4c8438790e4d1f6082a2, type: 3}
       propertyPath: m_Pivot.x
@@ -153,6 +181,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9943433b86c4c8438790e4d1f6082a2, type: 3}
+--- !u!114 &1732467928181309279 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3368590287841305790, guid: a9943433b86c4c8438790e4d1f6082a2, type: 3}
+  m_PrefabInstance: {fileID: 3942150929177664481}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7684072855498905901 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6635520714451944140, guid: a9943433b86c4c8438790e4d1f6082a2, type: 3}
@@ -170,3 +209,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68ae2559c563ddb4b8a8dc73f0fd53dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _text: {fileID: 1732467928181309279}

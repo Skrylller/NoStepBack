@@ -39,7 +39,10 @@ public class ActionObjectsActivator : MonoBehaviour
     }
 
     public void Action()
-    { 
+    {
+        if (Bootastrap.main.Player.stopInput)
+            return;
+
         if(_actionObjects.Count > 0)
             _actionObjects[_actionObjects.Count - 1].Action();
     }
