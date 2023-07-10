@@ -13,6 +13,7 @@ public class EnemyAttackController : MonoBehaviour
 
     [SerializeField] private Animator _handAnimator;
     [SerializeField] private float _attackDelay;
+    [SerializeField] private BulletModel _missleModel;
 
     private GameObject _player;
     private bool _isReadyAttack;
@@ -68,5 +69,19 @@ public class EnemyAttackController : MonoBehaviour
     {
         isAttack = false;
         _handAnimator.SetInteger("State", (int)HandState.idle);
+    }
+
+    public void Shoot()
+    {
+        BulletEntity missle = PullsController.main.GetPull(_missleModel.BulletPref).AddObj() as BulletEntity;
+
+        float angle;
+
+        if (_player.transform.position.x > transform.position.x)
+            angle = 0;
+        else
+            angle = 180; 
+
+        missle.Init(_missleModel, transform, angle);
     }
 }

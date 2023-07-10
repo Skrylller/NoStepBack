@@ -17,5 +17,6 @@ MonoBehaviour:
   _dammage: 100
   _lifeTime: 1
   _bulletType: 1
+  _raycastPhysics: 1
   _distance: 500
   _distanceBackCheck: 20

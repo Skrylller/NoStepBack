@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4ae72c649714e8f46a6b85defe3822e3, type: 3}
-  m_Name: PistolBullet
+  m_Name: EnemyMissle
   m_EditorClassIdentifier: 
-  _bulletPref: {fileID: 2767884668323362108, guid: e58d646f2e74401419d496f9427576b1, type: 3}
-  _speed: 1000
-  _dammage: 100
-  _lifeTime: 2
+  _bulletPref: {fileID: 6171314474640761565, guid: 022cf1d6773f3774cbbfd2e53633aef3, type: 3}
+  _speed: 100
+  _dammage: 200
+  _lifeTime: 10
   _bulletType: 0
-  _raycastPhysics: 1
-  _distance: 500
-  _distanceBackCheck: 20
+  _raycastPhysics: 0
+  _distance: 1000
+  _distanceBackCheck: 0

@@ -84,7 +84,7 @@ public class ShootingController : MonoBehaviour
     {
         _handAnimator.SetInteger("State", (int)HandState.shoot);
         BulletEntity bullet = PullsController.main.GetPull(_weapon.Bullet.BulletPref).AddObj() as BulletEntity;
-        bullet.Init(_weapon.Bullet, UnityEngine.Random.Range(-(_weapon.SpreadAngle / 2), _weapon.SpreadAngle / 2));
+        bullet.Init(_weapon.Bullet, _bulletDefPos, UnityEngine.Random.Range(-(_weapon.SpreadAngle / 2), _weapon.SpreadAngle / 2));
         PullableObj part = _partPullObjects.AddObj();
         part.SetTransform(_bulletDefPos.transform.position, _bulletDefPos.transform.eulerAngles.z);
     }

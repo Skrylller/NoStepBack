@@ -19,7 +19,7 @@ public class AnimationEventController : MonoBehaviour
     {
         _action?.Invoke();
     }
-    public void Action(int index)
+    public void ActionIndex(int index)
     {
         _actions[index]?.Invoke();
     }

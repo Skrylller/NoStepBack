@@ -764,6 +764,7 @@ MonoBehaviour:
   _action:
     m_PersistentCalls:
       m_Calls: []
+  _actions: []
 --- !u!1 &271194059022390171
 GameObject:
   m_ObjectHideFlags: 0
@@ -1233,7 +1234,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 271194059727764459}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 5, y: 20, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1349,6 +1350,8 @@ MonoBehaviour:
   - {fileID: 271194058943523520}
   _spriteSwitcher: {fileID: 271194058894759574}
   _animator: {fileID: 271194058894759569}
+  isBusy: 0
+  stopInput: 0
 --- !u!114 &271194059758955138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1474,7 +1477,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6.9, y: 1}
+  m_Size: {x: 6.99, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &271194059759582551
 MonoBehaviour:

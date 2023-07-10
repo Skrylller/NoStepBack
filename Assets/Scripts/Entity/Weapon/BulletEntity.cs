@@ -21,31 +21,48 @@ public class BulletEntity : PullableObj
 
     private void Update()
     {
-        CheckPosHit();
+        if (_model.RaycastPhysics)
+            CheckPosHit();
     }
 
-    public void Init(BulletModel model, float angle = 0)
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (_model.RaycastPhysics)
+            return;
+
+        if (collision.gameObject.layer != 14)
+            Deactivate();
+    }
+
+    public void Init(BulletModel model, Transform defPos, float angle = 0)
     {
         _model = model;
         _particlesPull = PullsController.main.GetPull(_particle);
 
+        transform.position = defPos.position;
+
         transform.eulerAngles += new Vector3(0, 0, angle);
         _direction = new Vector2(transform.eulerAngles.z > 90 && transform.eulerAngles.z < 270 ? -1 : 1, transform.eulerAngles.z > 180 ? -1 : 1);
 
-        _hit = Physics2D.Raycast(transform.position, transform.TransformDirection(Vector3.left), _model.DistanceBackCheck, _layerMask);
-        if(_hit.collider != null)
+        if (_model.RaycastPhysics)
         {
-            DestroyBullet();
-            return;
+            _hit = Physics2D.Raycast(transform.position, transform.TransformDirection(Vector3.left), _model.DistanceBackCheck, _layerMask);
+            if (_hit.collider != null)
+            {
+                DestroyBullet();
+                return;
+            }
+
+
+            _hit = Physics2D.Raycast(transform.position, transform.TransformDirection(Vector3.right), _model.Distance, _layerMask);
+
+            //Debug.Log($"{_hit.point} {_direction} {transform.eulerAngles.z}");
+
+            StartCoroutine(DeactivateCourotine());
         }
-
-
-        _hit = Physics2D.Raycast(transform.position, transform.TransformDirection(Vector3.right), _model.Distance, _layerMask);
-        //Debug.Log($"{_hit.point} {_direction} {transform.eulerAngles.z}");
 
         Vector3 direction = new Vector3(_model.Speed * Mathf.Cos(transform.localEulerAngles.z * Mathf.Deg2Rad), _model.Speed * Mathf.Sin(transform.localEulerAngles.z * Mathf.Deg2Rad), 0);
         _rigidbody2D.velocity = direction;
-        StartCoroutine(DeactivateCourotine());
     }
 
     private void CheckPosHit()
