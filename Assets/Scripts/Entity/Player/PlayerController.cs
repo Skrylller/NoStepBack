@@ -43,8 +43,9 @@ public class PlayerController : MonoBehaviour, IMousePositionVisitor, ICapturedO
     private Rigidbody2D _rbPlayer;
     private Transform _captureTarget;
 
-    public bool isBusy;
     public bool stopInput;
+    public bool isBusy;
+    private bool _isDayMode;
 
     private PlayerAnimatorState _state;
     public PlayerAnimatorState State
@@ -91,6 +92,17 @@ public class PlayerController : MonoBehaviour, IMousePositionVisitor, ICapturedO
     private void FixedUpdate()
     {
         CheckCapture();
+    }
+
+    public void Restart(Vector2 position, bool isDayMode)
+    {
+        _isDayMode = isDayMode;
+        transform.position = position;
+        MoveHorizontalStop();
+        JumpUp();
+        SitUp();
+        EndCapture();
+        PlatformOn();
     }
 
     public void MoveHorizontal(float directional)
@@ -169,6 +181,9 @@ public class PlayerController : MonoBehaviour, IMousePositionVisitor, ICapturedO
 
     public void CheckMouse(Vector2 mousePos)
     {
+        if (isBusy || _isDayMode || stopInput)
+            return;
+
         foreach(ToTargetRotator2D rotator in _rotators)
         {
             SetRotator(rotator, mousePos);
@@ -196,10 +211,7 @@ public class PlayerController : MonoBehaviour, IMousePositionVisitor, ICapturedO
 
     public void Shoot()
     {
-        if (stopInput)
-            return;
-
-        if (isBusy)
+        if (stopInput || isBusy || _isDayMode)
             return;
 
         if (State == PlayerAnimatorState.Idle || 
@@ -209,7 +221,7 @@ public class PlayerController : MonoBehaviour, IMousePositionVisitor, ICapturedO
 
     public void Reload()
     {
-        if (stopInput)
+        if (stopInput || isBusy || _isDayMode)
             return;
 
         if (State == PlayerAnimatorState.Idle ||
@@ -273,7 +285,7 @@ public class PlayerController : MonoBehaviour, IMousePositionVisitor, ICapturedO
     public void SetWeapon(int weapon)
     {
 
-        if (isBusy)
+        if (stopInput || isBusy || _isDayMode)
             return;
 
         _shootingController.SetWeapon((WeaponModel.WeaponType)weapon);

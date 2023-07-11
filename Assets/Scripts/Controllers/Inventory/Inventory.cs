@@ -26,6 +26,16 @@ public class Inventory
 
     }
 
+    public void Clear()
+    {
+        Items.Clear();
+        KeyModels.Clear();
+        WeaponModels.Clear();
+        NoteModels.Clear();
+
+        OnUpdate?.Invoke();
+    }
+
     /// <summary>
     /// Добавить элемент инвентаря (любой тип)
     /// </summary>
@@ -35,26 +45,42 @@ public class Inventory
     {
         if (item as KeyModel)
         {
-            _keyModels.Add(item as KeyModel);
+            KeyModel key = item as KeyModel;
+            _keyModels.Add(key);
 
             if (isPlayerInventory)
+            {
                 UIController.main.MessageUI.AddItem(item as KeyModel);
+
+                if(DaysController.main.IsDay)
+                    SaveItem(key.Key, 1);
+            }
         }
         else if (item as WeaponModel)
         {
-            _weaponModels.Add(item as WeaponModel);
+            WeaponModel weapon = item as WeaponModel;
+            _weaponModels.Add(weapon);
 
             if (isPlayerInventory)
+            {
                 UIController.main.MessageUI.AddItem(item as WeaponModel);
+
+                if (DaysController.main.IsDay)
+                    SaveItem(weapon.Weapon, 1);
+            }
         }
         else if (item as NoteModel)
         {
-            _noteModels.Add(item as NoteModel);
+            NoteModel note = item as NoteModel;
+            _noteModels.Add(note);
 
             if (isPlayerInventory)
             {
                 UIController.main.OpenNoteUI(item as NoteModel);
                 UIController.main.MessageUI.AddItem(item as NoteModel);
+
+                if (DaysController.main.IsDay)
+                    SaveItem(note.NoteType, 1);
             }
         }
         else
@@ -64,15 +90,23 @@ public class Inventory
             if (items.Count > 0)
             {
                 items.First().Count += value;
+
+                if (isPlayerInventory && DaysController.main.IsDay)
+                    SaveItem(items.First().ItemModel.Item, (int)items.First().GetCount);
             }
             else
             {
                 _Items.Add(new InventoryItemCounter(item, value));
                 OnUpdate?.Invoke();
+
+                if (isPlayerInventory && DaysController.main.IsDay)
+                    SaveItem(_Items.Last().ItemModel.Item, (int)items.First().GetCount);
             }
 
-            if(isPlayerInventory)
+            if (isPlayerInventory)
+            {
                 UIController.main.MessageUI.AddInventoryItem(new InventoryItemCounter(item, value));
+            }
         }
     }
 
@@ -110,11 +144,24 @@ public class Inventory
             if (isDelete)
             {
                 itemInventory.Count -= value;
+
+                if (isPlayerInventory && DaysController.main.IsDay)
+                {
+                    SaveItem(item, (int)itemInventory.Count);
+                }
+
                 if (itemInventory.Count == 0)
                 {
                     _Items.Remove(itemInventory);
                     OnUpdate?.Invoke();
+                    
+                    if (isPlayerInventory && DaysController.main.IsDay)
+                    {
+                        SaveItem(item, 0);
+                    }
                 }
+
+
             }
 
             return true;
@@ -141,6 +188,11 @@ public class Inventory
     public NoteModel CheckNote(NoteModel.Note note)
     {
         return _noteModels.Where(x => x.NoteType == note).ToList().First();
+    }
+
+    public void SaveItem(Enum item, int count)
+    {
+
     }
 }
 
