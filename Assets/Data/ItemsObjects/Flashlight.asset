@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7431867fe1a2cc84994fd31dadd0f7da, type: 3}
-  m_Name: MasterKey
+  m_Name: Flashlight
   m_EditorClassIdentifier: 
-  _item: 6
-  _name: {fileID: 11400000, guid: 591868ad3ca747c4e9d849d7d80f2a99, type: 2}
-  _description: {fileID: 11400000, guid: 8b0fb895b209a3846aefd7be092f30e2, type: 2}
+  _item: 7
+  _name: {fileID: 11400000, guid: 410927e0c44efd7478433067b0f23496, type: 2}
+  _description: {fileID: 11400000, guid: daaa943fbdb77924ea9b709ccaf5816f, type: 2}
   _icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}

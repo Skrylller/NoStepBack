@@ -14,9 +14,9 @@ public class DaysController : MonoBehaviour
     public Action OnStartDay;
     public Action OnStartNight;
 
-    private int _day;
+    [SerializeField] private int _day;
 
-    private bool _isDay;
+    [SerializeField] private bool _isDay;
 
     public bool IsDay => _isDay;
 
@@ -72,6 +72,8 @@ public class DaysController : MonoBehaviour
         _playerInventoryChess.Inventory.Clear();
         DataController.main.LoadInventory(PlayerInventory.Inventory);
 
+        _modeSwitcher.State = _isDay ? 0 : 1;
+
         OnStartDay?.Invoke();
     }
 
@@ -83,7 +85,10 @@ public class DaysController : MonoBehaviour
 
         Bootastrap.main.Player.Restart(_playerPosition.transform.position, _isDay);
 
+        PlayerInventory.Inventory.Clear();
         DataController.main.LoadInventory(_playerInventoryChess.Inventory);
+
+        _modeSwitcher.State = _isDay ? 0 : 1;
 
         OnStartNight?.Invoke();
     }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.Text;
 
 public class DataController : MonoBehaviour
 {
@@ -18,14 +19,16 @@ public class DataController : MonoBehaviour
     }
 
     public List<ItemModel> _allItems = new List<ItemModel>();
-    public List<KeyModel> _allKeys = new List<KeyModel>();
-    public List<WeaponModel> _allWeapons = new List<WeaponModel>();
-    public List<NoteModel> _allNotes = new List<NoteModel>();
+    public List<ItemModel> _allKeys = new List<ItemModel>();
+    public List<ItemModel> _allWeapons = new List<ItemModel>();
+    public List<ItemModel> _allNotes = new List<ItemModel>();
 
     public Action OnSave;
     public Action OnLoad;
 
     private const string _inventoryKey = "Inventory_";
+    private const int _itemDummyZone = 3;
+    private const int _weaponDummyZone = 3;
 
     private void Awake()
     {
@@ -42,6 +45,11 @@ public class DataController : MonoBehaviour
         OnLoad?.Invoke();
     }
 
+    public void RemoveAllData()
+    {
+        PlayerPrefs.DeleteAll();
+    }
+
     public void SaveFlag(DataTypeBool dataTypeBool, bool data)
     {
         PlayerPrefs.SetInt(dataTypeBool.ToString(), data ? 1 : 0);
@@ -52,9 +60,9 @@ public class DataController : MonoBehaviour
         PlayerPrefs.SetInt(dataTypeInt.ToString(), data);
     }
 
-    public void SaveItem(ItemModel itemModel, int count = 0)
+    public void SaveItem(Enum item, int count = 0)
     {
-        PlayerPrefs.SetInt(_inventoryKey+itemModel.Item.ToString(), count);
+        PlayerPrefs.SetInt(_inventoryKey+item.ToString(), count);
     }
 
     public bool LoadFlag(DataTypeBool dataType)
@@ -66,7 +74,7 @@ public class DataController : MonoBehaviour
         return PlayerPrefs.GetInt(dataType.ToString(), 0);
     }
 
-    public int LoadItem(Enum item)
+    public int LoadItem(string item)
     {
         return PlayerPrefs.GetInt(_inventoryKey + item.ToString(), 0);
     }
@@ -75,24 +83,58 @@ public class DataController : MonoBehaviour
     {
         inventory.Clear();
 
-        for(int i = 0; i < Enum.GetNames(typeof(ItemModel.ItemType)).Length; i++)
+        LoadItemGroup<ItemModel.ItemType>(inventory, _allItems, _itemDummyZone);
+        LoadItemGroup<KeyModel.KeyType>(inventory, _allKeys);
+        LoadItemGroup<WeaponModel.WeaponType>(inventory, _allWeapons, _weaponDummyZone);
+        LoadItemGroup<NoteModel.Note>(inventory, _allNotes);
+    }
+
+    public void ShowData()
+    {
+        StringBuilder message = new StringBuilder();
+
+        message.Append(ShowItemDataGroup<ItemModel.ItemType>());
+        message.Append(ShowItemDataGroup<KeyModel.KeyType>());
+        message.Append(ShowItemDataGroup<WeaponModel.WeaponType>());
+        message.Append(ShowItemDataGroup<NoteModel.Note>());
+
+        foreach (DataTypeBool type in Enum.GetValues(typeof(DataTypeBool)))
         {
-            inventory.AddItem(_allItems[i], (uint)LoadItem((ItemModel.ItemType)i));
+            message.Append($"{type} - {LoadFlag(type)}\n");
         }
 
-        for (int i = 0; i < Enum.GetNames(typeof(KeyModel.KeyType)).Length; i++)
+        message.Append("\n");
+
+        foreach (DataTypeInt type in Enum.GetValues(typeof(DataTypeInt)))
         {
-            inventory.AddItem(_allKeys[i], (uint)LoadItem((KeyModel.KeyType)i));
+            message.Append($"{type} - {LoadFlag(type)}\n");
         }
 
-        for (int i = 0; i < Enum.GetNames(typeof(WeaponModel.WeaponType)).Length; i++)
+        Debug.Log(message);
+    }
+
+    private StringBuilder ShowItemDataGroup<T1>()
+    {
+        StringBuilder message = new StringBuilder();
+
+        for (int i = 0; i < Enum.GetNames(typeof(T1)).Length; i++)
         {
-            inventory.AddItem(_allWeapons[i], (uint)LoadItem((WeaponModel.WeaponType)i));
+            if(LoadItem(Enum.GetNames(typeof(T1))[i]) > 1)
+                message.Append($"{Enum.GetNames(typeof(T1))[i]} - {LoadItem(Enum.GetNames(typeof(T1))[i])}\n");
         }
 
-        for (int i = 0; i < Enum.GetNames(typeof(NoteModel.Note)).Length; i++)
+        message.Append("\n");
+
+        return message;
+    }
+
+    private void LoadItemGroup<T1>(Inventory inventory, List<ItemModel> items, int dummyZone = 0)
+    {
+        for (int i = 0; i < Enum.GetNames(typeof(T1)).Length - dummyZone; i++)
         {
-            inventory.AddItem(_allNotes[i], (uint)LoadItem((NoteModel.Note)i));
+            uint count = (uint)LoadItem(Enum.GetNames(typeof(T1))[i + dummyZone]);
+            if(count > 0)
+                inventory.AddItem(items[i], count);
         }
     }
 }

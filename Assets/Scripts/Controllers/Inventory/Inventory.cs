@@ -100,7 +100,7 @@ public class Inventory
                 OnUpdate?.Invoke();
 
                 if (isPlayerInventory && DaysController.main.IsDay)
-                    SaveItem(_Items.Last().ItemModel.Item, (int)items.First().GetCount);
+                    SaveItem(_Items.Last().ItemModel.Item, (int)_Items.Last().GetCount);
             }
 
             if (isPlayerInventory)
@@ -192,7 +192,7 @@ public class Inventory
 
     public void SaveItem(Enum item, int count)
     {
-
+        DataController.main.SaveItem(item, count);
     }
 }
 

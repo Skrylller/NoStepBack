@@ -7923,7 +7923,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9044341509417348380, guid: e0916884f8eee85489613056034a5e6c, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 36
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9044341509417348380, guid: e0916884f8eee85489613056034a5e6c, type: 3}
       propertyPath: m_SizeDelta.y
@@ -7931,7 +7931,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9044341509417348380, guid: e0916884f8eee85489613056034a5e6c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9044341509417348380, guid: e0916884f8eee85489613056034a5e6c, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -10329,6 +10329,98 @@ MonoBehaviour:
         - m_Target: {fileID: 200921519}
           m_TargetAssemblyTypeName: UIController, Assembly-CSharp
           m_MethodName: PressToEsc
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 2
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    actionUp:
+      m_PersistentCalls:
+        m_Calls: []
+    actionStay:
+      m_PersistentCalls:
+        m_Calls: []
+  - name: DEBUG_RemoveAllData
+    keyCode: 256
+    actionDown:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1447214156}
+          m_TargetAssemblyTypeName: DataController, Assembly-CSharp
+          m_MethodName: RemoveAllData
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 2
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    actionUp:
+      m_PersistentCalls:
+        m_Calls: []
+    actionStay:
+      m_PersistentCalls:
+        m_Calls: []
+  - name: DEBUG_StartNextDay
+    keyCode: 257
+    actionDown:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1916848794}
+          m_TargetAssemblyTypeName: DaysController, Assembly-CSharp
+          m_MethodName: NextDay
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 2
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    actionUp:
+      m_PersistentCalls:
+        m_Calls: []
+    actionStay:
+      m_PersistentCalls:
+        m_Calls: []
+  - name: DEBUG_StartNextNight
+    keyCode: 258
+    actionDown:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1916848794}
+          m_TargetAssemblyTypeName: DaysController, Assembly-CSharp
+          m_MethodName: StartNight
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 2
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    actionUp:
+      m_PersistentCalls:
+        m_Calls: []
+    actionStay:
+      m_PersistentCalls:
+        m_Calls: []
+  - name: DEBUG_ShowData
+    keyCode: 259
+    actionDown:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1447214156}
+          m_TargetAssemblyTypeName: DataController, Assembly-CSharp
+          m_MethodName: ShowData
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -26396,10 +26488,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _allItems:
-  - {fileID: 11400000, guid: df5bc3d2a952f6545843f08bd9b3878a, type: 2}
-  - {fileID: 11400000, guid: 9e649fa4a9e28dd4199e08bc919d2b6d, type: 2}
   - {fileID: 11400000, guid: 9b3300b1837f7c245a5b0389b8ce0153, type: 2}
   - {fileID: 11400000, guid: fa84b8f85bfd98342bb801ad17378103, type: 2}
+  - {fileID: 11400000, guid: 9e649fa4a9e28dd4199e08bc919d2b6d, type: 2}
+  - {fileID: 11400000, guid: df5bc3d2a952f6545843f08bd9b3878a, type: 2}
+  - {fileID: 11400000, guid: 42f8f1c259febf24da5299d2669b310a, type: 2}
   _allKeys:
   - {fileID: 11400000, guid: 7354d044a47802b4299a1df2da8b581e, type: 2}
   _allWeapons:
@@ -35240,6 +35333,8 @@ MonoBehaviour:
   _playerPosition: {fileID: 297860050}
   _modeSwitcher: {fileID: 1916848793}
   _playerInventoryChess: {fileID: 7122365111173460526}
+  _day: 0
+  _isDay: 0
 --- !u!1001 &1920308525
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41436,6 +41531,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 271194059759582548, guid: 567b915ae3652564bb6c0c5811743039, type: 3}
+      propertyPath: m_Size.x
+      value: 6.9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 567b915ae3652564bb6c0c5811743039, type: 3}
 --- !u!4 &271194058575709195 stripped
@@ -42333,7 +42432,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6277845742340038914, guid: 8207c594bec00e340ad1c66a6535e423, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 55.005
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6277845742340038914, guid: 8207c594bec00e340ad1c66a6535e423, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -42477,7 +42576,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6683462180582062463, guid: 8207c594bec00e340ad1c66a6535e423, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 1810.995
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6683462180582062463, guid: 8207c594bec00e340ad1c66a6535e423, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -42958,7 +43057,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6603762349645098025, guid: 4be492a4ae4ee894484be0e883e876bf, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 15.030001
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6603762349645098025, guid: 4be492a4ae4ee894484be0e883e876bf, type: 3}
       propertyPath: m_SizeDelta.y
@@ -42966,7 +43065,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6603762349645098025, guid: 4be492a4ae4ee894484be0e883e876bf, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 9.515
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6603762349645098025, guid: 4be492a4ae4ee894484be0e883e876bf, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -43574,7 +43673,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9044341509417348380, guid: e0916884f8eee85489613056034a5e6c, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 36
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9044341509417348380, guid: e0916884f8eee85489613056034a5e6c, type: 3}
       propertyPath: m_SizeDelta.y
@@ -43582,7 +43681,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9044341509417348380, guid: e0916884f8eee85489613056034a5e6c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9044341509417348380, guid: e0916884f8eee85489613056034a5e6c, type: 3}
       propertyPath: m_AnchoredPosition.y

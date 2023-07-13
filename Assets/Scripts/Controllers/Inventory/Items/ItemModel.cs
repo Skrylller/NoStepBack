@@ -7,14 +7,14 @@ public class ItemModel : ScriptableObject
 {
     public enum ItemType
     {
+        Key,
+        Weapon,
+        Note,
         PistolAmmo,
         RifleAmmo,
         MedKit,
         MasterKey,
-        Key,
-        Weapon,
         Flashlight,
-        Note,
     }
 
     [Header("Item")]

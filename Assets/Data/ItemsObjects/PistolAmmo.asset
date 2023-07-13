@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7431867fe1a2cc84994fd31dadd0f7da, type: 3}
   m_Name: PistolAmmo
   m_EditorClassIdentifier: 
-  _item: 0
+  _item: 3
   _name: {fileID: 11400000, guid: bf4d2b22119c7904e9a7362bfff5f3f2, type: 2}
   _description: {fileID: 11400000, guid: baabcd6c81763404782414a6b0f9571d, type: 2}
   _icon: {fileID: 1615172410, guid: 78f93878f6ee5bf4fbda3acd7784d472, type: 3}
