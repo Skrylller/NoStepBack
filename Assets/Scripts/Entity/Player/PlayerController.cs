@@ -110,15 +110,12 @@ public class PlayerController : MonoBehaviour, IMousePositionVisitor, ICapturedO
         if (stopInput)
             return;
 
-        if (_jumpingController.IsGrounded > 0)
-        {
-            if (isBusy)
-                directional /= 2;
+        if (isBusy)
+            directional /= 2;
 
-            _spriteSwitcher.State = directional < 0 ? (int)SpriteState.Left : (int)SpriteState.Right;
-            _movingController.MoveHorizontal(directional);
-            _stairsController.CheckStair(directional);
-        }
+        _spriteSwitcher.State = directional < 0 ? (int)SpriteState.Left : (int)SpriteState.Right;
+        _movingController.MoveHorizontal(directional);
+        _stairsController.CheckStair(directional);
     }
 
     public void MoveHorizontalStop()

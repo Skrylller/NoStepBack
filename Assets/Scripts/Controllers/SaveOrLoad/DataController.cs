@@ -76,7 +76,7 @@ public class DataController : MonoBehaviour
 
     public int LoadItem(string item)
     {
-        return PlayerPrefs.GetInt(_inventoryKey + item.ToString(), 0);
+        return PlayerPrefs.GetInt(_inventoryKey + item, 0);
     }
 
     public void LoadInventory(Inventory inventory)
@@ -111,6 +111,7 @@ public class DataController : MonoBehaviour
         }
 
         Debug.Log(message);
+        //Debug.Log($"{LoadItem(NoteModel.Note.TestNote.ToString())}");
     }
 
     private StringBuilder ShowItemDataGroup<T1>()
@@ -119,7 +120,7 @@ public class DataController : MonoBehaviour
 
         for (int i = 0; i < Enum.GetNames(typeof(T1)).Length; i++)
         {
-            if(LoadItem(Enum.GetNames(typeof(T1))[i]) > 1)
+            if(LoadItem(Enum.GetNames(typeof(T1))[i]) > 0)
                 message.Append($"{Enum.GetNames(typeof(T1))[i]} - {LoadItem(Enum.GetNames(typeof(T1))[i])}\n");
         }
 

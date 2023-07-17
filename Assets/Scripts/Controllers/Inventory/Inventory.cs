@@ -76,7 +76,6 @@ public class Inventory
 
             if (isPlayerInventory)
             {
-                UIController.main.OpenNoteUI(item as NoteModel);
                 UIController.main.MessageUI.AddItem(item as NoteModel);
 
                 if (DaysController.main.IsDay)

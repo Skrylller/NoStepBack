@@ -48,6 +48,7 @@ public class InventoryObject : MonoBehaviour
 
         for (int i = 0; i < _inventory.NoteModels.Count; i++)
         {
+            UIController.main.OpenNoteUI(_inventory.NoteModels[i]);
             PlayerInventory.Inventory.AddItem(_inventory.NoteModels[i]);
         }
     }
