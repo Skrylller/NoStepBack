@@ -52,7 +52,8 @@ public class EnemyController : MonoBehaviour, ICapturedObject
         _lifeController.OnDammage += Dammage;
         _lifeController.OnDeath += Death;
         _enemyPlayerObserver.OnView += ViewPlayer;
-        isNewTargetDelay = false;
+        _randomTargetFinder.FindNewTarget();
+        StartCoroutine(NewTargetTimer());
     }
 
     private void OnDisable()

@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04dabe08df007d34b97874633b0ff59a, type: 3}
+  m_Name: DefaultShooter
+  m_EditorClassIdentifier: 
+  _maxHealth: 300
+  _speed: 15
+  _canRun: 1
+  _runFactor: 2.2
+  _isViewAlways: 0
+  _viewDistance: 1000
+  _minDistance: 1000
+  _stairClimpingSpeed: 0
+  _stairClimpingHeight: 6
+  _stopDistance: 100
+  _verticalStopDistance: 40
+  _newTargetDelay: 10

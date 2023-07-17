@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 04dabe08df007d34b97874633b0ff59a, type: 3}
-  m_Name: Enemy
+  m_Name: EasyEnemy
   m_EditorClassIdentifier: 
   _maxHealth: 100
   _speed: 20
