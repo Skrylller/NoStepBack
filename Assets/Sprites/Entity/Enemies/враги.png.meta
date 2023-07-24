@@ -141,10 +141,10 @@ TextureImporter:
       name: enemy_head_1
       rect:
         serializedVersion: 2
-        x: 3
-        y: 462
-        width: 6
-        height: 7
+        x: 91
+        y: 464
+        width: 5
+        height: 6
       alignment: 9
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -162,9 +162,9 @@ TextureImporter:
       name: enemy_head_2
       rect:
         serializedVersion: 2
-        x: 10
-        y: 462
-        width: 6
+        x: 98
+        y: 464
+        width: 5
         height: 7
       alignment: 9
       pivot: {x: 0, y: 0}
@@ -183,10 +183,10 @@ TextureImporter:
       name: enemy_head_3
       rect:
         serializedVersion: 2
-        x: 17
-        y: 462
-        width: 9
-        height: 10
+        x: 105
+        y: 464
+        width: 7
+        height: 9
       alignment: 9
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -204,10 +204,10 @@ TextureImporter:
       name: enemy_head_4
       rect:
         serializedVersion: 2
-        x: 27
-        y: 462
-        width: 8
-        height: 8
+        x: 114
+        y: 464
+        width: 7
+        height: 7
       alignment: 9
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -225,8 +225,8 @@ TextureImporter:
       name: enemy_hand_1_attack_4
       rect:
         serializedVersion: 2
-        x: 49
-        y: 452
+        x: 88
+        y: 451
         width: 20
         height: 9
       alignment: 9
@@ -309,9 +309,9 @@ TextureImporter:
       name: enemy_hand_1_attack_1
       rect:
         serializedVersion: 2
-        x: 2
-        y: 451
-        width: 9
+        x: 3
+        y: 450
+        width: 10
         height: 9
       alignment: 9
       pivot: {x: 0, y: 0}
@@ -330,8 +330,8 @@ TextureImporter:
       name: enemy_hand_1_attack_2
       rect:
         serializedVersion: 2
-        x: 13
-        y: 451
+        x: 54
+        y: 452
         width: 14
         height: 8
       alignment: 9
@@ -351,8 +351,8 @@ TextureImporter:
       name: enemy_hand_1_attack_3
       rect:
         serializedVersion: 2
-        x: 30
-        y: 451
+        x: 70
+        y: 452
         width: 16
         height: 9
       alignment: 9
@@ -372,8 +372,8 @@ TextureImporter:
       name: enemy_hand_1_attack_5
       rect:
         serializedVersion: 2
-        x: 72
-        y: 452
+        x: 111
+        y: 450
         width: 20
         height: 9
       alignment: 9
@@ -393,10 +393,10 @@ TextureImporter:
       name: enemy_hand_1_idle_1
       rect:
         serializedVersion: 2
-        x: 93
-        y: 452
-        width: 8
-        height: 9
+        x: 42
+        y: 450
+        width: 10
+        height: 10
       alignment: 9
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -414,9 +414,9 @@ TextureImporter:
       name: enemy_hand_1_idle_2
       rect:
         serializedVersion: 2
-        x: 103
-        y: 452
-        width: 7
+        x: 18
+        y: 451
+        width: 9
         height: 10
       alignment: 9
       pivot: {x: 0, y: 0}
@@ -435,9 +435,9 @@ TextureImporter:
       name: enemy_hand_1_idle_3
       rect:
         serializedVersion: 2
-        x: 111
-        y: 452
-        width: 7
+        x: 29
+        y: 450
+        width: 11
         height: 11
       alignment: 9
       pivot: {x: 0, y: 0}
@@ -456,9 +456,9 @@ TextureImporter:
       name: enemy_hand_2_idle_1
       rect:
         serializedVersion: 2
-        x: 3
-        y: 433
-        width: 4
+        x: 5
+        y: 431
+        width: 5
         height: 16
       alignment: 9
       pivot: {x: 0, y: 0}
@@ -477,9 +477,9 @@ TextureImporter:
       name: enemy_hand_2_attack_1
       rect:
         serializedVersion: 2
-        x: 9
-        y: 433
-        width: 6
+        x: 12
+        y: 431
+        width: 7
         height: 16
       alignment: 9
       pivot: {x: 0, y: 0}
@@ -498,8 +498,8 @@ TextureImporter:
       name: enemy_hand_2_attack_2
       rect:
         serializedVersion: 2
-        x: 17
-        y: 432
+        x: 21
+        y: 430
         width: 12
         height: 17
       alignment: 9
@@ -519,8 +519,8 @@ TextureImporter:
       name: enemy_hand_2_attack_3
       rect:
         serializedVersion: 2
-        x: 32
-        y: 430
+        x: 35
+        y: 428
         width: 22
         height: 21
       alignment: 9
@@ -540,8 +540,8 @@ TextureImporter:
       name: enemy_hand_2_attack_4
       rect:
         serializedVersion: 2
-        x: 57
-        y: 440
+        x: 59
+        y: 438
         width: 19
         height: 11
       alignment: 9
@@ -561,9 +561,9 @@ TextureImporter:
       name: enemy_hand_3_attack_1
       rect:
         serializedVersion: 2
-        x: 3
-        y: 403
-        width: 12
+        x: 45
+        y: 405
+        width: 13
         height: 21
       alignment: 9
       pivot: {x: 0, y: 0}
@@ -582,8 +582,8 @@ TextureImporter:
       name: enemy_hand_3_attack_2
       rect:
         serializedVersion: 2
-        x: 16
-        y: 403
+        x: 61
+        y: 405
         width: 23
         height: 20
       alignment: 9
@@ -603,8 +603,8 @@ TextureImporter:
       name: enemy_hand_3_attack_3
       rect:
         serializedVersion: 2
-        x: 44
-        y: 401
+        x: 88
+        y: 404
         width: 15
         height: 23
       alignment: 9
@@ -624,8 +624,8 @@ TextureImporter:
       name: enemy_hand_3_attack_4
       rect:
         serializedVersion: 2
-        x: 65
-        y: 402
+        x: 105
+        y: 403
         width: 49
         height: 29
       alignment: 9
@@ -645,7 +645,7 @@ TextureImporter:
       name: enemy_hand_3_attack_5
       rect:
         serializedVersion: 2
-        x: 117
+        x: 158
         y: 404
         width: 61
         height: 24
@@ -666,7 +666,7 @@ TextureImporter:
       name: enemy_hand_3_attack_6
       rect:
         serializedVersion: 2
-        x: 189
+        x: 224
         y: 405
         width: 64
         height: 24
@@ -687,7 +687,7 @@ TextureImporter:
       name: enemy_hand_3_attack_7
       rect:
         serializedVersion: 2
-        x: 258
+        x: 292
         y: 405
         width: 38
         height: 24
@@ -708,8 +708,8 @@ TextureImporter:
       name: enemy_hand_3_attack_8
       rect:
         serializedVersion: 2
-        x: 298
-        y: 407
+        x: 334
+        y: 405
         width: 21
         height: 24
       alignment: 9
@@ -729,9 +729,9 @@ TextureImporter:
       name: enemy_hand_3_idle_1
       rect:
         serializedVersion: 2
-        x: 326
-        y: 406
-        width: 9
+        x: 6
+        y: 403
+        width: 10
         height: 24
       alignment: 9
       pivot: {x: 0, y: 0}
@@ -750,9 +750,9 @@ TextureImporter:
       name: enemy_hand_3_idle_2
       rect:
         serializedVersion: 2
-        x: 338
-        y: 406
-        width: 9
+        x: 16
+        y: 403
+        width: 10
         height: 24
       alignment: 9
       pivot: {x: 0, y: 0}
@@ -771,9 +771,9 @@ TextureImporter:
       name: enemy_hand_3_idle_3
       rect:
         serializedVersion: 2
-        x: 349
-        y: 406
-        width: 10
+        x: 29
+        y: 403
+        width: 11
         height: 24
       alignment: 9
       pivot: {x: 0, y: 0}
@@ -792,9 +792,9 @@ TextureImporter:
       name: enemy_hand_4_idle_1
       rect:
         serializedVersion: 2
-        x: 5
+        x: 7
         y: 385
-        width: 4
+        width: 5
         height: 11
       alignment: 9
       pivot: {x: 0, y: 0}
@@ -813,9 +813,9 @@ TextureImporter:
       name: enemy_hand_4_attack_1
       rect:
         serializedVersion: 2
-        x: 13
-        y: 387
-        width: 7
+        x: 19
+        y: 388
+        width: 8
         height: 6
       alignment: 9
       pivot: {x: 0, y: 0}
@@ -834,9 +834,9 @@ TextureImporter:
       name: enemy_hand_4_attack_2
       rect:
         serializedVersion: 2
-        x: 26
-        y: 386
-        width: 5
+        x: 31
+        y: 387
+        width: 7
         height: 7
       alignment: 9
       pivot: {x: 0, y: 0}
@@ -855,8 +855,8 @@ TextureImporter:
       name: enemy_hand_4_attack_3
       rect:
         serializedVersion: 2
-        x: 37
-        y: 386
+        x: 42
+        y: 388
         width: 9
         height: 6
       alignment: 9
@@ -876,10 +876,10 @@ TextureImporter:
       name: enemy_hand_4_attack_4
       rect:
         serializedVersion: 2
-        x: 49
+        x: 59
         y: 388
         width: 14
-        height: 4
+        height: 5
       alignment: 9
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1250,6 +1250,909 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: "\u0432\u0440\u0430\u0433\u0438_eye"
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 467
+        width: 1
+        height: 1
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90b977c01683b6345b17b514281905b1
+      internalID: 295719551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_appearance_1
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 306
+        width: 4
+        height: 2
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9be9a0b61829b6f48994b3e674b6cc5d
+      internalID: 1028538971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_appearance_2
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 306
+        width: 9
+        height: 5
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6b62a976bf84344ebe3d8f54e8431dd
+      internalID: 457838120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_appearance_
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 306
+        width: 11
+        height: 12
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 400bfbb9e5730f7429a771cace54c3b6
+      internalID: -1760147748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_appearance_4
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 306
+        width: 14
+        height: 19
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47805bc1d43620145b6941843c624501
+      internalID: 450807523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_appearance_5
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 306
+        width: 15
+        height: 27
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5ada55fc355e884593a4dd98723fac4
+      internalID: -1946339425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_appearance_6
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 306
+        width: 12
+        height: 30
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c728e96da6fa70a46b0627ba7cc1d439
+      internalID: 751356863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_appearance_7
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 306
+        width: 12
+        height: 30
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 931e1a0ecf2ced04fa7c38b623f8d3fc
+      internalID: -951213360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_part_6
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 462
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fefc307afe7da64f938f7e0feb0c55e
+      internalID: -837371727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_part_7
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 464
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc9fb0be7fc78e04eaabb9fb5bbde73b
+      internalID: 1745284343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_part_8
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 464
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8005ae29090ab884b95ce0a23efefe75
+      internalID: -2036312508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tentacle_idle_1
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 282
+        width: 9
+        height: 14
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fe8d1a679c790248a47cfcd9c24b4eb
+      internalID: -1841530970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tentacle_idle_2
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 282
+        width: 11
+        height: 14
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05a80d0016e0745429979dc99594019c
+      internalID: 893760570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tentacle_idle_3
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 282
+        width: 9
+        height: 17
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cb06a87a3f53c944ab906a68bc5cc46
+      internalID: -68815176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tentacle_idle_4
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 282
+        width: 9
+        height: 17
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 306689e98f8dd964d97d944522c11082
+      internalID: 2136106324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tentacle_appearance_1
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 282
+        width: 2
+        height: 2
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6803b6ed1a206e143b659765351ebcb1
+      internalID: -2069645565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tentacle_appearance_2
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 282
+        width: 4
+        height: 6
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e6930216c066e04eb6d930635034e46
+      internalID: 213789030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tentacle_appearance_3
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 282
+        width: 5
+        height: 12
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 919b6f7e98eb73f4fb8cfd7a331b1204
+      internalID: -1985732940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tentacle_attack_1
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 282
+        width: 15
+        height: 16
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf65f2fec2e548b408a0ea6389d629b7
+      internalID: 1120724627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tentacle_attack_2
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 282
+        width: 16
+        height: 16
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4385b53301420b4cacb9091db074568
+      internalID: 1467916112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tentacle_attack_3
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 282
+        width: 19
+        height: 12
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5933d6dcc015f3c4083f74049363b429
+      internalID: -618581604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tentacle_attack_4
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 282
+        width: 38
+        height: 15
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c1c04a7dc6d3c844b8ff70f5a1868fa
+      internalID: 700525499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tentacle_attack_5
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 282
+        width: 16
+        height: 5
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4341b040b324cd44bae776f9670b869c
+      internalID: -1504835410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tentacle_attack_6
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 282
+        width: 11
+        height: 9
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10c36caec5db1404ca24a239104e3f9d
+      internalID: 1993208956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explosion_idle_1
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 263
+        width: 9
+        height: 15
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e11e46ff3fee90744812d7f39b29fe96
+      internalID: 2143831112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explosion_idle_2
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 263
+        width: 9
+        height: 15
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3e4321fac9a41445bccde1e51ac7f27
+      internalID: -72718560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explosion_idle_3
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 263
+        width: 10
+        height: 15
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e37e0356a8ed0d44acfc80517ec1fd8
+      internalID: 509911763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explosion_attack_1
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 263
+        width: 11
+        height: 15
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38493c8412bf8eb44bb9713c96712b22
+      internalID: 1946998491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explosion_idle_
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 262
+        width: 13
+        height: 16
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af5a758d880f78743aadc1323fb96da1
+      internalID: 1977992046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u0432\u0440\u0430\u0433\u0438_0"
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 262
+        width: 14
+        height: 17
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80beeffea111d7b45a5e4793e99e5b0c
+      internalID: 2147376829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: speeder_eye
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 254
+        width: 4
+        height: 3
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59a64e22a88263d4e976fb340ecef74c
+      internalID: 1669591469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: speeder_head_1
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 248
+        width: 11
+        height: 11
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ab03c2db0e63074e859bc493cf376b0
+      internalID: 1532894123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u0432\u0440\u0430\u0433\u0438_1"
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 248
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb359954766981c4b8fb341b16bbac84
+      internalID: 237667758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: speeder_head_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 248
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddc1fe86388548d42a1b0fd4a49b51f0
+      internalID: 644937562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: speeder_walk_1
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 243
+        width: 34
+        height: 17
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd80396e23da08247a00a38c2b8b8d62
+      internalID: -1767517584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: speeder_walk_2
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 243
+        width: 35
+        height: 16
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fdc3987566a60545aabb7ff98ed857d
+      internalID: -940758364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: speeder_walk_3
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 243
+        width: 34
+        height: 17
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1551d8a90dd86d4418f3d44b2996701d
+      internalID: 791313754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: speeder_walk_
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 243
+        width: 34
+        height: 17
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62b05866a9ee60f4397676be9b579f9d
+      internalID: 908138546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: speeder_walk_4
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 243
+        width: 34
+        height: 16
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b543a8a0917e80e43b512206182a124f
+      internalID: 956395736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: speeder_jump_1
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 243
+        width: 32
+        height: 18
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f344fa0bf583a164a862dd8c104496bf
+      internalID: 1817379583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: speeder_jump_2
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 238
+        width: 47
+        height: 22
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 858245f869c96ab46ace446e36f88c50
+      internalID: 517042835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: speeder_jump_3
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 247
+        width: 53
+        height: 14
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63d3c8f7af4eaaf4ca746956aca0ec6b
+      internalID: 447079986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: speeder_jump_4
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 244
+        width: 42
+        height: 17
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a25a6ab7a5d492429cd64bad8c0acf0
+      internalID: 314884784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -1261,61 +2164,103 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      enemy_hand_1_idle_3: 1706281862
-      enemy_head_2: 109932773
+      tentacle_idle_1: -1841530970
+      enemy_appearance_: -1760147748
       enemy_body_1_idle_3: 1044745403
-      enemy_hand_1_attack_2: -770950553
-      enemy_body_2_idle_1: -2118734464
-      enemy_hand_3_attack_7: -2004839218
-      enemy_part_5: -890820747
-      enemy_hand_3_attack_2: -1952777614
+      speeder_jump_2: 517042835
+      speeder_jump_4: 314884784
       enemy_hand_2_idle_1: 139674711
-      enemy_foot_run_3: 539588112
+      speeder_walk_3: 791313754
       enemy_hand_1_attack_3: -1554773896
       enemy_body_3_idle_1: -1044825706
-      enemy_part_2: 1982760370
-      "\u0432\u0440\u0430\u0433\u0438_1": 237667758
-      enemy_body_3_idle_2: -162909808
-      enemy_hand_3_attack_5: -354615347
-      enemy_part_3: 1389422591
-      enemy_hand_4_attack_2: 781637223
+      enemy_part_8: -2036312508
       enemy_foot_run_2: 1266537257
       enemy_head_1: -19287234
-      enemy_hand_2_attack_2: -646077079
-      enemy_foot_run_1: -876649645
-      enemy_body_1_idle_1: -1288622955
+      explosion_idle_: 1977992046
+      "\u0432\u0440\u0430\u0433\u0438_eye": 295719551
+      tentacle_appearance_1: -2069645565
+      tentacle_attack_6: 1993208956
       enemy_foot_walk_2: 7990095
       enemy_foot_run_4: -1151920344
-      enemy_hand_3_attack_3: -1229985133
       enemy_hand_4_attack_4: -513301322
       enemy_foot_walk_4: 383619158
-      enemy_body_1_idle_2: -1366393487
       enemy_hand_1_attack_1: 1012847521
-      enemy_hand_3_attack_8: -25397773
-      enemy_hand_3_attack_4: 1095924775
-      enemy_hand_4_attack_3: -1566106193
       enemy_hand_3_idle_3: 811260963
-      enemy_foot_walk_1: 1472348083
-      enemy_foot_walk_3: 860512268
+      tentacle_attack_4: 700525499
+      enemy_hand_4_attack_3: -1566106193
       enemy_head_4: -416494124
       enemy_hand_1_idle_2: 1134247172
+      speeder_eye: 1669591469
       enemy_hand_2_attack_1: -2061476123
+      tentacle_attack_5: -1504835410
+      speeder_head_1: 1532894123
       enemy_hand_2_attack_3: -672978775
       enemy_hand_4_attack_1: 1009049141
       enemy_hand_4_idle_1: 1221916084
       enemy_part_4: -581533868
-      enemy_hand_1_attack_5: 767925836
-      enemy_hand_3_attack_6: -1642718050
+      tentacle_attack_2: 1467916112
       enemy_foot_idle_1: 1475798119
       enemy_hand_2_attack_4: -835979047
       enemy_hand_3_attack_1: 143728413
+      enemy_appearance_6: 751356863
+      explosion_attack_1: 1946998491
+      tentacle_appearance_3: -1985732940
+      tentacle_idle_2: 893760570
+      enemy_body_3_idle_3: 299208426
+      enemy_hand_1_idle_1: 1703332658
+      enemy_part_7: 1745284343
+      tentacle_attack_3: -618581604
+      enemy_hand_1_idle_3: 1706281862
+      speeder_walk_4: 956395736
+      enemy_head_2: 109932773
+      speeder_jump_1: 1817379583
+      explosion_idle_2: -72718560
+      "\u0432\u0440\u0430\u0433\u0438_0": 2147376829
+      enemy_hand_1_attack_2: -770950553
+      enemy_body_2_idle_1: -2118734464
+      tentacle_idle_4: 2136106324
+      enemy_hand_3_attack_7: -2004839218
+      enemy_part_5: -890820747
+      enemy_hand_3_attack_2: -1952777614
+      speeder_walk_2: -940758364
+      enemy_foot_run_3: 539588112
+      enemy_part_2: 1982760370
+      enemy_appearance_4: 237667758
+      "\u0432\u0440\u0430\u0433\u0438_1": 237667758
+      enemy_body_3_idle_2: -162909808
+      enemy_hand_3_attack_5: -354615347
+      speeder_head_3: 644937562
+      enemy_part_3: 1389422591
+      enemy_hand_4_attack_2: 781637223
+      enemy_hand_2_attack_2: -646077079
+      enemy_foot_run_1: -876649645
+      enemy_body_1_idle_1: -1288622955
+      enemy_appearance_1: 1028538971
+      tentacle_idle_3: -68815176
+      tentacle_attack_1: 1120724627
+      enemy_hand_3_attack_3: -1229985133
+      enemy_body_1_idle_2: -1366393487
+      enemy_hand_3_attack_4: 1095924775
+      enemy_hand_3_attack_8: -25397773
+      enemy_appearance_2: 457838120
+      enemy_part_6: -837371727
+      enemy_foot_walk_1: 1472348083
+      enemy_foot_walk_3: 860512268
+      tentacle_appearance_2: 213789030
+      enemy_appearance_5: -1946339425
+      explosion_idle_3: 509911763
+      speeder_walk_: 908138546
+      enemy_hand_1_attack_5: 767925836
+      enemy_hand_3_attack_6: -1642718050
       enemy_hand_3_idle_1: 1889611662
       enemy_part_1: -987132296
       enemy_hand_1_attack_4: -750903784
+      speeder_jump_3: 447079986
+      speeder_walk_1: -1767517584
+      explosion_idle_1: 2143831112
       enemy_head_3: 1048935677
       enemy_hand_3_idle_2: -1394287942
-      enemy_body_3_idle_3: 299208426
-      enemy_hand_1_idle_1: 1703332658
+      enemy_appearance_7: -951213360
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

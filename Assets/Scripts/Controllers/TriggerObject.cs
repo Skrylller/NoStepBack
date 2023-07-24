@@ -12,7 +12,7 @@ public class TriggerObject : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         OnEnter?.Invoke();
-        Debug.Log($"{gameObject.name} Enter");
+        //Debug.Log($"{gameObject.name} Enter");
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -22,6 +22,6 @@ public class TriggerObject : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         OnExit?.Invoke();
-        Debug.Log($"{gameObject.name} Exit");
+        //Debug.Log($"{gameObject.name} Exit");
     }
 }

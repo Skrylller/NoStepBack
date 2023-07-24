@@ -60,6 +60,14 @@ public class LifeController : MonoBehaviour, ISliderVisitor
         Health = _model.MaxHealth;
     }
 
+    public void Restart()
+    {
+        if (_model == null)
+            return;
+
+        Health = _model.MaxHealth;
+    }
+
     public void TakeDammage(uint dammage, Vector2 point, float angle)
     {
         PullableObj part = _partPull.AddObj();

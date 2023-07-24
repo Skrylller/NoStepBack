@@ -14,6 +14,7 @@ public class EnemyAttackController : MonoBehaviour
     [SerializeField] private Animator _handAnimator;
     [SerializeField] private float _attackDelay;
     [SerializeField] private BulletModel _missleModel;
+    [SerializeField] private EnemyPlayerObserver _enemyPlayerObserver;
 
     private GameObject _player;
     private bool _isReadyAttack;
@@ -50,7 +51,7 @@ public class EnemyAttackController : MonoBehaviour
 
     private void CheckAttack()
     {
-        if (_player == null || !_isReadyAttack)
+        if (_player == null || !_isReadyAttack || !_enemyPlayerObserver.isView)
             return;
 
         isAttack = true;

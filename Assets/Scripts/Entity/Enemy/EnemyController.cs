@@ -54,6 +54,8 @@ public class EnemyController : MonoBehaviour, ICapturedObject
         _enemyPlayerObserver.OnView += ViewPlayer;
         _randomTargetFinder.FindNewTarget();
         StartCoroutine(NewTargetTimer());
+        _enemyAttackController.StopAttack();
+        EndCapture();
     }
 
     private void OnDisable()
@@ -67,6 +69,23 @@ public class EnemyController : MonoBehaviour, ICapturedObject
     {
         CheckState();
         MoveToTarget();
+    }
+
+    public void Restart()
+    {
+        _lifeController.Restart();
+    }
+
+    public void Capture(Transform position)
+    {
+        _unactiveEnemy = true;
+        _enemyAttackController.StopAttack();
+        _captureTarget = position;
+    }
+
+    public void EndCapture()
+    {
+        _unactiveEnemy = false;
     }
 
     private void CheckState()
@@ -150,17 +169,6 @@ public class EnemyController : MonoBehaviour, ICapturedObject
         gameObject.SetActive(false);
     }
 
-    public void Capture(Transform position)
-    {
-        _unactiveEnemy = true;
-        _enemyAttackController.StopAttack();
-        _captureTarget = position;
-    }
-
-    public void EndCapture()
-    {
-        _unactiveEnemy = false;
-    }
     private void CheckCapture()
     {
         if (!_lifeController.IsCapture)

@@ -86,6 +86,9 @@ public class PlayerController : MonoBehaviour, IMousePositionVisitor, ICapturedO
 
     private void Update()
     {
+        if (stopInput)
+            MoveHorizontalStop();
+
         SetState();
     }
 
@@ -120,8 +123,7 @@ public class PlayerController : MonoBehaviour, IMousePositionVisitor, ICapturedO
 
     public void MoveHorizontalStop()
     {
-        if (_jumpingController.IsGrounded > 0)
-            _movingController.MoveHorizontal(0);
+        _movingController.MoveHorizontal(0);
     }
 
     public void Jump()

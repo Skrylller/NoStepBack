@@ -28,4 +28,9 @@ public class AnimationEventController : MonoBehaviour
     {
         _animator.SetInteger("State", value);
     }
+
+    public int GetState()
+    {
+        return _animator.GetInteger("State");
+    }
 }
