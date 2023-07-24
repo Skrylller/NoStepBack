@@ -10,6 +10,11 @@ public class InventoryObjUI : MonoBehaviour
     {
         _itemsPull.Clear();
 
+        for (int i = 0; i < inventory.WeaponModels.Count; i++)
+        {
+            ItemPrefab itemUI = _itemsPull.AddObj() as ItemPrefab;
+            itemUI.Init(inventory.WeaponModels[i]);
+        }
         for (int i = 0; i < inventory.NoteModels.Count; i++)
         {
             ItemPrefab itemUI = _itemsPull.AddObj() as ItemPrefab;

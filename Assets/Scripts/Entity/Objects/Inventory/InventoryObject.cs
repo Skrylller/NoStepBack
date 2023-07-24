@@ -9,6 +9,8 @@ public class InventoryObject : MonoBehaviour
     [SerializeField] private Inventory _inventory;
     public Inventory Inventory { get { return _inventory; } }
 
+    [SerializeField] private bool _noteAutoOpen;
+
     private void OnEnable()
     {
         _inventoryObjUI.gameObject.SetActive(false);
@@ -48,7 +50,9 @@ public class InventoryObject : MonoBehaviour
 
         for (int i = 0; i < _inventory.NoteModels.Count; i++)
         {
-            UIController.main.OpenNoteUI(_inventory.NoteModels[i]);
+            if(_noteAutoOpen)
+                UIController.main.OpenNoteUI(_inventory.NoteModels[i]);
+
             PlayerInventory.Inventory.AddItem(_inventory.NoteModels[i]);
         }
     }

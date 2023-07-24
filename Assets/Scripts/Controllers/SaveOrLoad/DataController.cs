@@ -28,7 +28,7 @@ public class DataController : MonoBehaviour
 
     private const string _inventoryKey = "Inventory_";
     private const int _itemDummyZone = 3;
-    private const int _weaponDummyZone = 3;
+    private const int _weaponDummyZone = 1;
 
     private void Awake()
     {
