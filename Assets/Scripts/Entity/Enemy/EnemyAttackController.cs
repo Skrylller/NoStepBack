@@ -11,6 +11,7 @@ public class EnemyAttackController : MonoBehaviour
         attack
     }
 
+    [SerializeField] private Animator _bodyAnimator;
     [SerializeField] private Animator _handAnimator;
     [SerializeField] private float _attackDelay;
     [SerializeField] private BulletModel _missleModel;
@@ -55,6 +56,8 @@ public class EnemyAttackController : MonoBehaviour
             return;
 
         isAttack = true;
+
+        _bodyAnimator.SetInteger("State", (int)HandState.attack);
         _handAnimator.SetInteger("State", (int)HandState.attack);
         StartCoroutine(AttackDelay());
     }
@@ -69,6 +72,8 @@ public class EnemyAttackController : MonoBehaviour
     public void StopAttack()
     {
         isAttack = false;
+
+        _bodyAnimator.SetInteger("State", (int)HandState.idle);
         _handAnimator.SetInteger("State", (int)HandState.idle);
     }
 

@@ -1707,6 +1707,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c286f88e88e04414cae1fc007fa82fe8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _bodyAnimator: {fileID: 7540359986505474918}
   _handAnimator: {fileID: 7540359988298733804}
   _attackDelay: 1
   _missleModel: {fileID: 0}
@@ -3110,6 +3111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c286f88e88e04414cae1fc007fa82fe8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _bodyAnimator: {fileID: 7540359986505474918}
   _handAnimator: {fileID: 7540359988298733804}
   _attackDelay: 3
   _missleModel: {fileID: 11400000, guid: 41c2308df920cd44fb3fba9e9e7315dc, type: 2}
