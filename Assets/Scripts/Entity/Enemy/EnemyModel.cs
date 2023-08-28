@@ -23,6 +23,11 @@ public class EnemyModel : ScriptableObject, IPlayerObsrver, IMovingModel, IClimp
     [SerializeField] private float _stopDistance;
     [SerializeField] private float _verticalStopDistance;
     [SerializeField] private float _newTargetDelay;
+    [Header("Teleportation")]
+    [SerializeField] private bool _isCanTeleportate;
+    [SerializeField] private bool _isTeleportateAlways;
+    [SerializeField] private int _teleportateMinDistance;
+    [SerializeField] private int _teleportateMaxDistance;
 
     [HideInInspector] public bool isRun { get; set; }
 
@@ -44,6 +49,10 @@ public class EnemyModel : ScriptableObject, IPlayerObsrver, IMovingModel, IClimp
     public float StopDistance { get { return _stopDistance; } }
     public float VerticalStopDistance { get { return _verticalStopDistance; } }
     public float NewTargetTimer { get { return _newTargetDelay; } }
+    public bool IsCanTeleportate { get { return _isCanTeleportate; } }
+    public bool IsTeleportateAlways { get { return _isTeleportateAlways; } }
+    public int TeleportateMinDistance { get { return _teleportateMinDistance; } }
+    public int TeleportateMaxDistance { get { return _teleportateMaxDistance; } }
 }
 
 public interface IPlayerObsrver

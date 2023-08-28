@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour, IMousePositionVisitor, ICapturedO
     [SerializeField] private List<ToTargetRotator2D> _rotators;
     [SerializeField] private ModeSwitcher _spriteSwitcher;
     [SerializeField] private Animator _animator;
+    [SerializeField] public CompositeCollider2D _collider;
 
     private Rigidbody2D _rbPlayer;
     private Transform _captureTarget;
@@ -60,6 +61,8 @@ public class PlayerController : MonoBehaviour, IMousePositionVisitor, ICapturedO
 
     private const string layerPlayer = "Player";
     private const string layerPlatform = "Platform";
+
+    public CompositeCollider2D Collider => _collider;
 
     private void Awake()
     {

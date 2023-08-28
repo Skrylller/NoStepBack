@@ -24,3 +24,7 @@ MonoBehaviour:
   _stopDistance: 20
   _verticalStopDistance: 40
   _newTargetDelay: 5
+  _isCanTeleportate: 1
+  _isTeleportateAlways: 1
+  _teleportateMinDistance: 10
+  _teleportateMaxDistance: 24

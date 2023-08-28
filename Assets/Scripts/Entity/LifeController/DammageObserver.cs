@@ -9,7 +9,6 @@ public class DammageObserver : MonoBehaviour
     [SerializeField] private int _dammageLayer;
     [SerializeField] private LayerMask _dammageLayerMask;
     [SerializeField] private LifeController _lifeController;
-    [Range(0,1)]
     [SerializeField] private float _dammageFactor;
 
     private Collider2D _collider;

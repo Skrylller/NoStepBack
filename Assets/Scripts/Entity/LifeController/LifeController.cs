@@ -19,7 +19,7 @@ public class LifeController : MonoBehaviour, ISliderVisitor
 
     public bool IsCapture => _isCapture;
 
-    private uint _health;
+    [SerializeField] private uint _health;
     public uint HealthGet { get { return _health; } }
     private uint Health 
     { 

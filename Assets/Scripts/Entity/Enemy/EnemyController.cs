@@ -32,16 +32,18 @@ public class EnemyController : MonoBehaviour, ICapturedObject
 
     [HideInInspector] public bool isNewTargetDelay;
 
+    public EnemyModel Model => _model;
+    public bool IsDeath => _lifeController.HealthGet <= 0;
 
     private void Awake()
     {
         _rbEnemy = GetComponent<Rigidbody2D>();
+        _lifeController.Init(_model);
     }
 
     private void Start()
     {
         _model.isRun = false;
-        _lifeController.Init(_model);
         _enemyPlayerObserver.Init(_model);
         _movingController.Init(_model, _rbEnemy);
         _stairsController.Init(_model, _rbEnemy);
