@@ -27,4 +27,6 @@ MonoBehaviour:
   _isCanTeleportate: 1
   _isTeleportateAlways: 1
   _teleportateMinDistance: 10
-  _teleportateMaxDistance: 24
+  _teleportateMaxDistance: 20
+  _teleportateHideDelay: {x: 0, y: 2}
+  _teleportateShowDelay: {x: 1, y: 5}

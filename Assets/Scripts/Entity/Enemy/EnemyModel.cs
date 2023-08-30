@@ -28,6 +28,8 @@ public class EnemyModel : ScriptableObject, IPlayerObsrver, IMovingModel, IClimp
     [SerializeField] private bool _isTeleportateAlways;
     [SerializeField] private int _teleportateMinDistance;
     [SerializeField] private int _teleportateMaxDistance;
+    [SerializeField] private Vector2 _teleportateHideDelay;
+    [SerializeField] private Vector2 _teleportateShowDelay;
 
     [HideInInspector] public bool isRun { get; set; }
 
@@ -53,6 +55,8 @@ public class EnemyModel : ScriptableObject, IPlayerObsrver, IMovingModel, IClimp
     public bool IsTeleportateAlways { get { return _isTeleportateAlways; } }
     public int TeleportateMinDistance { get { return _teleportateMinDistance; } }
     public int TeleportateMaxDistance { get { return _teleportateMaxDistance; } }
+    public Vector2 TeleportationHideDelay => _teleportateHideDelay;
+    public Vector2 TeleportationShowDelay => _teleportateShowDelay;
 }
 
 public interface IPlayerObsrver

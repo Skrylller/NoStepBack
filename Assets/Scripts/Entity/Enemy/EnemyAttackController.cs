@@ -79,6 +79,9 @@ public class EnemyAttackController : MonoBehaviour
 
     public void Shoot()
     {
+        if (_player == null)
+            return;
+
         BulletEntity missle = PullsController.main.GetPull(_missleModel.BulletPref).AddObj() as BulletEntity;
 
         float angle;

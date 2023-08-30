@@ -21,9 +21,13 @@ public class EnemyWorld : MonoBehaviour
     [SerializeField] private LayerMask _floorLayers;
     [SerializeField] private LayerMask _playerLayers;
     [SerializeField] private BoxCollider2D _enemyCollider;
+    [SerializeField] private AnimationClip _hideAnim;
 
     private void Start()
     {
+
+        _enemy.OnTeleportateToPlayer += TeleportationToPlayer;
+
         if (!_startActive)
             _enemy.gameObject.SetActive(false);
     }
@@ -32,9 +36,13 @@ public class EnemyWorld : MonoBehaviour
     {
     }
 
-    public void TestTP()
+    public void TeleportationToPlayer()
     {
-        _enemy.transform.position = FindPosition();
+        if (_enemy.IsDeath)
+            return;
+
+        Hide();
+        StartCoroutine(TeleportateToPlayerCourotine());
     }
 
     public void Appearance()
@@ -42,8 +50,7 @@ public class EnemyWorld : MonoBehaviour
         if (_enemy.gameObject.activeSelf || _enemyStartAnim.GetState() == (int)EnemyWorldState.show || _enemy.IsDeath)
             return;
 
-        _enemy.transform.position = _startPoint.position;
-        _enemyStartAnim.transform.position = _startPoint.position;
+        _enemyStartAnim.transform.position = _enemy.transform.position;
         _enemyStartAnim.SetAnimatorState((int)EnemyWorldState.show);
     }
 
@@ -126,6 +133,24 @@ public class EnemyWorld : MonoBehaviour
                 return false;
 
             return true;
+        }
+    }
+
+    private IEnumerator TeleportateToPlayerCourotine()
+    {
+        Vector2 position;
+
+        yield return new WaitForSeconds(_hideAnim.length + 1 + Random.Range(_enemy.Model.TeleportationHideDelay.x, _enemy.Model.TeleportationHideDelay.y));
+
+        yield return new WaitUntil(FindPositionUntil);
+
+        _enemy.transform.position = FindPosition();
+        Appearance();
+
+        bool FindPositionUntil()
+        {
+            position = FindPosition();
+            return position != (Vector2)_enemy.transform.position;
         }
     }
 }

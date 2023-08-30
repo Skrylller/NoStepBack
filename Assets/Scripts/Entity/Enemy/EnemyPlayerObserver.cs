@@ -17,6 +17,8 @@ public class EnemyPlayerObserver : MonoBehaviour
     public Action<GameObject> OnView;
     public bool isView;
 
+    public bool isViewOnce;
+
     private void OnEnable()
     {
         isFind = true;
@@ -53,6 +55,7 @@ public class EnemyPlayerObserver : MonoBehaviour
     {
         isFind = false;
         yield return new WaitForSeconds(time);
+
         isFind = true;
     }
 
@@ -65,7 +68,7 @@ public class EnemyPlayerObserver : MonoBehaviour
             return;
         }
 
-        if (_model.IsViewAlways)
+        if (_model.IsViewAlways && isViewOnce)
         {
             View();
             return;
@@ -85,5 +88,6 @@ public class EnemyPlayerObserver : MonoBehaviour
     {
         OnView?.Invoke(_player.gameObject);
         isView = true;
+        isViewOnce = true;
     }
 }

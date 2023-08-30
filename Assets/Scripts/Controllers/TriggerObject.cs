@@ -5,6 +5,8 @@ using UnityEngine.Events;
 
 public class TriggerObject : MonoBehaviour
 {
+    [SerializeField] private bool _isEnterDeactivate;
+
     [SerializeField] private UnityEvent OnEnter;
     [SerializeField] private UnityEvent OnStay;
     [SerializeField] private UnityEvent OnExit;
@@ -12,7 +14,9 @@ public class TriggerObject : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         OnEnter?.Invoke();
-        //Debug.Log($"{gameObject.name} Enter");
+
+        if (_isEnterDeactivate)
+            gameObject.SetActive(false);
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -22,6 +26,5 @@ public class TriggerObject : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         OnExit?.Invoke();
-        //Debug.Log($"{gameObject.name} Exit");
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class EnemyController : MonoBehaviour, ICapturedObject
@@ -22,7 +23,7 @@ public class EnemyController : MonoBehaviour, ICapturedObject
 
     [SerializeField] private Animator _footAnimator;
     [SerializeField] private ModeSwitcher _rotateSwitcher;
-    
+
     [Header("Particles")]
     [SerializeField] private PullableObj _particleDeath;
 
@@ -31,6 +32,8 @@ public class EnemyController : MonoBehaviour, ICapturedObject
     private bool _unactiveEnemy;
 
     [HideInInspector] public bool isNewTargetDelay;
+    public bool isTeleportateDelay;
+    public Action OnTeleportateToPlayer;
 
     public EnemyModel Model => _model;
     public bool IsDeath => _lifeController.HealthGet <= 0;
@@ -71,6 +74,7 @@ public class EnemyController : MonoBehaviour, ICapturedObject
     {
         CheckState();
         MoveToTarget();
+        CheckTeleportate();
     }
 
     public void Restart()
@@ -110,7 +114,7 @@ public class EnemyController : MonoBehaviour, ICapturedObject
 
         if (_randomTargetFinder.target == null)
             return;
-        
+
         float directional;
 
         directional = (_randomTargetFinder.target.x - transform.position.x) / Mathf.Abs(_randomTargetFinder.target.x - transform.position.x);
@@ -129,7 +133,17 @@ public class EnemyController : MonoBehaviour, ICapturedObject
             else if (Mathf.Abs(_randomTargetFinder.target.y - transform.position.y) > _model.VerticalStopDistance)
             {
                 if (NewTarget())
+                {
                     StartCoroutine(_enemyPlayerObserver.StopFind(2));
+                    if (_model.IsCanTeleportate && _enemyPlayerObserver.isViewOnce && !_model.IsTeleportateAlways)
+                        Invoke(nameof(TP), 2f);
+
+                    void TP()
+                    {
+                        if (!isTeleportateDelay)
+                            StartCoroutine(TeleportateTimer());
+                    }
+                }
             }
 
         }
@@ -150,6 +164,20 @@ public class EnemyController : MonoBehaviour, ICapturedObject
             _model.isRun = false;
 
             return true;
+        }
+    }
+
+    private void CheckTeleportate()
+    {
+        if (!_enemyPlayerObserver.isViewOnce)
+            return;
+
+        if (Math.Abs(Bootastrap.main.Player.transform.position.x - transform.position.x) > _model.TeleportateMaxDistance)
+        {
+            if (!isTeleportateDelay)
+            {
+                StartCoroutine(TeleportateTimer());
+            }
         }
     }
 
@@ -184,5 +212,17 @@ public class EnemyController : MonoBehaviour, ICapturedObject
         isNewTargetDelay = true;
         yield return new WaitForSeconds(_model.NewTargetTimer);
         isNewTargetDelay = false;
+    }
+    private IEnumerator TeleportateTimer()
+    {
+        isTeleportateDelay = true;
+        yield return new WaitForSeconds(UnityEngine.Random.Range(_model.TeleportationShowDelay.x, _model.TeleportationShowDelay.y));
+        isTeleportateDelay = false;
+
+        if (Math.Abs(Bootastrap.main.Player.transform.position.x - transform.position.x) > _model.TeleportateMaxDistance && _model.IsTeleportateAlways || !_enemyPlayerObserver.isView && !_model.IsTeleportateAlways)
+        {
+            _enemyAttackController.StopAttack();
+            OnTeleportateToPlayer?.Invoke();
+        }
     }
 }
