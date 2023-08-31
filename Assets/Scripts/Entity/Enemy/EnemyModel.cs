@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Enemy", menuName = "ScriptableObjects/Characters/Enemy")]
-public class EnemyModel : ScriptableObject, IPlayerObsrver, IMovingModel, IClimpingModel, ILifeModel
+public class EnemyModel : ScriptableObject, IPlayerObsrver, IMovingModel, IClimpingModel, ILifeModel, IJumpingModel
 {
-    [Header("Move")]
+    [Header("Life")]
     [SerializeField] uint _maxHealth;
     [Header("Move")]
     [SerializeField] private float _speed;
     [SerializeField] bool _canRun;
     [SerializeField] private float _runFactor;
+    [Header("Jump")]
+    [SerializeField] private float _jumpForce;
     [Header("Observer")]
     [SerializeField] private bool _isViewAlways;
     [SerializeField] private float _viewDistance;
@@ -43,6 +45,7 @@ public class EnemyModel : ScriptableObject, IPlayerObsrver, IMovingModel, IClimp
     }
     public bool CanRun { get { return _canRun; } }
     public float RunFactor { get { return _runFactor; } }
+    public float JumpForce => _jumpForce;
     public bool IsViewAlways { get { return _isViewAlways; } }
     public float ViewDistance { get { return _viewDistance; } }
     public float MinDistance { get { return _minDistance; } }

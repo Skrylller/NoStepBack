@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(BoxCollider2D))]
 public class EnemyAttackController : MonoBehaviour
@@ -19,6 +20,8 @@ public class EnemyAttackController : MonoBehaviour
 
     private GameObject _player;
     private bool _isReadyAttack;
+
+    public UnityEvent OnAttack;
 
     [HideInInspector] public bool isAttack;
 
@@ -57,8 +60,10 @@ public class EnemyAttackController : MonoBehaviour
 
         isAttack = true;
 
-        _bodyAnimator.SetInteger("State", (int)HandState.attack);
+        if(_bodyAnimator != null)
+            _bodyAnimator.SetInteger("State", (int)HandState.attack);
         _handAnimator.SetInteger("State", (int)HandState.attack);
+        OnAttack?.Invoke();
         StartCoroutine(AttackDelay());
     }
 
@@ -73,7 +78,8 @@ public class EnemyAttackController : MonoBehaviour
     {
         isAttack = false;
 
-        _bodyAnimator.SetInteger("State", (int)HandState.idle);
+        if (_bodyAnimator != null)
+            _bodyAnimator.SetInteger("State", (int)HandState.idle);
         _handAnimator.SetInteger("State", (int)HandState.idle);
     }
 

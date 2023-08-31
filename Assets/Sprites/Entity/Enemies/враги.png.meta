@@ -1923,15 +1923,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u0432\u0440\u0430\u0433\u0438_1"
+      name: speeder_head_2
       rect:
         serializedVersion: 2
         x: 33
         y: 248
         width: 11
         height: 12
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1951,8 +1951,8 @@ TextureImporter:
         y: 248
         width: 11
         height: 11
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2028,7 +2028,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: speeder_walk_
+      name: speeder_walk_4
       rect:
         serializedVersion: 2
         x: 209
@@ -2049,7 +2049,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: speeder_walk_4
+      name: speeder_walk_5
       rect:
         serializedVersion: 2
         x: 246
@@ -2166,6 +2166,7 @@ TextureImporter:
     nameFileIdTable:
       tentacle_idle_1: -1841530970
       enemy_appearance_: -1760147748
+      speeder_walk_5: 956395736
       enemy_body_1_idle_3: 1044745403
       speeder_jump_2: 517042835
       speeder_jump_4: 314884784
@@ -2211,7 +2212,7 @@ TextureImporter:
       enemy_part_7: 1745284343
       tentacle_attack_3: -618581604
       enemy_hand_1_idle_3: 1706281862
-      speeder_walk_4: 956395736
+      speeder_walk_4: 908138546
       enemy_head_2: 109932773
       speeder_jump_1: 1817379583
       explosion_idle_2: -72718560
@@ -2226,7 +2227,6 @@ TextureImporter:
       enemy_foot_run_3: 539588112
       enemy_part_2: 1982760370
       enemy_appearance_4: 237667758
-      "\u0432\u0440\u0430\u0433\u0438_1": 237667758
       enemy_body_3_idle_2: -162909808
       enemy_hand_3_attack_5: -354615347
       speeder_head_3: 644937562
@@ -2249,9 +2249,9 @@ TextureImporter:
       tentacle_appearance_2: 213789030
       enemy_appearance_5: -1946339425
       explosion_idle_3: 509911763
-      speeder_walk_: 908138546
       enemy_hand_1_attack_5: 767925836
       enemy_hand_3_attack_6: -1642718050
+      speeder_head_2: 237667758
       enemy_hand_3_idle_1: 1889611662
       enemy_part_1: -987132296
       enemy_hand_1_attack_4: -750903784

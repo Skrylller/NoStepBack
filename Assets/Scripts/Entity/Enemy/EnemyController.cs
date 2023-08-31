@@ -20,7 +20,8 @@ public class EnemyController : MonoBehaviour, ICapturedObject
     [SerializeField] private LifeController _lifeController;
     [SerializeField] private EnemyAttackController _enemyAttackController;
     [SerializeField] private RandomTargetFinder _randomTargetFinder;
-
+    [SerializeField] private JumpingController _jumpingController;
+ 
     [SerializeField] private Animator _footAnimator;
     [SerializeField] private ModeSwitcher _rotateSwitcher;
 
@@ -50,6 +51,8 @@ public class EnemyController : MonoBehaviour, ICapturedObject
         _enemyPlayerObserver.Init(_model);
         _movingController.Init(_model, _rbEnemy);
         _stairsController.Init(_model, _rbEnemy);
+        if(_jumpingController != null)
+            _jumpingController.Init(_model, _rbEnemy);
     }
 
     private void OnEnable()
@@ -94,9 +97,23 @@ public class EnemyController : MonoBehaviour, ICapturedObject
         _unactiveEnemy = false;
     }
 
+    public void Jump()
+    {
+        if (_jumpingController == null)
+            return;
+
+        _jumpingController.Jump();
+    }
+
     private void CheckState()
     {
-        if (_rbEnemy.velocity.x != 0)
+        if(_rbEnemy.velocity.y > 0)
+            _footAnimator.SetInteger("State", 3);
+
+        else if (_rbEnemy.velocity.y <= 0)
+            _footAnimator.SetInteger("State", 4);
+
+        else if (_rbEnemy.velocity.x != 0)
         {
             if (_model.isRun)
                 _footAnimator.SetInteger("State", 2);
@@ -185,7 +202,8 @@ public class EnemyController : MonoBehaviour, ICapturedObject
     {
         _randomTargetFinder.target = player.transform.position;
 
-        _model.isRun = true;
+        if(_model.CanRun)
+            _model.isRun = true;
     }
 
     private void Dammage()
