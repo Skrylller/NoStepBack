@@ -50,7 +50,8 @@ public class EnemyController : MonoBehaviour, ICapturedObject
         _model.isRun = false;
         _enemyPlayerObserver.Init(_model);
         _movingController.Init(_model, _rbEnemy);
-        _stairsController.Init(_model, _rbEnemy);
+        if(_stairsController != null)
+            _stairsController.Init(_model, _rbEnemy);
         if(_jumpingController != null)
             _jumpingController.Init(_model, _rbEnemy);
     }
@@ -139,9 +140,10 @@ public class EnemyController : MonoBehaviour, ICapturedObject
 
         if (Mathf.Abs(_randomTargetFinder.target.x - transform.position.x) > _model.StopDistance)
         {
-            if(_jumpingController.IsGrounded > 0)
+            if(_jumpingController == null || _jumpingController.IsGrounded > 0)
                 _movingController.MoveHorizontal(directional);
-            _stairsController.CheckStair(directional);
+            if(_stairsController != null)
+                _stairsController.CheckStair(directional);
         }
         else if (!isNewTargetDelay)
         {
@@ -167,7 +169,7 @@ public class EnemyController : MonoBehaviour, ICapturedObject
 
         }
 
-        if (_jumpingController.IsGrounded > 0)
+        if (_jumpingController == null || _jumpingController.IsGrounded > 0)
         {
             if (directional > 0)
                 _rotateSwitcher.State = (int)RotationState.right;

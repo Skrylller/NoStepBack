@@ -16,13 +16,13 @@ MonoBehaviour:
   _speed: 20
   _canRun: 1
   _runFactor: 3
-  _jumpForce: 3500
+  _jumpForce: 70
   _isViewAlways: 0
   _viewDistance: 1000
   _minDistance: 1000
   _stairClimpingSpeed: 0
   _stairClimpingHeight: 6
-  _stopDistance: 0
+  _stopDistance: 20
   _verticalStopDistance: 40
   _newTargetDelay: 10
   _isCanTeleportate: 0

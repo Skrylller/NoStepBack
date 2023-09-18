@@ -91,7 +91,7 @@ public class StairsController : MonoBehaviour
             && (directional > 0 && Mathf.Abs(collider.bounds.min.x - _collider.bounds.center.x) < Mathf.Abs(collider.bounds.max.x - _collider.bounds.center.x)
             || directional < 0 && Mathf.Abs(collider.bounds.min.x - _collider.bounds.center.x) > Mathf.Abs(collider.bounds.max.x - _collider.bounds.center.x)))
         {
-                _rb.MovePosition(new Vector2(transform.position.x, collider.bounds.max.y + 0.1f));
+                _rb.MovePosition(new Vector2(transform.position.x + directional * 0.1f, collider.bounds.max.y + 0.1f));
         }
     }
 }

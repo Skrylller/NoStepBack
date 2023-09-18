@@ -16,7 +16,7 @@ MonoBehaviour:
   _speed: 50
   _canRun: 0
   _runFactor: 1
-  _jumpForce: 3500
+  _jumpForce: 70
   _crawlingSpeedMultiplier: 0.5
   _stairClimpingSpeed: 45
   _stairClimpingHeight: 4

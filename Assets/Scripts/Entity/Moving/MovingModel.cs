@@ -24,4 +24,5 @@ public interface IClimpingModel
 {
     float StairClimpingSpeed { get; }
     float StairClimpingHeight { get; }
+    float Speed { get; }
 }
