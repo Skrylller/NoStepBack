@@ -102,7 +102,8 @@ public class EnemyController : MonoBehaviour, ICapturedObject
         if (_jumpingController == null)
             return;
 
-        _jumpingController.Jump();
+        if (_jumpingController.IsGrounded > 0)
+            _jumpingController.Jump();
     }
 
     private void CheckState()
@@ -110,7 +111,7 @@ public class EnemyController : MonoBehaviour, ICapturedObject
         if(_rbEnemy.velocity.y > 0)
             _footAnimator.SetInteger("State", 3);
 
-        else if (_rbEnemy.velocity.y <= 0)
+        else if (_rbEnemy.velocity.y < 0)
             _footAnimator.SetInteger("State", 4);
 
         else if (_rbEnemy.velocity.x != 0)
@@ -138,7 +139,8 @@ public class EnemyController : MonoBehaviour, ICapturedObject
 
         if (Mathf.Abs(_randomTargetFinder.target.x - transform.position.x) > _model.StopDistance)
         {
-            _movingController.MoveHorizontal(directional);
+            if(_jumpingController.IsGrounded > 0)
+                _movingController.MoveHorizontal(directional);
             _stairsController.CheckStair(directional);
         }
         else if (!isNewTargetDelay)
@@ -165,10 +167,13 @@ public class EnemyController : MonoBehaviour, ICapturedObject
 
         }
 
-        if (directional > 0)
-            _rotateSwitcher.State = (int)RotationState.right;
-        if (directional < 0)
-            _rotateSwitcher.State = (int)RotationState.left;
+        if (_jumpingController.IsGrounded > 0)
+        {
+            if (directional > 0)
+                _rotateSwitcher.State = (int)RotationState.right;
+            if (directional < 0)
+                _rotateSwitcher.State = (int)RotationState.left;
+        }
 
         bool NewTarget()
         {

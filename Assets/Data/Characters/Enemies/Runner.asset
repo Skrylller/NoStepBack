@@ -22,7 +22,7 @@ MonoBehaviour:
   _minDistance: 1000
   _stairClimpingSpeed: 0
   _stairClimpingHeight: 6
-  _stopDistance: 40
+  _stopDistance: 0
   _verticalStopDistance: 40
   _newTargetDelay: 10
   _isCanTeleportate: 0
