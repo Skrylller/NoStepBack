@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Runner
   m_EditorClassIdentifier: 
   _maxHealth: 100
-  _speed: 40
+  _speed: 30
   _slowDownSpeed: 10
   _canRun: 1
   _runFactor: 3

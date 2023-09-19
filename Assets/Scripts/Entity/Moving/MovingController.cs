@@ -27,7 +27,6 @@ public class MovingController : MonoBehaviour
     public void MoveHorizontal(float directional)
     {
         _rigidbody.velocity = new Vector2(_model.Speed * directional, _rigidbody.velocity.y);
-        Debug.Log(directional);
     }
 
     private void SlowDown()

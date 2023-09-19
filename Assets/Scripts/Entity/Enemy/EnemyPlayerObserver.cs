@@ -53,6 +53,7 @@ public class EnemyPlayerObserver : MonoBehaviour
 
     public IEnumerator StopFind(float time)
     {
+        Debug.Log("stop");
         isFind = false;
         yield return new WaitForSeconds(time);
 
