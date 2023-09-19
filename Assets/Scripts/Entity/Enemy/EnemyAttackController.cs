@@ -17,11 +17,13 @@ public class EnemyAttackController : MonoBehaviour
     [SerializeField] private float _attackDelay;
     [SerializeField] private BulletModel _missleModel;
     [SerializeField] private EnemyPlayerObserver _enemyPlayerObserver;
+    [SerializeField] private bool _isStopMoveAfterAttack;
 
     private GameObject _player;
     private bool _isReadyAttack;
 
     public UnityEvent OnAttack;
+    public bool IsStopMoveAfterAttack => _isStopMoveAfterAttack && !_isReadyAttack;
 
     [HideInInspector] public bool isAttack;
 

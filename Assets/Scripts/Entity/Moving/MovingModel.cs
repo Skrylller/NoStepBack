@@ -5,6 +5,7 @@ using UnityEngine;
 public interface IMovingModel
 {
     float Speed { get; }
+    float SlowDownSpeed { get; }
     bool CanRun { get; }
     bool isRun { get; set; }
 }

@@ -9,6 +9,7 @@ public class EnemyModel : ScriptableObject, IPlayerObsrver, IMovingModel, IClimp
     [SerializeField] uint _maxHealth;
     [Header("Move")]
     [SerializeField] private float _speed;
+    [SerializeField] private float _slowDownSpeed;
     [SerializeField] bool _canRun;
     [SerializeField] private float _runFactor;
     [Header("Jump")]
@@ -43,6 +44,7 @@ public class EnemyModel : ScriptableObject, IPlayerObsrver, IMovingModel, IClimp
             return _canRun ? isRun ? _speed * _runFactor : _speed : _speed; 
         }
     }
+    public float SlowDownSpeed => _slowDownSpeed;
     public bool CanRun { get { return _canRun; } }
     public float RunFactor { get { return _runFactor; } }
     public float JumpForce => _jumpForce;

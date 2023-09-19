@@ -42846,7 +42846,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 5293908924227764355}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: f046c5d781ec2de4e8664cd4f9b978ea, type: 2}
+  m_Material: {fileID: 6200000, guid: 6575d9abe6aabcc44b7bb4cf65908987, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -43014,6 +43014,7 @@ MonoBehaviour:
   _attackDelay: 3
   _missleModel: {fileID: 0}
   _enemyPlayerObserver: {fileID: 5293908923672986008}
+  _isStopMoveAfterAttack: 1
   OnAttack:
     m_PersistentCalls:
       m_Calls:

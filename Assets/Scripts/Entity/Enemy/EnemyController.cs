@@ -49,7 +49,7 @@ public class EnemyController : MonoBehaviour, ICapturedObject
     {
         _model.isRun = false;
         _enemyPlayerObserver.Init(_model);
-        _movingController.Init(_model, _rbEnemy);
+        _movingController.Init(_model, _rbEnemy, _jumpingController);
         if(_stairsController != null)
             _stairsController.Init(_model, _rbEnemy);
         if(_jumpingController != null)
@@ -104,7 +104,10 @@ public class EnemyController : MonoBehaviour, ICapturedObject
             return;
 
         if (_jumpingController.IsGrounded > 0)
+        {
+            _movingController.MoveHorizontal((_rotateSwitcher.State * 2 - 1) * -1.5f);
             _jumpingController.Jump();
+        }
     }
 
     private void CheckState()
@@ -124,6 +127,12 @@ public class EnemyController : MonoBehaviour, ICapturedObject
         }
         else
             _footAnimator.SetInteger("State", 0);
+
+
+        if (_rbEnemy.velocity.x > 0)
+            _rotateSwitcher.State = (int)RotationState.right;
+        if (_rbEnemy.velocity.x < 0)
+            _rotateSwitcher.State = (int)RotationState.left;
     }
 
     private void MoveToTarget()
@@ -137,6 +146,18 @@ public class EnemyController : MonoBehaviour, ICapturedObject
         float directional;
 
         directional = (_randomTargetFinder.target.x - transform.position.x) / Mathf.Abs(_randomTargetFinder.target.x - transform.position.x);
+
+
+        if (_jumpingController == null || _jumpingController.IsGrounded > 0 && _rbEnemy.velocity.x == 0)
+        {
+            if (directional > 0)
+                _rotateSwitcher.State = (int)RotationState.right;
+            if (directional < 0)
+                _rotateSwitcher.State = (int)RotationState.left;
+        }
+
+        if (_enemyAttackController.IsStopMoveAfterAttack)
+            return;
 
         if (Mathf.Abs(_randomTargetFinder.target.x - transform.position.x) > _model.StopDistance)
         {
@@ -169,16 +190,10 @@ public class EnemyController : MonoBehaviour, ICapturedObject
 
         }
 
-        if (_jumpingController == null || _jumpingController.IsGrounded > 0)
-        {
-            if (directional > 0)
-                _rotateSwitcher.State = (int)RotationState.right;
-            if (directional < 0)
-                _rotateSwitcher.State = (int)RotationState.left;
-        }
-
         bool NewTarget()
         {
+            Debug.Log("new tg");
+
             if (_enemyAttackController.isAttack)
                 return false;
 

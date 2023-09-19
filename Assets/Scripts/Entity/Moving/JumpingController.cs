@@ -19,7 +19,6 @@ public class JumpingController : MonoBehaviour
     {
         _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, _model.JumpForce);
         //_rigidbody.AddForce(new Vector2(0, _model.JumpForce));
-        Debug.Log(_rigidbody.velocity.y);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

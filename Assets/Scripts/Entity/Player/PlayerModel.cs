@@ -9,6 +9,7 @@ public class PlayerModel : ScriptableObject, IMovingModel, IJumpingModel, IClimp
     [SerializeField] uint _maxHealth;
     [Header("Move")]
     [SerializeField] float _speed;
+    [SerializeField] float _slowDownSpeed;
     [SerializeField] bool _canRun;
     [SerializeField] float _runFactor;
     [Header("Jump")]
@@ -30,6 +31,7 @@ public class PlayerModel : ScriptableObject, IMovingModel, IJumpingModel, IClimp
             return isSit ? _speed * _crawlingSpeedMultiplier : isRun ? _speed * _runFactor : _speed; 
         }
     }
+    public float SlowDownSpeed => _slowDownSpeed;
     public bool CanRun { get { return _canRun; } }
     public float RunFactor { get { return _runFactor; } }
     public float JumpForce { get { return _jumpForce; } }

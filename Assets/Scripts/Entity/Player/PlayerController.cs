@@ -68,7 +68,7 @@ public class PlayerController : MonoBehaviour, IMousePositionVisitor, ICapturedO
     {
         _rbPlayer = GetComponent<Rigidbody2D>();
 
-        _movingController.Init(_model, _rbPlayer);
+        _movingController.Init(_model, _rbPlayer, _jumpingController);
         _jumpingController.Init(_model, _rbPlayer);
         _stairsController.Init(_model, _rbPlayer);
         _sitController.Init(_model, _rbPlayer);
@@ -126,7 +126,7 @@ public class PlayerController : MonoBehaviour, IMousePositionVisitor, ICapturedO
 
     public void MoveHorizontalStop()
     {
-        _movingController.MoveHorizontal(0);
+        //_movingController.MoveHorizontal(0);
     }
 
     public void Jump()
