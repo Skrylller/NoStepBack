@@ -23,11 +23,14 @@ public class JumpingController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        IsGrounded++;
+        if(collision.gameObject.layer != 12)
+            IsGrounded++;
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        IsGrounded--;
+
+        if (collision.gameObject.layer != 12)
+            IsGrounded--;
     }
 }
