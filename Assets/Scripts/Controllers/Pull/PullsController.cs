@@ -29,4 +29,12 @@ public class PullsController : MonoBehaviour
         _pulls.Last().Init(obj);
         return _pulls.Last();
     }
+
+    public void ClearAll()
+    {
+        foreach(PullObjects pull in _pulls)
+        {
+            pull.Clear();
+        }
+    }
 }

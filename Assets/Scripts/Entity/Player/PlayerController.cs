@@ -126,7 +126,7 @@ public class PlayerController : MonoBehaviour, IMousePositionVisitor, ICapturedO
 
     public void MoveHorizontalStop()
     {
-        //_movingController.MoveHorizontal(0);
+        _movingController.MoveHorizontal(0);
     }
 
     public void Jump()

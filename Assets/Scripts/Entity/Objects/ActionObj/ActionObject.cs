@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class ActionObject : MonoBehaviour
+public class ActionObject : MonoBehaviour, DaysUpdaterObject
 {
     [SerializeField] private BoxCollider2D _areaAction;
     [SerializeField] private ActionObjectUI _actionObjectUI;
@@ -67,5 +67,15 @@ public class ActionObject : MonoBehaviour
                 
         }
         return true;
+    }
+
+    public void DayUpdate()
+    {
+        isEnd = false;
+    }
+
+    public void NightUpdate()
+    {
+        isEnd = false;
     }
 }

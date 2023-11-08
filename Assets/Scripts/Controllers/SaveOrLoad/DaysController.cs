@@ -20,16 +20,30 @@ public class DaysController : MonoBehaviour
 
     public bool IsDay => _isDay;
 
+    [SerializeField] private List<GameObject> _activeDayObjects = new List<GameObject>();
+    [SerializeField] private List<GameObject> _activeNightObjects = new List<GameObject>();
+    [SerializeField] private List<DaysUpdaterObject> _activeDayObjectsInterfaces = new List<DaysUpdaterObject>();
+    [SerializeField] private List<DaysUpdaterObject> _activeNightObjectsInterfaces = new List<DaysUpdaterObject>();
+
     private void Awake()
     {
         main = this;
+        foreach(GameObject day in _activeDayObjects)
+        {
+            _activeDayObjectsInterfaces.Add(day.GetComponent<DaysUpdaterObject>());
+        }
+
+        foreach (GameObject day in _activeNightObjects)
+        {
+            _activeNightObjectsInterfaces.Add(day.GetComponent<DaysUpdaterObject>());
+        }
     }
 
     private void Start()
     {
         if (DataController.main.LoadFlag(DataController.DataTypeBool.startGame))
         {
-            StartGame();
+            StartNewGame();
         }
         else
         {
@@ -43,7 +57,7 @@ public class DaysController : MonoBehaviour
         }
     }
 
-    private void StartGame()
+    private void StartNewGame()
     {
         _day = 1;
         _isDay = true;
@@ -72,6 +86,12 @@ public class DaysController : MonoBehaviour
         _playerInventoryChess.Inventory.Clear();
         DataController.main.LoadInventory(PlayerInventory.Inventory);
 
+        foreach (DaysUpdaterObject obj in _activeDayObjectsInterfaces)
+        {
+            obj.DayUpdate();
+        }
+        PullsController.main.ClearAll();
+
         _modeSwitcher.State = _isDay ? 0 : 1;
 
         OnStartDay?.Invoke();
@@ -87,6 +107,12 @@ public class DaysController : MonoBehaviour
 
         PlayerInventory.Inventory.Clear();
         DataController.main.LoadInventory(_playerInventoryChess.Inventory);
+
+        foreach (DaysUpdaterObject obj in _activeNightObjectsInterfaces)
+        {
+            obj.DayUpdate();
+        }
+        PullsController.main.ClearAll();
 
         _modeSwitcher.State = _isDay ? 0 : 1;
 
