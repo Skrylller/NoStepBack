@@ -37,6 +37,11 @@ public class DialogueUI : UIWindow
 
         DialogueElement dialogueElement = _dialogueModel.GetDialogueElement(_dCounter);
 
+        if(_dialogueModel.CatScene != null && dialogueElement.NextCatSceneStage)
+        {
+            _dialogueModel.CatScene.NextStage();
+        }
+
         if (dialogueElement == null)
         {
             List<ChoiseElement> choises = _dialogueModel.GetChoiseList();

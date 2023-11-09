@@ -12,7 +12,12 @@ public class DialogueModel : ScriptableObject
 
     [SerializeField] private DialogueModel _nextDialogue;
 
+
+    private CatSceneController _catScene;
+
     public CharacterModel Character => _character;
+
+    public CatSceneController CatScene => _catScene;
 
     public DialogueElement GetDialogueElement(int counter)
     {
@@ -45,6 +50,7 @@ public class DialogueElement
     [SerializeField] public CharacterModel.CharacterEmotionsType Emotion;
     [SerializeField] public InventoryItem PlusItem;
     [SerializeField] public InventoryItem MinusItem;
+    [SerializeField] public bool NextCatSceneStage;
 }
 
 [System.Serializable]

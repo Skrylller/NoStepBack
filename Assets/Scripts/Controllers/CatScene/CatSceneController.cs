@@ -24,9 +24,11 @@ public class CatSceneController : MonoBehaviour
     public List<UnityEvent> _eventsEnd = new List<UnityEvent>();
 
     private int _numStage;
+    private bool _playCatScene;
 
     public void StartCatScene()
     {
+        _playCatScene = true;
         StartStage(0);
     }
 
@@ -63,5 +65,6 @@ public class CatSceneController : MonoBehaviour
         {
             ev?.Invoke();
         }
+        _playCatScene = false;
     }
 }
