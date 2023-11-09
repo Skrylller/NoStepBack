@@ -111,6 +111,11 @@ public class PlayerController : MonoBehaviour, IMousePositionVisitor, ICapturedO
         PlatformOn();
     }
 
+    public void Teleportation(Transform target)
+    {
+        transform.position = target.position;
+    }
+
     public void MoveHorizontal(float directional)
     {
         if (stopInput)

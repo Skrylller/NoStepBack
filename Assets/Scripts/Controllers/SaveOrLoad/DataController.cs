@@ -12,6 +12,8 @@ public class DataController : MonoBehaviour
     {
         startGame,
         isDay,
+        takeQuestComeKitchen,
+        endQuestComeKitchen,
     }
     public enum DataTypeInt
     {

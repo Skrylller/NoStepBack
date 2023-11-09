@@ -16,8 +16,10 @@ public class DaysController : MonoBehaviour
 
     [SerializeField] private int _day;
 
+    [SerializeField] private bool _isPatrool;
     [SerializeField] private bool _isDay;
 
+    public bool IsPatrool => _isPatrool;
     public bool IsDay => _isDay;
 
     [SerializeField] private List<GameObject> _activeDayObjects = new List<GameObject>();
@@ -41,7 +43,7 @@ public class DaysController : MonoBehaviour
 
     private void Start()
     {
-        if (DataController.main.LoadFlag(DataController.DataTypeBool.startGame))
+        if (!DataController.main.LoadFlag(DataController.DataTypeBool.startGame))
         {
             StartNewGame();
         }
@@ -60,12 +62,14 @@ public class DaysController : MonoBehaviour
     private void StartNewGame()
     {
         _day = 1;
-        _isDay = true;
 
         DataController.main.SaveFlag(DataController.DataTypeInt.days, _day);
         DataController.main.SaveFlag(DataController.DataTypeBool.isDay, _isDay);
+        DataController.main.SaveFlag(DataController.DataTypeBool.startGame, true);
 
         StartDay();
+
+        _isPatrool = true;
     }
 
     public void NextDay()
@@ -77,6 +81,7 @@ public class DaysController : MonoBehaviour
     private void StartDay()
     {
         _isDay = true;
+        _isPatrool = false;
 
         DataController.main.SaveFlag(DataController.DataTypeInt.days, _day);
         DataController.main.SaveFlag(DataController.DataTypeBool.isDay, _isDay);
